@@ -4,9 +4,9 @@ function chuyendoi() {
     var inputTo = document.getElementById('countryTo').value;
 
     if (inputFrom == inputTo) {
-        alert('Result = ' + inputMoney);
+        document.getElementById('result').value =inputMoney;
     }
     else if (inputFrom == 'vnd' && inputTo == 'usd') {
-        alert('Result = ' + inputMoney/23000);
-    } else alert('Result = '+ inputMoney*23000)
+        document.getElementById('result').value = inputMoney/23000;
+    } else document.getElementById('result').value = inputMoney*23000;
 }
