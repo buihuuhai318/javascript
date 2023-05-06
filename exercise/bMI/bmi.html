@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BMI</title>
+</head>
+<body>
+
+<div>
+    <p>chieu cao (DVT = m): </p>
+    <input type="text" id="chieuCao"/>
+    <p>can nang (DVT = Kg): </p>
+    <input type="text" id="canNang"/>
+    <br><br><br>
+    <button onclick="input()">DONE</button>
+    <br>
+    <p>Chi so BMI cua ban la: </p>
+    <input type="text" id="result"/>
+</div>
+
+
+
+
+<script>
+    function input() {
+        var inputChieucao = document.getElementById("chieuCao").value;
+        var inputCannang = document.getElementById("canNang").value;
+        var bmi = inputCannang/(inputChieucao*inputChieucao);
+
+        //alert(inputChieucao);
+
+        if (bmi < 18)
+            document.getElementById("result").value = "Underweight";
+        else if (bmi < 25.0)
+            document.getElementById("result").value = "Normal";
+        else if (bmi < 30.0)
+            document.getElementById("result").value = "Overweight";
+        else
+            document.getElementById("result").value = "Obese";
+    }
+
+</script>
+
+</body>
+</html>
