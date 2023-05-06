@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+</head>
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+    body {
+        height: 100%;
+    }
+    body {
+        display: grid;
+        place-items: center;
+    }
+    .calculator {
+        width: 330px;
+        background: gray;
+        padding: 40px 30px;
+
+    }
+    form .result {
+        height: 60px;
+        width: 100%;
+        border-radius: 5px;
+
+    }
+    .result input {
+        width: 100%;
+        height: 100%;
+        font-size: 30px;
+        padding: 0 20px;
+        font-weight: 500;
+        text-align: right;
+        color: black;
+    }
+
+    form .buttons {
+        text-align: center;
+        padding: 30px 0 0 0;
+    }
+    .buttons input[type="button"] {
+        height: 56px;
+        width: 56px;
+        font-size: 23px;
+        margin: 4px;
+    }
+</style>
+
+<body>
+<div class="calculator">
+    <form action="" name="form">
+        <div class="result">
+            <input type="text" name="disp" id="disp">
+        </div>
+        <div class="buttons">
+            <div class="row">
+                <input type="button" value="7" name="n7" onclick="val(n7.value)">
+                <input type="button" value="8" name="n8" onclick="val(n8.value)">
+                <input type="button" value="9" name="n9" onclick="val(n9.value)">
+                <input type="button" value="+" name="add" onclick="val(add.value)">
+            </div>
+            <div class="row">
+                <input type="button" value="4" name="n4" onclick="val(n4.value)">
+                <input type="button" value="5" name="n5" onclick="val(n5.value)">
+                <input type="button" value="6" name="n6" onclick="val(n6.value)">
+                <input type="button" value="-" name="sub" onclick="val(sub.value)">
+            </div>
+            <div class="row">
+                <input type="button" value="1" name="n1" onclick="val(n1.value)">
+                <input type="button" value="2" name="n2" onclick="val(n2.value)">
+                <input type="button" value="3" name="n3" onclick="val(n3.value)">
+                <input type="button" value="*" name="mul" onclick="val(mul.value)">
+            </div>
+            <div class="row">
+                <input type="button" value="C" name="cle">
+                <input type="button" value="0" name="n0" onclick="val(n0.value)">
+                <input type="button" value="=" name="eql" onclick="calculate()">
+                <input type="button" value="/" name="div" onclick="val(div.value)">
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+    function val(result) {
+        form.disp.value = form.disp.value + result;
+    }
+
+    function calculate() {
+        if (form.disp.value == "") {
+            alert("Plase enter numbers");
+        }
+        else {
+            form.disp.value = eval (form.disp.value);
+        }
+    }
+
+    var btn = form.cle;
+    btn.addEventListener("click", function () {
+        form.disp.value = null;
+    })
+
+
+</script>
+</body>
+</html>
