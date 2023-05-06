@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tinh so ngay</title>
+</head>
+<body>
+    <br>
+    <br>
+    <p>Enter a month</p>
+    <input type="text" id="month"/>
+    <p>Enter a year</p>
+    <input type="text" id="year"/>
+    <br>
+    <button onclick="input()">DONE</button>
+    <br>
+    <p>Result</p>
+    <input type="text" id="result"/>
+
+
+<script>
+
+    function inputYear() {
+        var year = document.getElementById("year").value;
+
+        var isLeapyear = false;
+
+        var yearDivBy4 = year % 4 == 0;
+        
+
+        var yearDivBy400 = year % 400 ==0;
+
+        alert(yearDivBy400)
+
+        switch (yearDivBy400) {
+            case true:
+                isLeapyear = true;
+                break;
+
+            case false:
+                switch (yearDivBy4) {
+                    case true:
+                        isLeapyear = true;
+                        break;
+
+                    case false:
+                        break;
+                }
+        }
+        if (isLeapyear) {
+            document.getElementById("result").value = 29;
+        } else document.getElementById("result").value =28;
+    }
+    function input() {
+        var inputMonth = document.getElementById("month").value;
+
+        switch (inputMonth) {
+            case "1" :
+            case "3":
+            case "5":
+            case "7":
+            case "8":
+            case "10" :
+            case "12" :
+                document.getElementById("result").value = 31;
+                break;
+            case "4":
+            case "6":
+            case "9":
+            case "11" :
+                document.getElementById("result").value = 30;
+                break;
+            case "2":
+                inputYear();
+                break;
+        }
+    }
+
+</script>
+</body>
+</html>
