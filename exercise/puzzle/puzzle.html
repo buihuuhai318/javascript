@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>puzzle</title>
+</head>
+<body>
+<form action="">
+    <div>
+        <button type="button" onclick="img1()">
+            <img id="image1" src="puzzleImg/cat1.jpg" height="160" width="800"/>
+        </button>
+        <br>
+        <button type="button">
+            <img src="puzzleImg/cat2.jpg" height="160" width="800"/>
+        </button>
+        <br>
+        <button type="button">
+            <img src="puzzleImg/cat3.jpg" height="160" width="800"/>
+        </button>
+        <br>
+        <button type="button">
+            <img src="puzzleImg/cat4.jpg" height="160" width="800"/>
+        </button>
+        <br>
+        <button type="button">
+            <img src="puzzleImg/cat5.jpg" height="160" width="800"/>
+        </button>
+    </div>
+</form>
+<script>
+    var image = null;
+    var imgCat1 = "puzzleImg/cat1.jpg";
+    var monKey1 = "puzzleImg/monkey1.jpg";
+    var panDa1 = "puzzleImg/panda1.jpg";
+
+
+
+    function img1() {
+        switch (image) {
+            case imgCat1 : document.getElementById("image1").src = monKey1;
+            image = monKey1;
+            break;
+
+            case monKey1 : document.getElementById("image1").src = panDa1;
+            image = panDa1;
+            break;
+
+            case  panDa1 : document.getElementById("image1").src = imgCat1;
+            image = imgCat1;
+            break;
+        }
+    }
+
+</script>
+</body>
+</html>
