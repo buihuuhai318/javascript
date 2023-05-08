@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+
+
+<script>
+    function bai1() {
+        inputA = prompt("Enter Number 1");
+        inputB = prompt("Enter Number 2");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var result = num1 % num2;
+        if (result == 0) {
+            alert(num1 + " là số chia hết cho " + num2);
+        } else alert(num1 + " là số không chia hết cho " + num2);
+    }
+
+    function bai2() {
+        inputOld = prompt("Enter Your Old");
+        var old = inputOld;
+
+        if (old <=0) {
+            alert("bạn đã nhập sai");
+        } else if (old < 16) {
+            alert("bạn chưa đủ tuổi học lớp 10");
+        } else alert("bạn đã đủ tuổi học lớp 10");
+    }
+
+    function bai4() {
+        inputA = prompt("Enter Number 1");
+        inputB = prompt("Enter Number 2");
+        inputC = prompt("Enter Number 3");
+
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+        var num3 = parseInt(inputC);
+
+        var max = num1;
+        if (max > num2) {
+            if (max > num3) {
+                alert(max + "  là số lớn nhất");
+            } else {
+                max = num3;
+                alert(max + "  là số lớn nhất");
+            }
+        } else {
+            max = num2
+            if (max > num3) {
+                alert(max + "  là số lớn nhất");
+            } else {
+                max = num3;
+                alert(max + "  là số lớn nhất");
+            }
+        }
+    }
+
+    function bai3() {
+        inputNum = prompt("Nhập số bất kỳ ngoại trừ số 0");
+        var num = inputNum;
+
+        if (num <0) {
+            alert(num + "  là số âm");
+        } else if (num == 0) {
+            alert("bạn đã nhập sai");
+        } else alert(num + "  là số dương");
+    }
+
+    function bai5() {
+        inputA = prompt("Nhập điểm bài kiểm tra 1 tiết");
+        inputB = prompt("Nhập điểm bài thi giữa kỳ");
+        inputC = prompt("Nhập điểm bài thi cuối kỳ");
+
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+        var num3 = parseInt(inputC);
+
+        var tb = (num1 + num2 + num3)/3;
+
+
+        if (num1 >= 0 && num1 <= 10) {
+            if (num2 >= 0 && num2 <= 10) {
+                if (num3 >= 0 && num3 <= 10) {
+                    if (tb >= 6.5) {
+                        alert("Học Lực Giỏi");
+                    } else if (tb >= 5) {
+                        alert("Học Lực Khá");
+                    } else if (tb >= 3.5) {
+                        alert("Học Lực Trung Bình");
+                    } else alert("Học Lực Yếu");
+                } else alert("bạn đã nhập sai");
+            } else alert("bạn đã nhập sai");
+        } else alert("bạn đã nhập sai");
+    }
+
+    function bai6() {
+        inputA = prompt("Nhập doanh số bán hàng tháng này (Đvt = triệu đồng)");
+        var num1 = parseInt(inputA);
+
+        if (num1 >= 10) {
+            alert("hoa hồng 3tr");
+        } else if (num1 >= 7) {
+            alert("hoa hồng 1tr");
+        } else if (num1 >= 5) {
+            alert("hoa hồng 500k");
+        } else alert("chưa đạt chỉ tiêu");
+    }
+
+    function bai7() {
+        
+    }
+</script>
+</body>
+</html>
