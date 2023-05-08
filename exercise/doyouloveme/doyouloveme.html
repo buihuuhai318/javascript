@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>do you love me</title>
+</head>
+<body style="text-align: center">
+    <h2>Do You Love Me</h2>
+    <button onclick="alert('got damn right')">Yes</button>
+    <input type="button" id="no" value="NO" style="position: absolute;">
+
+
+    <script>
+        var mapNo = null;
+        var h = window.innerHeight;
+        var w = window.innerWidth;
+        mapNo = document.getElementById("no");
+
+        mapNo.onmouseover = function () {
+            mapNo.style.top = Math.random()*h + "px";
+            mapNo.style.left = Math.random()*w + "px";
+        }
+    </script>
+</body>
+</html>
