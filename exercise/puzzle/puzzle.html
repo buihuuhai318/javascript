@@ -3,53 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <title>puzzle</title>
+    <style>
+        img {
+            display: block;
+            margin: 1em;
+            padding: 0.2em;
+            box-shadow: 2px 3px 3px black
+        }
+
+    </style>
 </head>
 <body>
-<form action="">
+<form action="" id="right">
     <div>
         <button type="button" onclick="img1()">
             <img id="image1" src="puzzleImg/cat1.jpg" height="160" width="800"/>
         </button>
         <br>
-        <button type="button">
-            <img src="puzzleImg/cat2.jpg" height="160" width="800"/>
+        <button type="button" onclick="img2()">
+            <img id="image2" src="puzzleImg/monkey2.jpg" height="160" width="800"/>
         </button>
         <br>
-        <button type="button">
-            <img src="puzzleImg/cat3.jpg" height="160" width="800"/>
+        <button type="button" onclick="img3()">
+            <img id="image3" src="puzzleImg/panda3.jpg" height="160" width="800"/>
         </button>
         <br>
-        <button type="button">
-            <img src="puzzleImg/cat4.jpg" height="160" width="800"/>
+        <button type="button" onclick="img4()">
+            <img id="image4" src="puzzleImg/cat4.jpg" height="160" width="800"/>
         </button>
         <br>
-        <button type="button">
-            <img src="puzzleImg/cat5.jpg" height="160" width="800"/>
+        <button type="button" onclick="img5()">
+            <img id="image5" src="puzzleImg/monkey5.jpg" height="160" width="800"/>
         </button>
     </div>
 </form>
 <script>
-    var image = null;
+
     var imgCat1 = "puzzleImg/cat1.jpg";
     var monKey1 = "puzzleImg/monkey1.jpg";
     var panDa1 = "puzzleImg/panda1.jpg";
+    var imageN1 = imgCat1;
 
+    var imgCat2 = "puzzleImg/cat2.jpg";
+    var monKey2 = "puzzleImg/monkey2.jpg";
+    var panDa2 = "puzzleImg/panda2.jpg";
+    var imageN2 = monKey2;
+
+    var imgCat3 = "puzzleImg/cat3.jpg";
+    var monKey3 = "puzzleImg/monkey3.jpg";
+    var panDa3 = "puzzleImg/panda3.jpg";
+    var imageN3 = panDa3;
+
+    var imgCat4 = "puzzleImg/cat4.jpg";
+    var monKey4 = "puzzleImg/monkey4.jpg";
+    var panDa4 = "puzzleImg/panda4.jpg";
+    var imageN4 = imgCat4;
+
+    var imgCat5 = "puzzleImg/cat5.jpg";
+    var monKey5 = "puzzleImg/monkey5.jpg";
+    var panDa5 = "puzzleImg/panda5.jpg";
+    var imageN5 = monKey5;
 
 
     function img1() {
-        switch (image) {
+        switch (imageN1) {
             case imgCat1 : document.getElementById("image1").src = monKey1;
-            image = monKey1;
+            imageN1 = monKey1;
             break;
 
             case monKey1 : document.getElementById("image1").src = panDa1;
-            image = panDa1;
+            imageN1 = panDa1;
             break;
 
             case  panDa1 : document.getElementById("image1").src = imgCat1;
-            image = imgCat1;
+            imageN1 = imgCat1;
             break;
         }
+    }
+
+    function img2() {
+        switch (imageN2) {
+            case imgCat2 : document.getElementById("image2").src = monKey2;
+                imageN2 = monKey2;
+                break;
+
+            case monKey2 : document.getElementById("image2").src = panDa2;
+                imageN2 = panDa2;
+                break;
+
+            case  panDa2 : document.getElementById("image2").src = imgCat2;
+                imageN2 = imgCat2;
+                break;
+        }
+    }
+
+    function img3() {
+        switch (imageN3) {
+            case imgCat3 : document.getElementById("image3").src = monKey3;
+                imageN3 = monKey3;
+                break;
+
+            case monKey3 : document.getElementById("image3").src = panDa3;
+                imageN3 = panDa3;
+                break;
+
+            case  panDa3 : document.getElementById("image3").src = imgCat3;
+                imageN3 = imgCat3;
+                break;
+        }
+    }
+
+    function img4() {
+        switch (imageN4) {
+            case imgCat4 : document.getElementById("image4").src = monKey4;
+                imageN4 = monKey4;
+                break;
+
+            case monKey4 : document.getElementById("image4").src = panDa4;
+                imageN4 = panDa4;
+                break;
+
+            case  panDa4 : document.getElementById("image4").src = imgCat4;
+                imageN4 = imgCat4;
+                break;
+        }
+    }
+
+    function img5() {
+        switch (imageN5) {
+            case imgCat5 : document.getElementById("image5").src = monKey5;
+                imageN5 = monKey5;
+                break;
+
+            case monKey5 : document.getElementById("image5").src = panDa5;
+                imageN5 = panDa5;
+                break;
+
+            case  panDa5 : document.getElementById("image5").src = imgCat5;
+                imageN5 = imgCat5;
+                break;
+        }
+
+    }
+document.addEventListener("click", check);
+    function check() {
+
+        wrong();
+
+        if (imageN1 == imgCat1) {
+            if (imageN2 == imgCat2) {
+                if (imageN3 == imgCat3) {
+                    if (imageN4 == imgCat4) {
+                        if (imageN5 == imgCat5) {
+                            right();
+                        } else wrong();
+                    }
+                }
+            }
+        }
+
+        if (imageN1 == monKey1) {
+            if (imageN2 == monKey2) {
+                if (imageN3 == monKey3) {
+                    if (imageN4 == monKey4) {
+                        if (imageN5 == monKey5) {
+                            right();
+                        } else wrong();
+                    }
+                }
+            }
+        }
+
+        if (imageN1 == panDa1) {
+            if (imageN2 == panDa2) {
+                if (imageN3 == panDa3) {
+                    if (imageN4 == panDa4) {
+                        if (imageN5 == panDa5) {
+                            right();
+                        } else wrong();
+                    }
+                }
+            }
+        }
+    }
+
+    function right() {
+        document.getElementById("image1").style = "box-shadow: 2px 3px 3px red";
+        document.getElementById("image2").style = "box-shadow: 2px 3px 3px red";
+        document.getElementById("image3").style = "box-shadow: 2px 3px 3px red";
+        document.getElementById("image4").style = "box-shadow: 2px 3px 3px red";
+        document.getElementById("image5").style = "box-shadow: 2px 3px 3px red";
+    }
+    function wrong() {
+        document.getElementById("image1").style = "box-shadow: 2px 3px 3px black";
+        document.getElementById("image2").style = "box-shadow: 2px 3px 3px black";
+        document.getElementById("image3").style = "box-shadow: 2px 3px 3px black";
+        document.getElementById("image4").style = "box-shadow: 2px 3px 3px black";
+        document.getElementById("image5").style = "box-shadow: 2px 3px 3px black";
     }
 
 </script>
