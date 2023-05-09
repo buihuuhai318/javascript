@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+<button onclick="bai9()">Bài 9</button>
+<button onclick="bai10()">Bài 10</button>
+<button onclick="bai11()">Bài 11</button>
+<button onclick="bai12()">Bài 12</button>
+</body>
+
+<script>
+
+    function bai1() {
+        var inputA = prompt("Nhập nhiệt độ ĐVT = C");
+
+        var num1 = parseInt(inputA);
+
+        var num2 = (num1*9)/5 + 32;
+
+        alert(num1 + " độ C = " + num2 + " độ F");
+    }
+
+    function bai2() {
+        var inputA = prompt("Nhập độ dài ĐVT = mét");
+
+        var num1 = parseFloat(inputA);
+
+        var num2 = num1 * 3.2808;
+
+        if (num1 < 0) {
+            alert("bạn đã nhập sai");
+        } else {
+            alert(num1 + " mét = " + num2 + " feet");
+        }
+    }
+
+    function bai3() {
+        var inputA = prompt("Nhập độ dài 1 cạnh hình vuông");
+
+        var num1 = parseInt(inputA);
+
+        var num2 = num1*num1;
+
+        if (num1 < 0) {
+            alert("bạn đã nhập sai");
+        } else {
+            alert("Diện tích hình vuông là : " + num2);
+        }
+    }
+
+    function bai4() {
+
+        var inputA = prompt("Nhập chiều dài hình chữ nhật");
+        var inputB = prompt("Nhập chiều rộng hình chữ nhật");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var num3 = num1*num2;
+
+        if (num1 < 0 || num2 < 0) {
+            alert("bạn đã nhập sai");
+        } else {
+            alert("Diện tích hình chữ nhật là : " + num3);
+        }
+
+    }
+
+    function bai5() {
+        var inputA = prompt("Nhập cạnh góc vuông thứ 1 trong tam giác vuông");
+        var inputB = prompt("Nhập cạnh góc vuông thứ 2 trong tam giác vuông");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var num3 = num1*num2/2;
+
+        if (num1 < 0 || num2 < 0) {
+            alert("bạn đã nhập sai");
+        } else {
+            alert("Diện tích tam giác vuông là : " + num3);
+        }
+    }
+
+    function bai6() {
+        var inputA = prompt("theo biểu thức aX + b = 0, nhập tham số a");
+        var inputB = prompt("nhập tham số b");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        if (num1 == 0) {
+            if (num2 == 0) {
+                alert("X có vô số nghiệm");
+            } else alert("phương trình vô nghiệm");
+        } else alert("phương trình có nghiệm X là: " + eval(-num2/num1) );
+    }
+
+    function bai7() {
+        var inputA = prompt("Theo biểu thúc aX2 + bX + c = 0 . Nhập tham số a");
+        var inputB = prompt("nhập tham số b");
+        var inputC = prompt("nhập tham số c");
+
+        var numA = parseInt(inputA);
+        var numB = parseInt(inputB);
+        var numC = parseInt(inputC);
+
+        var dieuKien = (numB*numB) - (4*numA*numC);
+
+        var numD = Math.sqrt(dieuKien);
+
+        if (dieuKien < 0) {
+            alert("phương trình vô nghiệm");
+        } else if (dieuKien == 0) {
+            alert("phương trình có 1 nghiệm kép: X = " + eval(-numB / (2*numA) ) );
+        } else {
+            alert("Phương tình có nghiệm X1 = " + eval( (-numB + numD) / (2*numA) ) );
+            alert("Phương trình có nghiệm X2 = " + eval( (-numB - numD) / (2*numA) ) );
+        }
+    }
+
+    function bai8() {
+        var inputA = prompt("nhập số tuổi của bạn");
+
+        var numA = parseInt(inputA);
+
+        if (numA <=0 || numA > 120) {
+            alert("tham số nhập vào không phải số tuổi của một người");
+        } else alert("số tuổi của bạn là: " + numA);
+    }
+
+    function bai9() {
+        var inputA = prompt("nhập cạnh a của tam giác");
+        var inputB = prompt("nhập cạnh b của tam giác");
+        var inputC = prompt("nhập cạnh c của tam giác");
+
+        var numA = parseInt(inputA);
+        var numB = parseInt(inputB);
+        var numC = parseInt(inputC);
+
+        var ssC = numA + numB;
+        var ssB = numC + numA;
+        var ssA = numB + numC;
+
+        if (numA >0 && numB>0 && numC >0) {
+            if (ssC > numC) {
+                if (ssB > numB) {
+                    if (ssA > numA) {
+                        alert("ba số " + numA + " " + numB + " " + numC + " là 3 cạnh của một tam giác");
+                    } else alert("ba số " + numA + " " + numB + " " + numC + + " không phải là 3 cạnh của một tam giác");
+                } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
+            } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
+        } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
+    }
+
+    function bai10() {
+        var inputA = prompt("Nhập số điện tháng trước");
+        var inputB = prompt("Nhập số điện tháng này");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var cost = num2 - num1;
+
+        if (num2 < num1) {
+            alert("bạn đã nhập sai");
+        } else alert("số điện sử dụng tháng này là " + cost + ". Tiền điện phải thanh toán là: " + eval(cost*3500) + " ngàn đồng")
+    }
+
+    function bai11() {
+        var inputA = prompt("nhập lương tháng cố định Đvt = ngàn đồng");
+
+        var num1 = parseFloat(inputA);
+
+        if (num1 <= 0) {
+            alert("bạn quá nghèo :) ");
+        } else {
+            if (num1 <= 5000) {
+                alert("bạn phải đóng thuê TNCN bậc 1 là 5% là: " + eval( num1 * 5 / 100 ) );
+            } else if (num1 <= 10000) {
+                alert("bạn phải đóng thuê TNCN bậc 2 là 10% - 250k  là: " + eval(num1 * 0.1 - 250) );
+            } else if (num1 <= 18000) {
+                alert("bạn phải đóng thuê TNCN bậc 3 là 15% - 750k  là: " + eval(num1 * 0.15 - 750) );
+            } else if (num1 <= 32000) {
+                alert("bạn phải đóng thuê TNCN bậc 4 là 20% - 1650k  là: " + eval(num1 * 0.2 - 1650) );
+            } else if (num1 <= 52000) {
+                alert("bạn phải đóng thuê TNCN bậc 5 là 25% - 3250k  là: " + eval(num1 * 0.25 - 3250) );
+            } else if (num1 <= 80000) {
+                alert("bạn phải đóng thuê TNCN bậc 6 là 30% - 5850k  là: " + eval(num1 * 0.3 - 5850) );
+            } else alert("bạn phải đóng thuê TNCN bậc 7 là 35% - 9850k  là: " + eval(num1 * 0.35 - 9850) );
+        }
+    }
+</script>
+
+</html>
