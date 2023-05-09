@@ -26,7 +26,7 @@
 
         var num1 = parseInt(inputA);
 
-        if (isNaN(num1) == "") {
+        if (!isNaN(num1)) {
             var num2 = (num1*9)/5 + 32;
 
             alert(num1 + " độ C = " + num2 + " độ F");
@@ -42,7 +42,7 @@
 
         var num2 = num1 * 3.2808;
 
-        if (isNaN(num1) == "") {
+        if (!isNaN(num1)) {
             if (num1 < 0) {
                 alert("bạn đã nhập sai");
             } else {
@@ -58,7 +58,7 @@
 
         var num2 = num1*num1;
 
-        if (isNaN(num1) == "") {
+        if (!isNaN(num1)) {
             if (num1 < 0) {
                 alert("bạn đã nhập sai");
             } else {
@@ -77,7 +77,7 @@
 
         var num3 = num1*num2;
 
-        if (isNaN(num1) == "" && isNaN(num2) == "") {
+        if (!isNaN(num1) && !isNaN(num2)) {
             if (num1 < 0 || num2 < 0) {
                 alert("bạn đã nhập sai");
             } else {
@@ -98,7 +98,7 @@
 
         var num3 = num1*num2/2;
 
-        if (isNaN(num1) == "" && isNaN(num2) == "") {
+        if (!isNaN(num1) && !isNaN(num2)) {
             if (num1 < 0 || num2 < 0) {
                 alert("bạn đã nhập sai");
             } else {
@@ -114,7 +114,7 @@
         var num1 = parseInt(inputA);
         var num2 = parseInt(inputB);
 
-        if (isNaN(num1) == "" && isNaN(num2) == "") {
+        if (!isNaN(num1) && !isNaN(num2)) {
             if (num1 == 0) {
                 if (num2 == 0) {
                     alert("X có vô số nghiệm");
@@ -136,7 +136,7 @@
 
         var numD = Math.sqrt(dieuKien);
 
-        if (isNaN(numA) == "" && isNaN(numB) == "" && isNaN(numC) == "") {
+        if (!isNaN(numA) && !isNaN(numB) && !isNaN(numC)) {
             if (dieuKien < 0) {
                 alert("phương trình vô nghiệm");
             } else if (dieuKien == 0) {
@@ -173,7 +173,7 @@
         var ssB = numC + numA;
         var ssA = numB + numC;
 
-        if (isNaN(numA) == "" && isNaN(numB) == "" && isNaN(numC) == "") {
+        if (!isNaN(numA) && !isNaN(numB) && !isNaN(numC)) {
             if (numA >0 && numB>0 && numC >0) {
                 if (ssC > numC) {
                     if (ssB > numB) {
@@ -195,7 +195,7 @@
 
         var cost = num2 - num1;
 
-        if (isNaN(num1) == "" && isNaN(num2) == "") {
+        if (!isNaN(num1) && !isNaN(num2)) {
             if (num2 < num1) {
                 alert("bạn đã nhập sai");
             } else alert("số điện sử dụng tháng này là " + cost + ". Tiền điện phải thanh toán là: " + eval(cost*3500) + " ngàn đồng")
@@ -207,7 +207,7 @@
 
         var num1 = parseFloat(inputA);
 
-        if (isNaN(num1) == "") {
+        if (!isNaN(num1)) {
             if (num1 <= 0) {
                 alert("bạn quá nghèo :) ");
             } else {
@@ -241,7 +241,7 @@
         var numTongNoCu = num1;
         var numTongNoMoi = 0;
 
-        if (isNaN(num1) == "" && isNaN(num2) == "") {
+        if (!isNaN(num1) && !isNaN(num2)) {
             for (let i = 1; i<= num2; i++) {
                 numLai = numTongNoCu*0.03;
                 numTongNoMoi = numLai + numTongNoCu;

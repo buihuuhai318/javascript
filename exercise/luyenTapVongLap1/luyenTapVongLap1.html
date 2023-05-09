@@ -134,9 +134,19 @@
 
     function bai8() {
         var min = parseInt(prompt("nhập khoảng số từ:"));
-        var max = parseInt(prompt("đến:"));
+
+        while (isNaN(min)) {
+            min = parseInt(prompt("uvi lòng nhập sô khoảng từ:"));
+        }
+
+        var max = parseInt(prompt("từ " + min + " đến:"));
+
+        while (isNaN(max)) {
+            max = parseInt(prompt("vui lòng nhập số khoảng từ " + min + " đến:"));
+        }
+
         var randomNum = Math.floor(Math.random() * (max - min)) + min;
-        alert(randomNum);
+        // alert(randomNum);
         var num = parseInt(prompt("nhập số dự đoán của bạn từ " + min + " đến " + max));
 
         if (num == randomNum) {
