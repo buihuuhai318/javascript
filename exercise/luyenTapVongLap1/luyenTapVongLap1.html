@@ -16,14 +16,14 @@
 
 <script>
     function bai1() {
-        var text = ""
+        var text = "";
         for (let i = 0; i < 100; i++) {
             text = text + i + " ";
             if (i == 99) {
                 text = text + " done ";
             }
         }
-        document.write(text);
+        alert(text);
     }
 
     function bai2() {
@@ -46,6 +46,111 @@
     }
 
     function bai3() {
+
+        var number = parseInt(prompt("nhập số lượng số fibonacci"))
+        var n1 = 0;
+        var n2 = 1;
+        var nextN;
+        var text = "";
+
+        for (let i = 0; i < number; i++) {
+            text = text + n1 + " ";
+            nextN = n1 + n2;
+            n1 = n2;
+            n2 = nextN;
+        }
+        alert(number + " số đầu tiên trong dãy fibonacci là " + text);
+    }
+
+    function bai4() {
+        var n1 = 1;
+        var n2 = 1;
+        var nextN;
+        var text = "";
+
+        for (let i = 0; i < 10; i++) {
+            if (n1 % 5 ==0) {
+                text = text + n1 + " ";
+                break;
+            } else {
+                nextN = n1 + n2;
+                n1 = n2;
+                n2 = nextN;
+            }
+        }
+        alert("số đầu tiên trong dãy fibonacci chia hết cho 5 là: " + text);
+    }
+
+    function bai5() {
+        var n1 = 0;
+        var n2 = 1;
+        var nextN;
+        var text = "";
+        var sum = 0;
+
+        for (let i = 0; i < 20; i++) {
+            text = text + n1 + " ";
+            sum = sum + n1;
+            nextN = n1 + n2;
+            n1 = n2;
+            n2 = nextN;
+        }
+        alert("20 số đầu tiên trong dãy fibonacci là " + text + ". " + "tổng của 20 số đầu tiên trong dãy fibonacci là " + sum);
+    }
+
+    function bai6() {
+        var text = "";
+        var sum = 0;
+        var count = 0;
+        var n = 0
+
+        while (count < 30) {
+            n++;
+            if (n % 7 == 0) {
+                text = text + n + " ";
+                sum = sum + n;
+                count++;
+            }
+        }
+
+        alert("30 số tự nhiên đầu tiên chia hết cho 7 là: " + text);
+        alert("tổng của 30 số tự nhiên đầu tiên chia hết cho 7 là: sum = " + sum);
+    }
+
+    function bai7() {
+        var text = "";
+
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 ==0 && i % 5 ==0) {
+                text = text + " FizzBuzz ";
+            } else if (i % 3 ==0) {
+                text = text + " Fizz ";
+            } else if (i % 5 ==0) {
+                text = text + " Buzz ";
+            } else text = text + " " + i + " ";
+        }
+        alert(text);
+    }
+
+    function bai8() {
+        var min = parseInt(prompt("nhập khoảng số từ:"));
+        var max = parseInt(prompt("đến:"));
+        var randomNum = Math.floor(Math.random() * (max - min)) + min;
+        alert(randomNum);
+        var num = parseInt(prompt("nhập số dự đoán của bạn từ " + min + " đến " + max));
+
+        if (num == randomNum) {
+            alert("god damn right man! :)");
+        } else {
+            while (num != randomNum) {
+                if (num > randomNum) {
+                    num = parseInt(prompt("số " + num + " lớn hơn số hệ thống random, thử nhập số nhỏ hơn"));
+                } else {
+                    num = parseInt(prompt("số " + num + " nhỏ hơn số hệ thống random, thử nhập số lớn hơn"));
+                }
+            }
+            alert("god damn right man! :)");
+        }
 
     }
 </script>
