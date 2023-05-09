@@ -121,7 +121,22 @@
     }
 
     function bai7() {
-        
+        var inputA = prompt("Nhập số phút sử dụng NGOẠI mạng tháng vừa rồi");
+        var inputB = prompt("Nhập số phút sử dụng NỘI mạng tháng vừa rồi");
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var costA = num1 * 5;
+        var costB = num2 * 2;
+
+        if (num1 <0 || num2 < 0) {
+            alert("bạn đã nhập sai");
+        } else {
+            alert("Cước ngoại mạng : " + costA + " nghìn đồng");
+            alert("Cước nội mạng: " + costB + " nghìn đồng");
+            alert("tổng cước của mình tháng này là : " + eval(costB + costA) + " nghìn đồng");
+        }
     }
 </script>
 </body>
