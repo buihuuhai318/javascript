@@ -201,6 +201,30 @@
             } else alert("bạn phải đóng thuê TNCN bậc 7 là 35% - 9850k  là: " + eval(num1 * 0.35 - 9850) );
         }
     }
+
+    function bai12() {
+        var inputA = prompt("Nhập số tiền cần vay Đvt = ngàn đồng");
+        var inputB = prompt("nhập thời gian vay ĐVT = tháng (3%/tháng")
+
+        var num1 = parseInt(inputA);
+        var num2 = parseInt(inputB);
+
+        var numTongLai = 0;
+        var numLai = 0;
+
+        var numTongNoCu = num1;
+        var numTongNoMoi = 0;
+
+        for (let i = 1; i<= num2; i++) {
+            numLai = numTongNoCu*0.03;
+            numTongNoMoi = numLai + numTongNoCu;
+            numTongNoCu = numTongNoMoi;
+            numTongLai = numTongNoMoi - num1;
+            alert("lãi tháng " + i + " là: " + numLai);
+            alert("tổng lãi tính đến tháng " + i + " là: " + numTongLai);
+            alert("tổng nợ cả lãi tính đến tháng " + i + " là: " + numTongNoMoi);
+        }
+    }
 </script>
 
 </html>
