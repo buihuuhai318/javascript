@@ -26,9 +26,13 @@
 
         var num1 = parseInt(inputA);
 
-        var num2 = (num1*9)/5 + 32;
+        if (isNaN(num1) == "") {
+            var num2 = (num1*9)/5 + 32;
 
-        alert(num1 + " độ C = " + num2 + " độ F");
+            alert(num1 + " độ C = " + num2 + " độ F");
+        } else alert("vui lòng nhập số");
+
+
     }
 
     function bai2() {
@@ -38,11 +42,13 @@
 
         var num2 = num1 * 3.2808;
 
-        if (num1 < 0) {
-            alert("bạn đã nhập sai");
-        } else {
-            alert(num1 + " mét = " + num2 + " feet");
-        }
+        if (isNaN(num1) == "") {
+            if (num1 < 0) {
+                alert("bạn đã nhập sai");
+            } else {
+                alert(num1 + " mét = " + num2 + " feet");
+            }
+        } else alert("vui lòng nhập số");
     }
 
     function bai3() {
@@ -52,11 +58,13 @@
 
         var num2 = num1*num1;
 
-        if (num1 < 0) {
-            alert("bạn đã nhập sai");
-        } else {
-            alert("Diện tích hình vuông là : " + num2);
-        }
+        if (isNaN(num1) == "") {
+            if (num1 < 0) {
+                alert("bạn đã nhập sai");
+            } else {
+                alert("Diện tích hình vuông là : " + num2);
+            }
+        } else alert("vui lòng nhập số");
     }
 
     function bai4() {
@@ -69,11 +77,15 @@
 
         var num3 = num1*num2;
 
-        if (num1 < 0 || num2 < 0) {
-            alert("bạn đã nhập sai");
-        } else {
-            alert("Diện tích hình chữ nhật là : " + num3);
-        }
+        if (isNaN(num1) == "" && isNaN(num2) == "") {
+            if (num1 < 0 || num2 < 0) {
+                alert("bạn đã nhập sai");
+            } else {
+                alert("Diện tích hình chữ nhật là : " + num3);
+            }
+        } else alert("vui lòng nhập số");
+
+
 
     }
 
@@ -86,11 +98,13 @@
 
         var num3 = num1*num2/2;
 
-        if (num1 < 0 || num2 < 0) {
-            alert("bạn đã nhập sai");
-        } else {
-            alert("Diện tích tam giác vuông là : " + num3);
-        }
+        if (isNaN(num1) == "" && isNaN(num2) == "") {
+            if (num1 < 0 || num2 < 0) {
+                alert("bạn đã nhập sai");
+            } else {
+                alert("Diện tích tam giác vuông là : " + num3);
+            }
+        } else alert("vui lòng nhập số");
     }
 
     function bai6() {
@@ -100,11 +114,13 @@
         var num1 = parseInt(inputA);
         var num2 = parseInt(inputB);
 
-        if (num1 == 0) {
-            if (num2 == 0) {
-                alert("X có vô số nghiệm");
-            } else alert("phương trình vô nghiệm");
-        } else alert("phương trình có nghiệm X là: " + eval(-num2/num1) );
+        if (isNaN(num1) == "" && isNaN(num2) == "") {
+            if (num1 == 0) {
+                if (num2 == 0) {
+                    alert("X có vô số nghiệm");
+                } else alert("phương trình vô nghiệm");
+            } else alert("phương trình có nghiệm X là: " + eval(-num2/num1) );
+        } else alert("vui lòng nhập số");
     }
 
     function bai7() {
@@ -120,14 +136,16 @@
 
         var numD = Math.sqrt(dieuKien);
 
-        if (dieuKien < 0) {
-            alert("phương trình vô nghiệm");
-        } else if (dieuKien == 0) {
-            alert("phương trình có 1 nghiệm kép: X = " + eval(-numB / (2*numA) ) );
-        } else {
-            alert("Phương tình có nghiệm X1 = " + eval( (-numB + numD) / (2*numA) ) );
-            alert("Phương trình có nghiệm X2 = " + eval( (-numB - numD) / (2*numA) ) );
-        }
+        if (isNaN(numA) == "" && isNaN(numB) == "" && isNaN(numC) == "") {
+            if (dieuKien < 0) {
+                alert("phương trình vô nghiệm");
+            } else if (dieuKien == 0) {
+                alert("phương trình có 1 nghiệm kép: X = " + eval(-numB / (2*numA) ) );
+            } else {
+                alert("Phương tình có nghiệm X1 = " + eval( (-numB + numD) / (2*numA) ) );
+                alert("Phương trình có nghiệm X2 = " + eval( (-numB - numD) / (2*numA) ) );
+            }
+        } else alert("vui lòng nhập số");
     }
 
     function bai8() {
@@ -135,9 +153,11 @@
 
         var numA = parseInt(inputA);
 
-        if (numA <=0 || numA > 120) {
-            alert("tham số nhập vào không phải số tuổi của một người");
-        } else alert("số tuổi của bạn là: " + numA);
+        if (isNaN(numA) == "") {
+            if (numA <=0 || numA > 120) {
+                alert("tham số nhập vào không phải số tuổi của một người");
+            } else alert("số tuổi của bạn là: " + numA);
+        } else alert("vui lòng nhập số");
     }
 
     function bai9() {
@@ -153,15 +173,17 @@
         var ssB = numC + numA;
         var ssA = numB + numC;
 
-        if (numA >0 && numB>0 && numC >0) {
-            if (ssC > numC) {
-                if (ssB > numB) {
-                    if (ssA > numA) {
-                        alert("ba số " + numA + " " + numB + " " + numC + " là 3 cạnh của một tam giác");
-                    } else alert("ba số " + numA + " " + numB + " " + numC + + " không phải là 3 cạnh của một tam giác");
+        if (isNaN(numA) == "" && isNaN(numB) == "" && isNaN(numC) == "") {
+            if (numA >0 && numB>0 && numC >0) {
+                if (ssC > numC) {
+                    if (ssB > numB) {
+                        if (ssA > numA) {
+                            alert("ba số " + numA + " " + numB + " " + numC + " là 3 cạnh của một tam giác");
+                        } else alert("ba số " + numA + " " + numB + " " + numC + + " không phải là 3 cạnh của một tam giác");
+                    } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
                 } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
             } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
-        } else alert("ba số " + numA + " " + numB + " " + numC + " không phải là 3 cạnh của một tam giác");
+        } else alert("vui lòng nhập số");
     }
 
     function bai10() {
@@ -173,9 +195,11 @@
 
         var cost = num2 - num1;
 
-        if (num2 < num1) {
-            alert("bạn đã nhập sai");
-        } else alert("số điện sử dụng tháng này là " + cost + ". Tiền điện phải thanh toán là: " + eval(cost*3500) + " ngàn đồng")
+        if (isNaN(num1) == "" && isNaN(num2) == "") {
+            if (num2 < num1) {
+                alert("bạn đã nhập sai");
+            } else alert("số điện sử dụng tháng này là " + cost + ". Tiền điện phải thanh toán là: " + eval(cost*3500) + " ngàn đồng")
+        } else alert("vui lòng nhập số");
     }
 
     function bai11() {
@@ -183,23 +207,25 @@
 
         var num1 = parseFloat(inputA);
 
-        if (num1 <= 0) {
-            alert("bạn quá nghèo :) ");
-        } else {
-            if (num1 <= 5000) {
-                alert("bạn phải đóng thuê TNCN bậc 1 là 5% là: " + eval( num1 * 5 / 100 ) );
-            } else if (num1 <= 10000) {
-                alert("bạn phải đóng thuê TNCN bậc 2 là 10% - 250k  là: " + eval(num1 * 0.1 - 250) );
-            } else if (num1 <= 18000) {
-                alert("bạn phải đóng thuê TNCN bậc 3 là 15% - 750k  là: " + eval(num1 * 0.15 - 750) );
-            } else if (num1 <= 32000) {
-                alert("bạn phải đóng thuê TNCN bậc 4 là 20% - 1650k  là: " + eval(num1 * 0.2 - 1650) );
-            } else if (num1 <= 52000) {
-                alert("bạn phải đóng thuê TNCN bậc 5 là 25% - 3250k  là: " + eval(num1 * 0.25 - 3250) );
-            } else if (num1 <= 80000) {
-                alert("bạn phải đóng thuê TNCN bậc 6 là 30% - 5850k  là: " + eval(num1 * 0.3 - 5850) );
-            } else alert("bạn phải đóng thuê TNCN bậc 7 là 35% - 9850k  là: " + eval(num1 * 0.35 - 9850) );
-        }
+        if (isNaN(num1) == "") {
+            if (num1 <= 0) {
+                alert("bạn quá nghèo :) ");
+            } else {
+                if (num1 <= 5000) {
+                    alert("bạn phải đóng thuê TNCN bậc 1 là 5% là: " + eval( num1 * 5 / 100 ) );
+                } else if (num1 <= 10000) {
+                    alert("bạn phải đóng thuê TNCN bậc 2 là 10% - 250k  là: " + eval(num1 * 0.1 - 250) );
+                } else if (num1 <= 18000) {
+                    alert("bạn phải đóng thuê TNCN bậc 3 là 15% - 750k  là: " + eval(num1 * 0.15 - 750) );
+                } else if (num1 <= 32000) {
+                    alert("bạn phải đóng thuê TNCN bậc 4 là 20% - 1650k  là: " + eval(num1 * 0.2 - 1650) );
+                } else if (num1 <= 52000) {
+                    alert("bạn phải đóng thuê TNCN bậc 5 là 25% - 3250k  là: " + eval(num1 * 0.25 - 3250) );
+                } else if (num1 <= 80000) {
+                    alert("bạn phải đóng thuê TNCN bậc 6 là 30% - 5850k  là: " + eval(num1 * 0.3 - 5850) );
+                } else alert("bạn phải đóng thuê TNCN bậc 7 là 35% - 9850k  là: " + eval(num1 * 0.35 - 9850) );
+            }
+        } else alert("vui lòng nhập số");
     }
 
     function bai12() {
@@ -215,15 +241,17 @@
         var numTongNoCu = num1;
         var numTongNoMoi = 0;
 
-        for (let i = 1; i<= num2; i++) {
-            numLai = numTongNoCu*0.03;
-            numTongNoMoi = numLai + numTongNoCu;
-            numTongNoCu = numTongNoMoi;
-            numTongLai = numTongNoMoi - num1;
-            alert("lãi tháng " + i + " là: " + numLai);
-            alert("tổng lãi tính đến tháng " + i + " là: " + numTongLai);
-            alert("tổng nợ cả lãi tính đến tháng " + i + " là: " + numTongNoMoi);
-        }
+        if (isNaN(num1) == "" && isNaN(num2) == "") {
+            for (let i = 1; i<= num2; i++) {
+                numLai = numTongNoCu*0.03;
+                numTongNoMoi = numLai + numTongNoCu;
+                numTongNoCu = numTongNoMoi;
+                numTongLai = numTongNoMoi - num1;
+                alert("lãi tháng " + i + " là: " + numLai);
+                alert("tổng lãi tính đến tháng " + i + " là: " + numTongLai);
+                alert("tổng nợ cả lãi tính đến tháng " + i + " là: " + numTongNoMoi);
+            }
+        } else alert("vui lòng nhập số");
     }
 </script>
 
