@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+
+<script>
+    function bai1() {
+        var text = ""
+        for (let i = 0; i < 100; i++) {
+            text = text + i + " ";
+            if (i == 99) {
+                text = text + " done ";
+            }
+        }
+        document.write(text);
+    }
+
+    function bai2() {
+
+        var nhietDo = parseInt(prompt("nhập nhiệt độ phòng hiện tại"));
+
+        while (nhietDo > 100) {
+            alert("nhiệt độ quá cao, vui lòng giảm nhiệt độ");
+            nhietDo = parseInt(prompt("nhập nhiệt độ phòng hiện tại"));
+        }
+
+        while (nhietDo < 20) {
+            alert("nhiệt độ quá thấp, vui lòng tăng nhiệt độ");
+            nhietDo = parseInt(prompt("nhập nhiệt độ phòng hiện tại"));
+        }
+
+        if (nhietDo >=20 && nhietDo <= 100) {
+            alert("nhiệt độ quá okela");
+        }
+    }
+
+    function bai3() {
+
+    }
+</script>
+</body>
+</html>
