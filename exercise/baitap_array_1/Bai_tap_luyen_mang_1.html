@@ -24,16 +24,17 @@
         while (isNaN(arraylength)) {
             arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert(arraylength)
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength)
 
         for (let i = 0; i < arraylength; i++) {
-            let count = i + 1;
-            array[i] = +prompt("nhấp số thứ " + count + " :");
+            // let count = i + 1;
+            array[i] = parseInt(Math.random()*20);
 
-            while (isNaN(array[i])) {
-                array[i] = +prompt("nhấp lại số thứ " + count + " :");
-            }
+            // while (isNaN(array[i])) {
+            //     array[i] = +prompt("nhấp lại số thứ " + count + " :");
+            // }
         }
+        alert("mảng hệ thống tự khởi tạo là: " + array);
 
         var doneArray = array.filter(function (num) {
             return num > 10;
@@ -45,6 +46,34 @@
     }
 
     function bai2() {
+        let array = [];
+        let arraylength = +prompt("nhập số lượng số nguyên");
+
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength)
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = +prompt("nhấp số thứ " + count + " :");
+
+            while (isNaN(array[i])) {
+                array[i] = +prompt("nhấp lại số thứ " + count + " :");
+            }
+        }
+        alert("mảng bạn vừa khởi tạo là: " + array);
+
+        var max = array[0]
+        for (let i = 1; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+            }
+        }
+        alert("số lớn nhất trong mảng là " + max + " ở vị trí " + array.indexOf(max))
+    }
+
+    function bai3() {
         let array = [];
         let arraylength = +prompt("nhập số lượng số nguyên");
 
@@ -63,15 +92,19 @@
         }
 
         var max = array[0]
-        for (let i = 1; i < array.length; i++) {
+        var sum = 0;
+        for (let i = 0; i < array.length; i++) {
+            sum = sum + array[i];
             if (max < array[i]) {
                 max = array[i];
             }
         }
-        alert("số lớn nhất trong mảng là " + max + " ở vị trí " + array.indexOf(max))
+
+        var numAverage = sum / arraylength;
+        alert("số lớn nhất trong mảng là " + max + " trung bình cộng của mảng là: " + numAverage)
     }
 
-    function bai3() {
+    function bai4() {
         
     }
 </script>
