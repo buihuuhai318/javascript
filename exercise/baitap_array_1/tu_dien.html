@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div>
+    <label>Nhập từ tiếng anh</label>
+    <input type="text" id="txt"/>
+    <button onclick="trans()">Translate</button>
+    <input type="text" id="result"/>
+</div>
+
+
+<script>
+
+
+    function trans() {
+
+        var english = ["apple", "banana", "orange"];
+        var vietNam = ["táo", "chuối", "cam"];
+        var inputEng = document.getElementById("txt").value;
+        var outputVn;
+
+
+        if (english.indexOf(inputEng) !== -1) {
+            var adress = english.indexOf(inputEng);
+            outputVn = vietNam[adress];
+        } else {
+            outputVn = "không tìm thấy";
+        }
+
+        document.getElementById("result").value = outputVn;
+    }
+</script>
+
+</body>
+</html>
