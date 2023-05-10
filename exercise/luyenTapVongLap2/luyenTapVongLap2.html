@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+
+<script>
+    function bai1() {
+        var number = parseInt(prompt("nhập số lượng số trong dãy fibonacci"));
+        while (isNaN(number)) {
+            number = parseInt(prompt("vui lòng nhập dữ liệu dạng số"));
+        }
+
+        var n1 = 0;
+        var n2 = 1;
+        var nextN;
+        var text = "";
+        var count = 0;
+
+        while (count < number) {
+            text = text + n1 + " ";
+            nextN = n1 + n2;
+            n1 = n2;
+            n2 = nextN;
+            count++;
+        }
+        alert(number + " số đầu tiên trong dãy fibonacci là " + text);
+    }
+
+    function bai2() {
+        var number = parseInt(prompt("nhập số cần giai thừa"));
+        while (isNaN(number)) {
+            number = parseInt(prompt("vui lòng nhập dữ liệu dạng số"));
+        }
+
+        var giaiThua = 1;
+
+        for (var i = 1; i <= number; i++) {
+            giaiThua = giaiThua * i;
+        }
+
+        alert("giai thừa của " + number + " là: " + giaiThua);
+    }
+
+    function bai3() {
+        var text1 = "";
+        for (let i = 0; i < 5; i++) {
+            for (let a = 0; a <= i; a++) {
+                text1 = text1 + "*";
+            }
+            text1 = text1 + "<br>";
+        }
+
+        text1 = text1 + "<br>" + "<br>";
+
+
+
+        var text2 = "";
+        for (let i = 5; i > 0; i--) {
+            for (let j = 0; j < i; j++) {
+                text1 = text1 + "*";
+            }
+            text1 = text1 + "<br>";
+        }
+
+        text1 = text1 + "<br>" + "<br>";
+
+        for (let i = 0; i < 5; i++) {
+
+
+            for (let j = 0; j < 5 - i; j++) {
+                text1 = text1 + "^";
+            }
+            for (let a = 0; a <= i; a++) {
+                text1 = text1 + "*";
+            }
+            text1 = text1 + "<br>";
+        }
+
+        text1 = text1 + "<br>" + "<br>";
+
+        for (let i = 0; i < 5; i++) {
+
+            for (let a = 0; a <= i; a++) {
+                text1 = text1 + "^";
+            }
+
+            for (let j = 0; j < 5 - i; j++) {
+                text1 = text1 + "*";
+            }
+            text1 = text1 + "<br>";
+        }
+
+        text1 = text1 + "<br>" + "<br>";
+
+        document.write(text1);
+    }
+
+    function bai4() {
+        var text1 = "";
+
+        for (var i = 0; i < 7; i++) {
+
+            for (let j = 1; j < 19; j++) {
+
+                if (i >= 1 && i <= 5) {
+
+                    text1 = text1 + "*";
+                    for (let k = 1; k < 19; k++) {
+                        text1 = text1 + "a";
+                    }
+                    text1 = text1 + "*" + "<br>";
+                    break;
+                }
+                text1 = text1 + "*"
+            }
+            text1 = text1 + "<br>";
+        }
+        
+        document.write(text1);
+    }
+
+    function bai5() {
+        var num1 = parseInt(prompt("Nhập số tiền cần vay Đvt = ngàn đồng"));
+        while (isNaN(num1)) {
+            alert("vui lòng nhập số");
+            num1 = parseInt(prompt("Nhập số tiền cần vay Đvt = ngàn đồng"));
+        }
+
+        var num2 = parseInt(prompt("nhập thời gian vay ĐVT = tháng (3%/tháng"));
+        while (isNaN(num2)) {
+            alert("vui lòng nhập số");
+            var num2 = parseInt(prompt("nhập thời gian vay ĐVT = tháng (3%/tháng"));
+        }
+
+        var numTongLai = 0;
+        var numLai = 0;
+
+        var numTongNoCu = num1;
+        var numTongNoMoi = 0;
+
+        var count = 1;
+
+        while (count <= num2) {
+            numLai = numTongNoCu*0.03;
+            numTongNoMoi = numLai + numTongNoCu;
+            numTongNoCu = numTongNoMoi;
+            numTongLai = numTongNoMoi - num1;
+            alert("lãi tháng " + count + " là: " + numLai);
+            alert("tổng lãi tính đến tháng " + count + " là: " + numTongLai);
+            alert("tổng nợ cả lãi tính đến tháng " + count + " là: " + numTongNoMoi);
+            count++;
+        }
+    }
+</script>
+</body>
+</html>
