@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+<button onclick="bai9()">Bài 9</button>
+
+
+<script>
+    function bai1() {
+        let array = [];
+        let arraylength = +prompt("nhập số lượng số nguyên");
+
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert(arraylength)
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = +prompt("nhấp số thứ " + count + " :");
+
+            while (isNaN(array[i])) {
+                array[i] = +prompt("nhấp lại số thứ " + count + " :");
+            }
+        }
+
+        var doneArray = array.filter(function (num) {
+            return num > 10;
+        });
+
+        //console.log(doneArray);
+
+        alert("có tổng cộng " + doneArray.length + " số lớn hơn 10, là: " + doneArray.toString())
+    }
+
+    function bai2() {
+        let array = [];
+        let arraylength = +prompt("nhập số lượng số nguyên");
+
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert(arraylength)
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = +prompt("nhấp số thứ " + count + " :");
+
+            while (isNaN(array[i])) {
+                array[i] = +prompt("nhấp lại số thứ " + count + " :");
+            }
+        }
+
+        var max = array[0]
+        for (let i = 1; i < array.length; i++) {
+            if (max < array[i]) {
+                max = array[i];
+            }
+        }
+        alert("số lớn nhất trong mảng là " + max + " ở vị trí " + array.indexOf(max))
+    }
+
+    function bai3() {
+        
+    }
+</script>
+</body>
+</html>
