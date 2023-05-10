@@ -12,11 +12,13 @@
 
 <script>
     var b = document.getElementById("carogame");
-
     var board = [];
     var data = "";
+    var turn = 1;
+
+
     for (let i = 0; i < 5; i++) {
-        board[i] = Array(0, 0, 0, 0, 0);
+        board[i] = Array("*", "*", "*", "*", "*");
     }
 
     for (let i = 0; i < 5; i++) {
@@ -30,23 +32,50 @@
     b.innerHTML = "<hr/>" + data;
 
     function changeValue() {
-        var positionX = prompt("X: ");
-        var positionY = prompt("Y: ");
+        var positionX;
+        var positionY;
+
+        if (turn % 2 === 1) {
+            positionX = parseInt(prompt("Mời người chơi thứ 1: X: "));
+            positionY = parseInt(prompt("Mời người chơi thứ 1: Y: "));
+        } else {
+            positionX = parseInt(prompt("Mời người chơi thứ 2: X: "));
+            positionY = parseInt(prompt("Mời người chơi thứ 2: Y: "));
+        }
+
         data = "";
-        board[positionX][positionY] = "x";
+
+        if (turn % 2 === 1) {
+            board[positionX][positionY] = "x";
+        } else board[positionX][positionY] = "o";
+
+        turn++;
+
         for (let i = 0; i < 5; i++) {
             data += "<br/>";
             for (let j = 0; j < 5; j++) {
                 data += board[i][j] + "&nbsp;&nbsp;&nbsp;&nbsp;";
             }
         }
+
         data += "<br/><br/>"
         b.innerHTML = "<hr/>" + data;
-    }
 
-    document.addEventListener("click", check);
-
-    function check() {
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                console.log(board[i][j])
+                console.log(board.indexOf('x'))
+                if (board[i][j] === "x" && board[i][j+1] === "x" && board[i][j+2] === "x" ||
+                    board[i][j] === "x" && board[i+1][j] === "x" && board[i+2][j] === "x" ||
+                    board[i][j] === "x" && board[i+1][j+1] === "x" && board[i+2][j+2] === "x") {
+                    alert("xin chúc mừng người chơi 1 dã thắng");
+                } else if (board[i][j] === "o" && board[i][j+1] === "o" && board[i][j+2] === "o" ||
+                    board[i][j] === "o" && board[i+1][j] === "o" && board[i+2][j] === "o" ||
+                    board[i][j] === "o" && board[i+1][j+1] === "o" && board[i+2][j+2] === "o") {
+                    alert("xin chúc mừng người chơi 2 đã thắng");
+                }
+            }
+        }
 
     }
 </script>
