@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>array</title>
+</head>
+<body>
+
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+
+
+
+<script>
+    function bai1() {
+        let myColor = ["Red", "Green", "White", "Black"];
+        alert(myColor.toString());
+        alert(myColor.join());
+        alert(myColor.join("-"));
+    }
+
+    function bai2() {
+        let num = prompt();
+        let str = num.toString();
+        let result = [str[0]];
+
+        for(let x=1; x<str.length; x++)
+        {
+            if((str[x-1]%2 === 0)&&(str[x]%2 === 0))
+            {
+                result.push('-', str[x]);
+            }
+            else
+            {
+                result.push(str[x]);
+            }
+        }
+
+        alert(result.join(" "));
+    }
+    
+    function bai3() {
+        var string = prompt("nhập 1 câu bất kỳ");
+        var str = string.toString();
+        alert(str);
+        var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        var result = [];
+
+        for (let i = 0; i < str.length; i++) {
+            if (UPPER.indexOf(str[i]) !== -1) {
+                result.push(str[i].toLowerCase());
+            } else if (LOWER.indexOf(str[i]) !== -1) {
+                result.push(str[i].toUpperCase());
+            } else {
+                result.push(str[i]);
+            }
+        }
+
+        alert(result.join(""));
+    }
+</script>
+</body>
+</html>
