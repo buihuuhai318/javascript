@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="alertMess()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<input type="number" id="bai2" oninput="bai2(this.value)" onchange="bai2(this.value)" placeholder=" input bai 2"/>
+<input type="text" id="outputBai2" placeholder=" output bai 2">
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+
+
+
+<script>
+// bai 1
+    function alertMess() {
+        alert("xin chao");
+    }
+// bai 2
+    function numberBai2(num) {
+        num = document.getElementById("bai2").value;
+        num = parseFloat(num) + 1;
+        return num;
+    }
+
+    function bai2() {
+        let a = document.getElementById("bai2").value;
+        let newNum = numberBai2(a)
+        document.getElementById("outputBai2").value = newNum;
+    }
+//bai 3
+    function sum(a, b) {
+        if (a < b) {
+            return -1;
+        } else {
+            return a + b;
+        }
+    }
+
+    function bai3() {
+        let num1 = +prompt("nhập số thứ 1: ");
+        let num2 = +prompt("nhập số thứ 2: ");
+
+        let sumBai3 = sum(num1, num2);
+
+        if (sumBai3 === -1) {
+            alert("vì số thứ 1 nhỏ hơn số thứ 2 nên không có sum");
+        } else alert("tổng của 2 số là: " + sumBai3);
+    }
+
+//bai 4
+
+    function bai4() {
+        function addNumbers() {
+            firstNum = 4;
+            secondNum = 8;
+            result = firstNum + secondNum;
+            return result;
+        }
+        result = 0;
+        alert(result);
+        result = addNumbers();
+        alert(result);
+    }
+//bai 5
+    function bai5() {
+        let array1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
+        let array2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
+
+        let star = prompt("nhập tên ngôi sao bạn cần tìm");
+        function findStar(name) {
+            let local = array1.indexOf(name);
+            if (local === -1) {
+                return -1;
+            } else {
+                return local;
+            }
+        }
+
+        let find = findStar(star);
+        console.log(find)
+
+        if (find === -1) {
+            alert("không tìm thấy ngôi sao nào tên " + star);
+        } else {
+            alert("ngôi sao " + star + " thuộc chòm sao " + array2[find]);
+        }
+    }
+
+
+</script>
+</body>
+</html>
