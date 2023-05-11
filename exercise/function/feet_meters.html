@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+  function footToMeter(foot) {
+    let result = 0.305 * foot;
+    return result;
+  }
+
+  function meterToFoot(meter) {
+    let result = 3.279 * meter;
+    return result;
+  }
+
+  var feet = +prompt("enter foot");
+  var meters = +prompt("enter meter");
+
+  alert(feet + " foot = " + footToMeter(feet));
+  alert(meters + " meter = " + meterToFoot(meters));
+
+</script>
+</body>
+</html>
