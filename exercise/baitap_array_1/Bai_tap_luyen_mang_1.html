@@ -27,7 +27,7 @@
         alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
 
         for (let i = 0; i < arraylength; i++) {
-            array[i] = parseInt(Math.random()*20);
+            array[i] = parseInt(Math.random() * 20);
         }
         alert("mảng hệ thống tự khởi tạo là: " + array);
 
@@ -213,13 +213,13 @@
             do {
                 let box = array.indexOf(v);
                 for (let i = box; i < array.length; i++) {
-                    array[i] = array[i+1];
+                    array[i] = array[i + 1];
                 }
-                array[arraylength-1] = 0;
+                array[arraylength - 1] = 0;
             } while (array.includes(v));
         } else alert("V không thuộc trong mảng");
 
-        alert("mảng mới sau khi loại bỏ V =" + v +  " là : " + array);
+        alert("mảng mới sau khi loại bỏ V =" + v + " là : " + array);
     }
 
     function bai8() {
@@ -270,7 +270,7 @@
         alert("mảng thứ 1 vừa khởi tạo có độ dài là: " + arraylength1);
 
         for (let i = 0; i < arraylength1; i++) {
-            array1[i] = parseInt(Math.random()*20);
+            array1[i] = parseInt(Math.random() * 20);
         }
         alert("mảng thứ 1 hệ thống tự khởi tạo là: " + array1);
 
@@ -283,7 +283,7 @@
         alert("mảng thứ 2 vừa khởi tạo có độ dài là: " + arraylength2);
 
         for (let i = 0; i < arraylength2; i++) {
-            array2[i] = parseInt(Math.random()*20);
+            array2[i] = parseInt(Math.random() * 20);
         }
         alert("mảng thứ 2 hệ thống tự khởi tạo là: " + array2);
 
