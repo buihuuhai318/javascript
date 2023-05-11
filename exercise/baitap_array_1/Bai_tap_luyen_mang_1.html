@@ -183,15 +183,43 @@
 
         let v = +prompt("nhập số V bất kỳ");
 
-
-
         if (array.includes(v)) {
-            alert("V is in the array");
-        } else alert("V is not in the array");
+            alert("V thuộc trong mảng");
+        } else alert("V không thuộc trong mảng");
     }
 
     function bai7() {
+        let array = [];
+        let arraylength = +prompt("nhập số lượng số nguyên");
 
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = +prompt("nhấp số thứ " + count + " :");
+
+            while (isNaN(array[i])) {
+                array[i] = +prompt("nhấp lại số thứ " + count + " :");
+            }
+        }
+        alert("mảng hệ thống tự khởi tạo là: " + array);
+
+        let v = +prompt("nhập số V bất kỳ");
+
+        if (array.indexOf(v) !== -1) {
+            do {
+                let box = array.indexOf(v);
+                for (let i = box; i < array.length; i++) {
+                    array[i] = array[i+1];
+                }
+                array[arraylength-1] = 0;
+            } while (array.includes(v));
+        } else alert("V không thuộc trong mảng");
+
+        alert("mảng mới sau khi loại bỏ V =" + v +  " là : " + array);
     }
 
     function bai8() {
