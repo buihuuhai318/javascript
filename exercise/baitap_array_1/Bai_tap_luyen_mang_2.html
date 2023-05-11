@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+
+
+<script>
+
+    function bai1() {
+        let text = "";
+        let a = [
+            [1, 2, 1, 24],
+            [8, 11, 9, 4],
+            [7, 0, 7, 27],
+            [7, 4, 28, 14],
+            [3, 10, 26, 7]
+        ];
+
+        for (let i = 0; i < a.length; i++) {
+            text = text + "row " + i + " ";
+            for (let j in a) {
+                text = text + " " + a[i][j] + " ";
+            }
+            text = text + `<br>`;
+        }
+        alert(text)
+    }
+
+
+</script>
+</body>
+</html>
