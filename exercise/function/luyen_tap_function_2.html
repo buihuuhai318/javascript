@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+<button onclick="bai9()">Bài 9</button>
+
+
+
+<script>
+
+    function bai1() {
+        let num = +prompt("nhập vào 1 số bất kỳ");
+
+        function square(a) {
+            if (!isNaN(a)) {
+                return a*a;
+            } else return null;
+        }
+
+       if (square(num) === null) {
+           while (square(num) === null) {
+               num = +prompt("vui lòng nhập dữ liệu dạng số");
+           }
+           alert("bình phương của " + num + " là: " + square(num));
+       } else {
+           alert("bình phương của " + num + " là: " + square(num));
+       }
+    }
+
+    function bai2() {
+        let num = +prompt("nhập bán kính hình tròn");
+
+        function diameterCirle(a) {
+            if (!isNaN(a)) {
+                return 2*a*Math.PI;
+            } else return null;
+        }
+
+        function cirleArea(a) {
+            if (!isNaN(a)) {
+                return a*a*Math.PI;
+            } else return null;
+        }
+
+        if (diameterCirle(num) === null) {
+            while (diameterCirle(num) === null) {
+                num = +prompt("vui lòng nhập dữ liệu dạng số");
+            }
+            alert("hình tròn có bán kính " + num + " có chu vi: " + diameterCirle(num) + " và diện tích : " + cirleArea(num));
+        } else {
+            alert("hình tròn có bán kính " + num + " có chu vi: " + diameterCirle(num) + " và diện tích : " + cirleArea(num));
+        }
+    }
+
+    function bai3() {
+        let num = +prompt("nhập vào 1 số bất kỳ");
+
+        function factorial(a) {
+            if (!isNaN(a)) {
+                let b = 1;
+                for (let i = 1; i <= a; i++) {
+                    b = b*i;
+                }
+                return b ;
+            } else return null;
+        }
+
+        if (factorial(num) === null) {
+            do {
+                num = +prompt("vui lòng nhập dữ liệu dạng số");
+            } while (factorial(num) === null);
+            alert("giai thứa của " + num + " là: " + num + "!" + " = " + factorial(num));
+        } else alert("giai thứa của " + num + " là: " + num + "!" + " = " + factorial(num));
+    }
+
+    function bai4() {
+        let num = prompt("nhập vào 1 số bất kỳ");
+
+        function isNumber(a) {
+            if (isNaN(a)) {
+                return false;
+            } else return true;
+        }
+
+        if (isNumber(num)) {
+            alert(num + " là 1 ký tự số");
+        } else alert(num + " không phải là 1 số");
+    }
+
+    function bai5() {
+        let num1;
+        let num2;
+        let num3;
+
+        do {
+            num1 = +prompt("nhập vào số thứ 1");
+        } while (isNaN(num1));
+
+        do {
+            num2 = +prompt("nhập vào số thứ 2");
+        } while (isNaN(num2));
+
+        do {
+            num3 = +prompt("nhập vào số thứ 3");
+        } while (isNaN(num3));
+
+
+        function max(a, b, c) {
+            let numMax = a;
+            numMax = numMax > c ? numMax : c;
+            numMax = numMax > b ? numMax : b;
+            return numMax;
+        }
+
+        alert("số lớn nhất trong 3 số " + num1 + ", " + num2 + ", " + num3 + " là: " + max(num1, num2, num3));
+    }
+
+    function bai6() {
+        let num = prompt("nhập vào 1 số bất kỳ");
+
+        function isNumpPositive(a) {
+            if (a > 0) {
+                return true;
+            } else return false;
+        }
+
+        let checkNum = isNumpPositive(num);
+
+        if (checkNum) {
+            alert(num + " là số nguyên dương");
+        } else alert(num + " không phải là số nguyên dương");
+    }
+
+    function bai7() {
+        let num1;
+        let num2;
+
+        do {
+            num1 = +prompt("nhập vào số thứ 1");
+        } while (isNaN(num1));
+
+        do {
+            num2 = +prompt("nhập vào số thứ 2");
+        } while (isNaN(num2));
+
+        function change(a, b) {
+            let arrayBox = [a, b];
+            let box = arrayBox[0];
+            arrayBox[0] = arrayBox[1];
+            arrayBox[1] = box;
+            return arrayBox;
+        }
+
+        let newArray = change(num1, num2);
+
+        alert("sau khi hoán đổi, số thứ 1 bây giờ là : " + newArray[0] + ", số thứ 2 là: " + newArray[1]);
+    }
+
+    function bai8() {
+        let arrayLength;
+        let array = [];
+
+        do {
+            arrayLength = +prompt("nhập vào độ dài mảng");
+        } while (isNaN(arrayLength));
+
+        for (let i = 0; i < arrayLength; i++) {
+            let count = i + 1;
+            do {
+                array[i] = +prompt("nhập vào số thứ " + count);
+            } while (isNaN(array[i]));
+        }
+
+        function change(string) {
+            for (let i = 0, j = string.length -1; i < j; i++, j--) {
+                let box = string[i];
+                string[i] = string[j];
+                string[j] = box;
+            }
+            return string;
+        }
+
+        array = change(array);
+        alert("mảng mới sau khi thay đổi thứ tự ngược lại là " + array);
+    }
+
+    function bai9() {
+        let someThing = Array.from(prompt("nhập vào bất kỳ"));
+
+        let thing = prompt("nhập vào 1 ký tự bất kỳ");
+
+        function check(string, a) {
+            let count = 0;
+            for (let i = 0; i < string.length; i++) {
+                if (string[i] === a) {
+                    count = count + 1;
+                }
+            }
+            if (count > 0) {
+                return count;
+            } else return count = -1;
+        }
+
+        let checking = check(someThing, thing);
+
+        if (checking === -1) {
+            alert("không tìm thấy ký tự " + thing + " trong câu " + "'" +someThing.join("") + "'" + " của bạn");
+        } else alert(thing +  " được xuất hiện trong câu " + "'" +someThing.join("") + "'" + " " + checking + " lần");
+
+    }
+
+
+</script>
+</body>
+</html>
