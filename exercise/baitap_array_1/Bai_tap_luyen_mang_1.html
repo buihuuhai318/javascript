@@ -89,15 +89,20 @@
 
         var max = array[0]
         var sum = 0;
+
         for (let i = 0; i < array.length; i++) {
-            sum = sum + array[i];
+            // sum = sum + array[i];
             if (max < array[i]) {
                 max = array[i];
             }
         }
 
+        sum = array.reduce(function (total, arr) {
+            return total + arr;
+        })
+
         var numAverage = sum / arraylength;
-        alert("số lớn nhất trong mảng là " + max + " trung bình cộng của mảng là: " + numAverage)
+        alert("số lớn nhất trong mảng là: " + max + " trung bình cộng của mảng là: " + numAverage)
     }
 
     function bai4() {

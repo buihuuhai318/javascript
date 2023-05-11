@@ -25,16 +25,58 @@
             [3, 10, 26, 7]
         ];
 
-        for (let i = 0; i < a.length; i++) {
-            text = text + "row " + i + " ";
-            for (let j in a) {
+        console.log(a)
+
+        for (let i = 0; i < a.length-1; i++) {
+            text = text + "row " + i + ": ";
+            for (let j = 0; j < a.length-1; j++) {
                 text = text + " " + a[i][j] + " ";
             }
-            text = text + `<br>`;
+            text = text + "<br>";
         }
-        alert(text)
+        document.write(text)
     }
 
+    function bai2() {
+        let array = [];
+        let arraylength = +prompt("nhập độ dài mảng");
+
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = prompt("nhấp phần tử thứ " + count + " :");
+        }
+        alert("mảng bạn vừa khởi tạo là: " + array);
+
+        array.reverse()
+
+
+        alert("mảng của bạn sau khi đảo ngược lại là: " + array.join(""))
+    }
+
+    function bai3() {
+        let array = [];
+        let arraylength = +prompt("nhập độ dài mảng");
+
+        while (isNaN(arraylength)) {
+            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        }
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+
+        for (let i = 0; i < arraylength; i++) {
+            let count = i + 1;
+            array[i] = prompt("nhấp phần tử thứ " + count + " :");
+        }
+        alert("mảng bạn vừa khởi tạo là: " + array);
+
+        array.forEach(function (arr) {
+            if ()
+        })
+    }
 
 </script>
 </body>
