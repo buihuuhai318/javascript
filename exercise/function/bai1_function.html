@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>so nguyen  to</title>
+</head>
+<body>
+<script>
+
+    var num = +prompt("nhập vào số bất kỳ: ");
+    isPrime(num);
+
+    function isPrime(a) {
+        let soUoc = 0;
+        for (let i = 0; i <= a; i++) {
+            if (a % i === 0) {
+                soUoc = soUoc + 1;
+            }
+        }
+        if (soUoc === 2) {
+            alert(a + " là số nguyên tố");
+        } else alert(a + " không phải là số nguyên tố");
+    }
+
+
+</script>
+</body>
+</html>

@@ -13,17 +13,17 @@
 
         var countSnt = 0;
 
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 10000; i++) {
 
             if (countSnt < number) {
 
                 for (var j = 0; j <= i; j++) {
-                    if (i % j == 0) {
+                    if (i % j === 0) {
                         soUoc = soUoc + 1;
                     }
                 }
 
-                if (soUoc == 2) {
+                if (soUoc === 2) {
                     document.write(i + " ");
                     countSnt = countSnt + 1;
                 }
