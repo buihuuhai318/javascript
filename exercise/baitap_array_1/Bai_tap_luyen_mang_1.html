@@ -91,15 +91,15 @@
         var sum = 0;
 
         for (let i = 0; i < array.length; i++) {
-            // sum = sum + array[i];
+            sum = sum + array[i];
             if (max < array[i]) {
                 max = array[i];
             }
         }
 
-        sum = array.reduce(function (total, arr) {
-            return total + arr;
-        })
+        // sum = array.reduce(function (total, arr) {
+        //     return total + arr;
+        // })
 
         var numAverage = sum / arraylength;
         alert("số lớn nhất trong mảng là: " + max + " trung bình cộng của mảng là: " + numAverage)
@@ -127,15 +127,15 @@
         let first = 0;
         let last = array.length - 1;
 
-        array.reverse()
+        //array.reverse()
 
-        // while (first < last) {
-        //     let b = array[first];
-        //     array[first] = array[last];
-        //     array[last] = b;
-        //     first++;
-        //     last--;
-        // }
+        while (first < last) {
+            let b = array[first];
+            array[first] = array[last];
+            array[last] = b;
+            first++;
+            last--;
+        }
         alert("mảng của bạn sau khi đảo ngược lại là: " + array)
     }
 
@@ -246,21 +246,21 @@
         }
         alert("mảng hệ thống tự khởi tạo là: " + array);
 
-        // var max;
-        // var num = 0;
-        // for (let i = 0; i < array.length; i++) {
-        //     for (let j = i + 1; j < array.length; j++) {
-        //         if (array[i] < array[j]) {
-        //             max = array[j];
-        //             array[j] = array[i];
-        //             array[i] = max;
-        //         }
-        //     }
-        // }
+        var max;
+        var num = 0;
+        for (let i = 0; i < array.length; i++) {
+            for (let j = i + 1; j < array.length; j++) {
+                if (array[i] < array[j]) {
+                    max = array[j];
+                    array[j] = array[i];
+                    array[i] = max;
+                }
+            }
+        }
 
-        array.sort(function (a, b) {
-            return b - a;
-        })
+        // array.sort(function (a, b) {
+        //     return b - a;
+        // })
 
         alert("mảng được sắp xếp lại theo thứ tự giảm dần là: " + array);
     }

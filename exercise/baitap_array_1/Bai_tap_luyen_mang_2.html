@@ -52,8 +52,18 @@
         }
         alert("mảng bạn vừa khởi tạo là: " + array);
 
-        array.reverse()
+        // array.reverse()
 
+        let first = 0;
+        let last = array.length - 1;
+
+        while (first < last) {
+            let b = array[first];
+            array[first] = array[last];
+            array[last] = b;
+            first++;
+            last--;
+        }
 
         alert("mảng của bạn sau khi đảo ngược lại là: " + array.join(""))
     }
@@ -73,11 +83,66 @@
         }
         alert("mảng bạn vừa khởi tạo là: " + array);
 
-        array.forEach(function (arr) {
-            if ()
-        })
+        let count = 0;
+
+        for (let i = 0; i < array.length; i++) {
+            if (!isNaN(array[i])) {
+                count++
+            }
+        }
+
+        alert("ký tự số có trong mảng " + array + " là: " + count);
     }
 
+    function bai4() {
+
+        let myArray = Array.from(prompt("nhập một câu bất kỳ"))
+        // alert(myArray);
+
+        var count = 1;
+
+        for (let i = 0; i < myArray.length; i++) {
+            if (myArray[i] === " ") {
+                if (myArray[i+1] !== " " && isNaN(myArray[i+1])) {
+                    count++
+                    console.log(myArray[i+1])
+                    console.log(count)
+                }
+            }
+        }
+        alert("câu bạn vừa nhập có: " + count + " từ");
+    }
+
+    function bai5() {
+        let myArray1 = Array.from(prompt("nhập một câu bất kỳ thứ 1"));
+        let myArray2 = Array.from(prompt("nhập một câu bất kỳ thứ 2"));
+
+        if (myArray1.length !== myArray2.length) {
+            alert("2 mảng này không giống nhau")
+        } else {
+            let countWrong = 0;
+            for (let i = 0; i < myArray1.length; i++) {
+                if (myArray1[i] !== myArray2[i]) {
+                    countWrong++;
+                }
+            }
+            if (countWrong === 0) {
+                alert("2 chuỗi bạn vừa nhập vào giống nhau");
+            } else alert("2 chuỗi bạn vừa nhập khác nhau");
+        }
+    }
+
+    function bai6() {
+        let myArray = Array.from(prompt("nhập một câu bất kỳ"))
+        // alert(myArray);
+
+        for (let i = 0; i < myArray.length; i++) {
+            if (myArray[i] === "-") {
+                myArray[i] = "_";
+            }
+        }
+        alert("câu mới sau khi sữa đổi là: " + myArray.join(""));
+    }
 </script>
 </body>
 </html>
