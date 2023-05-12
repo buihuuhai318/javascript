@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="check()"> Is Palindrome ? </button>
+
+<script>
+    function isPalindrome(word) {
+        let string = Array.from(word);
+        let  count = 0;
+        let countCheck;
+        if (string.length % 2 !== 0) {
+            countCheck = string.length/2 - 0.5;
+        } else {
+            countCheck = string.length/2;
+        }
+        for (let i = 0, j = string.length -1; i < j; i++, j--) {
+            if (string[i] === string[j]) {
+                count = count + 1;
+            }
+        }
+        if (count === countCheck) {
+            return true;
+        } else return false;
+    }
+
+    function check() {
+        let words = prompt("enter anything");
+        if (isPalindrome(words)) {
+            alert(words + " is Palindrome");
+        } else alert(words + " is not Palindrome");
+    }
+</script>
+</body>
+</html>
