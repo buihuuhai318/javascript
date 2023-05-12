@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xay dung lop mo ta hinh chu nhat</title>
+</head>
+<body>
+<canvas id="myCanva" width="1000" height="800" style="border: 1px solid red"></canvas>
+
+
+
+<script>
+
+    function Rectangle(x, y, w, h) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.s = function (w, h) {
+            this.s = x * y;
+        }
+        this.p = function (w, h) {
+            this.p = 2 * (x + y);
+        }
+    }
+
+    function createRec() {
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        var rec = new Rectangle(500, 500, 100, 80);
+        ctx.beginPath();
+        ctx.fillRect(rec.x, rec.y, rec.w, rec.h);
+        ctx.fill();
+    }
+
+    createRec();
+
+</script>
+</body>
+</html>
