@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Temperature</title>
+</head>
+<body>
+
+<div>
+    <br>
+    <input type="text" id="inputT" placeholder="input">
+    <br>
+    <br>
+    <button onclick="inputT()"> nhập nhiệt độ C </button>
+</div>
+<br>
+<div>
+    <table>
+        <tr>
+            <td><input type="text" id="outputC"></td>
+            <td> độ C</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="outputF"></td>
+            <td> độ F</td>
+        </tr>
+        <tr>
+            <td><input type="text" id="outputK"></td>
+            <td> độ Kevin</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    var anyT;
+    let Temperature = function (x) {
+        this.x = x;
+        this.getX = function () {
+            return this.x;
+        }
+        this.setX = function (x) {
+            this.x = x;
+        }
+        this.F = function () {
+            return 9/5 * this.x + 32;
+        }
+        this.K = function () {
+            return this.x + 273.15;
+        }
+    }
+
+    function inputT() {
+        let info = parseFloat(document.getElementById("inputT").value);
+        anyT = new Temperature(info);
+        console.log(anyT)
+        outputT();
+    }
+
+    function outputT() {
+        let fT = anyT.F();
+        let cT = anyT.getX();
+        let kT = anyT.K();
+
+        document.getElementById("outputC").value = cT;
+        document.getElementById("outputF").value = fT;
+        document.getElementById("outputK").value = kT;
+    }
+
+</script>
+</body>
+</html>
