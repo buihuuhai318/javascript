@@ -51,9 +51,13 @@
 
     function inputT() {
         let info = parseFloat(document.getElementById("inputT").value);
-        anyT = new Temperature(info);
-        console.log(anyT)
-        outputT();
+        if (info < -273) {
+            alert('nhiệt độ không được thâp hơn -273 độ C')
+        } else {
+            anyT = new Temperature(info);
+            console.log(anyT)
+            outputT();
+        }
     }
 
     function outputT() {
