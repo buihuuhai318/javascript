@@ -5,7 +5,10 @@
     <title>xay dung lop mo ta hinh chu nhat</title>
 </head>
 <body>
-<canvas id="myCanva" width="1000" height="800" style="border: 1px solid red"></canvas>
+<canvas id="myCanva" width="500" height="400" style="border: 1px solid red"></canvas>
+<br>
+<button type="button" onclick="change()">Create or Change height, Weight </button>
+<button type="button" onclick="show()"> show S, P </button>
 
 
 
@@ -16,23 +19,54 @@
         this.y = y;
         this.w = w;
         this.h = h;
-        this.s = function (w, h) {
-            this.s = x * y;
+
+        this.setH = function (h) {
+            this.h = h;
         }
-        this.p = function (w, h) {
-            this.p = 2 * (x + y);
+        this.setW = function (w) {
+            this.w = w;
+        }
+        this.s = function () {
+            return  this.w * this.h;
+        }
+        this.p = function () {
+            return 2 * (this.w + this.h);
         }
     }
+
+    var ctx = document.getElementById("myCanva").getContext("2d");
+    var rec = new Rectangle(50, 50, 100, 80);
+    var s = rec.s();
+    var p = rec.p()
 
     function createRec() {
-        var ctx = document.getElementById("myCanvas").getContext("2d");
-        var rec = new Rectangle(500, 500, 100, 80);
-        ctx.beginPath();
-        ctx.fillRect(rec.x, rec.y, rec.w, rec.h);
-        ctx.fill();
+        //ctx.beginPath();
+        ctx.strokeRect(rec.x, rec.y, rec.w, rec.h);
+        // ctx.fill();
     }
 
-    createRec();
+    function show() {
+        console.log(s)
+        s = rec.s();
+        console.log(s)
+        console.log(p)
+        p = rec.p();
+        console.log(p)
+        alert("hình chữ nhật có diện tích = " + s + " và chu vi = " + p + ". (ĐVT = px)")
+    }
+
+    function change() {
+        let a = +prompt("nhập chiều dài");
+        let b = +prompt("nhập chiều rộng");
+
+        rec.setW(a);
+        rec.setH(b);
+        console.log(rec.w);
+        console.log(rec.h);
+        createRec();
+    }
+
+
 
 </script>
 </body>
