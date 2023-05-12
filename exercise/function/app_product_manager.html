@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <div><h2>Add new product</h2></div>
+    <div>
+        <input type="text" id="add"/>
+        <button type="submit" onclick="btnAdd()">Add</button>
+    </div>
+</div>
+<br>
+<div>
+    <div><h4>Display all product</h4></div>
+    <div>
+        <table id="list">
+
+        </table>
+    </div>
+</div>
+
+
+
+<script>
+    var product = ["Sony", "Samsung", "Nokia"];
+
+    display();
+
+    function btnAdd() {
+        add(product);
+        display();
+    }
+
+    function change(i) {
+        let newName = prompt("nhập tên mới");
+        editProduct(product, newName, i)
+        display()
+    }
+
+    function deleteProduct(i) {
+        delProduct(product, i);
+        display();
+    }
+
+    function display() {
+        var text = "";
+        for (let i = 0; i < product.length; i++) {
+            text = text + `<tr>
+                <td id ='pro${i}'>${product[i]}</td>
+                <td><button onclick='change(${i})'>Edit</button></td>
+                <td><button onclick='deleteProduct(${i})'>Delete</button></td>
+                </tr>`
+
+        }
+        document.getElementById("list").innerHTML = text;
+    }
+
+    function delProduct(string, i) {
+        string.splice(i, 1);
+    }
+
+    function editProduct(string, newName, i) {
+        string[i] = newName;
+    }
+
+    function add(string, name) {
+        name = document.getElementById("add").value;
+        string = string.push(name);
+        document.getElementById("add").value = null;
+    }
+
+</script>
+</body>
+</html>
