@@ -20,15 +20,15 @@
             this.status = status;
             this.lamp = lamp;
         }
-        // getLamp() {
-        //     return this.lamp;
-        // }
-        // setlamp(lamp) {
-        //     this.lamp = lamp;
-        // }
-        // connectToLamp(Electriclamp) {
-        //     return this.lamp = Electriclamp;
-        // }
+        getLamp() {
+            return this.lamp;
+        }
+        setlamp(lamp) {
+            this.lamp = lamp;
+        }
+        connectToLamp(Electriclamp) {
+            return this.lamp = Electriclamp;
+        }
         switchOff() {
             this.lamp.status = false;
             return this.status = false;
@@ -40,16 +40,21 @@
     }
 
     let electricLamp1 = new Electriclamp(false);
+    let electricLamp2 = new Electriclamp(true);
+    let electricLamp3 = new Electriclamp(true);
     let switchButton1 = new SwitchButton(electricLamp1, false);
+    switchButton1.connectToLamp(electricLamp2);
+    switchButton1.setlamp(electricLamp3);
 
     let count = 0;
 
     for (let i = 0; i < 10; i++) {
         count++;
+        document.writeln("status lamp: " + electricLamp3.getStatus() + "<br/>");
         document.writeln("bật công tắc lần " + count + ", status button: " + switchButton1.switchOn());
-        document.writeln(", status lamp: " + electricLamp1.getStatus() + "<br/>");
+        document.writeln(", status lamp: " + electricLamp3.getStatus() + "<br/>");
         document.writeln("tắt công tắc lần " + count + ", status button: " + switchButton1.switchOff());
-        document.writeln(", status lamp: " + electricLamp1.getStatus() + "<br/>" + "<br/>");
+        document.writeln(", status lamp: " + electricLamp3.getStatus() + "<br/>" + "<br/>");
     }
 </script>
 </body>
