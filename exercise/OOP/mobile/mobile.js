@@ -154,8 +154,8 @@ function mobileStyle() {
 }
 
 function inputOutput(x) {
-    let text = `<input type="text" id="send${x}" placeholder="soan tin nhan"/>
-          <input type="text" id="ngNhan${x}" placeholder="nguoi nhan"/>`;
+    let text = `<input type="text" id="send${x}" placeholder="Soạn tin nhắn"/>
+          <input type="text" id="ngNhan${x}" placeholder="Người Nhận"/>`;
     document.getElementById(`textBox${x}`).innerHTML = text;
     let text1 = `<input type="button" value="send" onclick="send(${x})">
           <input type="button" value="save" onclick="save(${x})">`
