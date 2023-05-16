@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>car</title>
+</head>
+<body>
+<div id="game"></div>
+<canvas id="myCanva" width="1000" height="600" style="border: 1px solid red"></canvas>
+
+<script>
+
+
+
+
+    function Car(image, top, left, size, speed){
+        this.image = image;
+        this.top = top;
+        this.left = left;
+        this.size = size;
+        this.speed = speed;
+        // this.direction = direction;
+
+        // this.getDirection = function () {
+        //     return this.direction;
+        // }
+        //
+        // this.setDirection = function (direction) {
+        //     this.direction = direction;
+        // }
+
+
+        this.getCarElement = function(){
+            return '<img id="car1" width="'+ this.size + '"' +
+                ' src="' + this.image +'"' +
+                ' style="top: '+this.top+'px; left:'+this.left+'px;position:absolute;" />';
+        }
+
+
+
+        this.moveRight = function(){
+            document.querySelector("#car1").style.transform = "rotate(90deg)";
+            if(this.left < (1000 - this.size)) {
+
+                this.left += this.speed;
+            }
+        }
+
+        this.moveTop = function () {
+            if (this.top < 600 - this.size*2) {
+                this.top += this.speed;
+            }
+        }
+
+        this.moveleft = function(){
+            if (this.left > (this.size /2)) {
+                this.left -= this.speed;
+            }
+        }
+
+        this.moveDown = function () {
+            if (this.top > 0) {
+                this.top -= this.speed;
+            }
+        }
+
+    }
+
+    var car = new Car('car.png', 50, 15, 100, 50);
+
+    function start(){
+
+        if(car.left < window.innerWidth - car.size){
+            ready();
+        }
+        document.getElementById('game').innerHTML = car.getCarElement();
+
+        setTimeout(start, 500)
+    }
+
+
+
+    function moveSelection(evt) {
+        switch (evt.keyCode) {
+            case 37:
+                car.moveleft();
+                break;
+            case 39:
+                car.moveRight();
+                break;
+            case 38:
+                car.moveDown();
+                break;
+            case 40:
+                car.moveTop();
+                break;
+        }
+    }
+
+    function ready() {
+        document.addEventListener("keydown", moveSelection);
+    }
+    start()
+
+
+
+
+</script>
+</body>
+</html>

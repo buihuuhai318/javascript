@@ -146,22 +146,27 @@
         }
 
         var randomNum = Math.floor(Math.random() * (max - min)) + min;
-        // alert(randomNum);
-        var num = parseInt(prompt("nhập số dự đoán của bạn từ " + min + " đến " + max));
+        alert(randomNum);
+        var num;
 
-        if (num == randomNum) {
-            alert("god damn right man! :)");
-        } else {
-            while (num != randomNum) {
+        for (let i = 0; i < 3; i++) {
+            num = parseInt(prompt("nhập số dự đoán của bạn từ " + min + " đến " + max + " lần thứ " + (i + 1)));
+            if (num == randomNum) {
+                alert("god damn right man! :)");
+                break;
+            } else {
                 if (num > randomNum) {
-                    num = parseInt(prompt("số " + num + " lớn hơn số hệ thống random, thử nhập số nhỏ hơn"));
+                    alert("số " + num + " lớn hơn số hệ thống random, thử nhập số nhỏ hơn");
                 } else {
-                    num = parseInt(prompt("số " + num + " nhỏ hơn số hệ thống random, thử nhập số lớn hơn"));
+                    alert("số " + num + " nhỏ hơn số hệ thống random, thử nhập số lớn hơn");
                 }
             }
-            alert("god damn right man! :)");
+            if (i === 2) {
+                if (confirm("đã hết 3 lượt chơi, bạn muốn chơi lại chứ :)")) {
+                    bai8();
+                } else break;
+            }
         }
-
     }
 </script>
 </body>
