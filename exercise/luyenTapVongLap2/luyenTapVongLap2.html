@@ -113,11 +113,11 @@
 
                 if (i >= 1 && i <= 5) {
 
-                    text1 = text1 + "*&nbsp&nbsp&nbsp&nbsp";
+                    text1 = text1 + "*&nbsp&nbsp";
                     for (let k = 1; k < 17; k++) {
                         text1 = text1 + "&nbsp&nbsp&nbsp&nbsp";
                     }
-                    text1 = text1 + "*" + "&nbsp&nbsp&nbsp&nbsp" + "<br>";
+                    text1 = text1 + "*&nbsp&nbsp" + "<br>";
                     break;
                 }
                 text1 = text1 + "*&nbsp&nbsp"
@@ -125,7 +125,7 @@
             text1 = text1 + "<br>";
         }
         
-        document.write(text1);
+        document.writeln(text1);
     }
 
     function bai5() {

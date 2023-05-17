@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    function kangaroo(a, b) {
+        debugger
+        let c =[];
+        let countBetween = 0;
+        let count = 0;
+        for (let j = a[a.length-1]; j < b[0]; j++) {
+          for (let i = 0; i < a.length; i++) {
+              if (j % a[i] === 0) {
+                  c.push(j);
+              }
+          }
+        }
+        count = 0;
+        for (let i = 0; i < c.length; i++) {
+          count = 0;
+          for (let j = 0; j < b.length; j++) {
+              if (b[j] % c[i] === 0) {
+                  count++;
+              }
+          }
+          if (count === b.length) {
+              countBetween++;
+          }
+        }
+        return countBetween;
+    }
+    let a = [2, 4];
+    let b = [16, 32, 96]
+
+    let test = kangaroo(a, b);
+    console.log(test)
+</script>
+</body>
+</html>
