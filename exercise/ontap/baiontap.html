@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>on tap</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+<button onclick="bai9()">Bài 9</button>
+<button onclick="bai10()">Bài 10</button>
+
+
+
+<script>
+
+    function bai1() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+        let countEven = 0;
+        let countOdd = 0;
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            // debugger
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+            if (arr[i] % 2 === 0) {
+                countEven++;
+            } else countOdd++;
+        }
+
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+
+        if (countOdd === countEven) {
+            alert("mảng có số lẻ bằng số chẵn: OK!!!");
+        } else alert("mảng có số lẻ không bằng số chẵn: NOOO!!!");
+    }
+
+    function check(arr) {
+        let check = true;
+        let num = 0;
+        for (let i = 0, j = arr.length/2; i < arr.length/2; i++, j++) {
+            num = arr[i] * arr[i];
+            if(num !== arr[j]) {
+                check = false;
+            }
+        }
+        return check;
+    }
+
+    function bai2() {
+        let arr1 = [1,2,3,1,4,9];
+        let arr2 = [1,2,3,1,1,9];
+        alert(check(arr1));
+        alert(check(arr2));
+    }
+
+    function bai3() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+        let checkUp = true;
+        let checkDown =  true;
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+        }
+
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+
+        for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[i] <= arr[i+1]) {
+                checkUp = true;
+            } else {
+                checkUp = false;
+                break;
+            }
+        }
+        for (let i = 0; i < arr.length - 1; i++) {
+            if (arr[i] >= arr[i+1]) {
+                checkDown = true;
+            } else {
+                checkDown = false;
+                break;
+            }
+        }
+
+        if (checkUp === true) {
+            alert("mảng của bạn đã được sắp xếp theo giá trị tăng dần");
+        } else if (checkDown === true) {
+            alert("mảng của bạn đã được sắp xếp theo giá trị giảm dần");
+        } else {
+            alert("mảng của bạn không được sắp xếp theo giá trị");
+        }
+    }
+
+    function checkString(string) {
+        let str = string.toString()
+        var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var lower = 'abcdefghijklmnopqrstuvwxyz';
+        let countUp = 0;
+        let countLow = 0;
+
+        for (let i = 0; i < str.length; i++) {
+            if (upper.indexOf(str[i]) !== -1) {
+                countUp++;
+            } else if (lower.indexOf(str[i]) !== -1) {
+                countLow++;
+            }
+        }
+        if (countLow === countUp) {
+            return true;
+        } else return false;
+    }
+    function bai4() {
+        let str1 = "Toi La Hai";
+        let str2 = "toi La HAI";
+        alert(checkString(str1));
+        alert(checkString(str2));
+    }
+
+    function bai5() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+        let check = true;
+
+        while (isNaN(n) || n % 2 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số CHẴN nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+        }
+
+        for (let i = 0; i < arr.length - 1; i = i + 2) {
+            if (arr[i] < arr[i + 1]) {
+                check = true
+            } else {
+                check = false;
+                break;
+            }
+        }
+
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+
+        if (check) {
+            alert("các cặp số thoả mãn điều kiện");
+        } else alert("các cặp số không thoả mãn điều kiện");
+    }
+
+    function checkStr(str) {
+        let string = str.toString();
+        let newStr = [];
+        let vowel = "aáàảãạăắằẵẳặâấầẩẫậeéèẽẻẹêếềểễệiíìỉĩịoóòỏõọôốồổỗộơớờởỡợúùủũụuưứừữửựýỳỷỹỵy";
+
+        for (let i = 0; i < string.length; i++) {
+            if (vowel.indexOf(string[i]) !== -1) {
+                newStr.push(string[i]);
+            }
+        }
+
+        for (let i = 0; i < newStr.length; i++) {
+            for (let j = i + 1; j < newStr.length; j++) {
+                if (newStr[i] === newStr[j]) {
+                    newStr.splice(j, 1);
+                }
+            }
+        }
+        return newStr;
+    }
+    function bai6() {
+        let str = "tôi là hải và tôi đang học ở codegym"
+        alert(checkStr(str));
+    }
+
+    function bai7() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1} trong khoảng từ 10 đến 100`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0 || arr[i] < 10 || arr[i] > 100) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên trong khoảng từ 10 đến 100`);
+            }
+        }
+
+        let num = 0;
+        let numx10 = 0;
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            num = arr[i] % 10;
+            numx10 = arr[i]/10;
+            if (num > numx10) {
+                newArr.push(arr[i])
+            }
+        }
+
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+        alert(`phần tử có hàng đơn vị lớn hơn hàng chục: ${newArr}`)
+    }
+
+    function bai8() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+        }
+
+        let count1 = 1;
+        let count2 = 1;
+        let num1 = arr[0];
+        let num2 = arr[0];
+
+        for (let i = 0; i < arr.length; i++) {
+            count1 = 1;
+            num1 = arr[0];
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    count1++;
+                    num1 = arr[i];
+                }
+            }
+            if (count1 > count2) {
+                count2 = count1;
+                num2 = num1
+            }
+        }
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+        alert(`số ${num2} có số lượng lớn nhất trong mảng là ${count2} lần`)
+    }
+
+    function bai9() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+        let sum = 0;
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+            sum = sum + arr[i];
+        }
+
+        let avg = sum / n;
+        let count = 0;
+
+        for (let i = 0; i < arr.length; i++) {
+            if (avg === arr[i]) {
+                count++;
+            }
+        }
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+        alert(`số lượng số bằng với giá trị trung bình(${avg}) của các phần tử trong mảng là ${count}`)
+    }
+
+    function bai10() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+        let sum = 0;
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+            sum = sum + arr[i];
+        }
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+
+        let num = 0;
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            num = Math.sqrt(arr[i]);
+            if (num * num === arr[i]) {
+                newArr.push(arr[i]);
+            }
+        }
+        alert(`các số chính phương có trong mảng là ${newArr}`)
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
