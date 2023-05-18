@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+
+<script>
+
+    function checkSpace(arr) {
+        let newArr = arr.split(" ");
+        let array = [];
+        let box = [];
+
+        for (let i = 0; i < newArr.length; i++) {
+            if (newArr[i] !== "") {
+                array.push(newArr[i]);
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            box = array[i].split("");
+            box[0] = box[0].toUpperCase();
+            for (let j = 1; j < box.length; j++) {
+                box[j] = box[j].toLowerCase();
+            }
+            array[i] = box.join("");
+        }
+        array = array.join(" ");
+        return array;
+    }
+    
+    function checkLength(arr) {
+        arr = arr.split(" ");
+        let box = [];
+        let result = "";
+        let count1 = 0;
+        let count2 = 0;
+        for (let i = 0; i < arr.length; i++) {
+            box = arr[i].split("");
+            count1 = box.length;
+            if (count1 > count2) {
+                count2 = count1;
+                result = arr[i];
+            }
+        }
+        return result;
+    }
+
+    function bai1() {
+        let arr = prompt("nhập 1 câu bất kỳ");
+        alert(`câu bạn vừa nhập là: ${arr}`);
+        arr = checkSpace(arr);
+        alert(`câu bạn vừa nhập sau khi được chuẩn hoá: ${arr}`);
+        let arrLength = checkLength(arr);
+        alert(`từ dài nhất trong câu của bạn là: ${arrLength}`);
+    }
+
+    function bai2() {
+        let arr = prompt("nhập 1 sâu ký tự");
+        let box = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (box.indexOf(arr[i]) === -1) {
+                box.push(arr[i]);
+            }
+        }
+        alert(`sâu ${arr} có ${box.length} ký tự khác nhau là ${box}`);
+    }
+
+    function bai3() {
+        let s1 = "aabcc";
+        let s2 = "adcaa";
+        let index = 0;
+        let count = 0;
+        let word = [];
+        let wordCount = [];
+        let box = [];
+
+        for (let i = 0; i < s1.length; i++) {
+            for (let j = 0; j < s2.length; j++) {
+                if (s1[i] === s2[j]) {
+                    count = 1;
+                    box = [];
+                    for (let k = 1; k < 100; k++) {
+                        if (s1[i + k] === s2[j + k]) {
+                            count++;
+                        } else break;
+                    }
+                    for (let k = 0; k < count; k++) {
+                        box.push(s1[i + k]);
+                    }
+                    wordCount.push(count);
+                    word.push(box.join(""));
+                }
+            }
+        }
+
+        for (let i = 0; i < word.length; i++) {
+            for (let j = word.length - 1; j >= i + 1; j--) {
+                if (word[i] === word[j]) {
+                    word.splice(j, 1);
+                    wordCount.splice(j, 1);
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

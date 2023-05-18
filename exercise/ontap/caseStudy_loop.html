@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+
+
+<script>
+
+    function bai1() {
+        let a = [1,2,3,4,5,6,7,8];
+        let b = [];
+        let sum = 0;
+        for (let i = 0; i < a.length; i++) {
+            sum = 0;
+            for (let j = 0; j <= i; j++) {
+                sum = sum + a[j];
+            }
+            b.push(sum);
+        }
+        alert(`mảng chứa prefix sums của mảng a là ${b}`);
+    }
+
+    function bai2() {
+        let a = [1,2,3,4,5,6,7,8,12,13,14,15,16];
+        let b = [1,2,3,4,5,6,7,8,9,10,11];
+        let c = [];
+
+        for (let i = 0; i < b.length; i++) {
+           if (a.indexOf(b[i]) === -1) {
+               c.push(b[i]);
+           }
+        }
+        alert(`những phần tử có trong b mà không có trong a là: ${c}`);
+    }
+
+    function bai3() {
+        let numerators = [5,2,5];
+        let denominators = [6,3,4];
+        let max = numerators[0] / denominators[0];
+        let result = 0;
+        let index = 0;
+
+        for (let i = 1; i < numerators.length; i++) {
+            result = numerators[i] / denominators[i];
+            if (max < result) {
+                max = result;
+                index = i;
+            }
+        }
+
+        alert(`phân số lớn nhất là ${numerators[index]}/${denominators[index]} tại chỉ số ${index}`);
+    }
+
+    function bai4() {
+        let numberChar = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+
+        let num = +prompt("nhập số bất kỳ");
+        while (isNaN(num) || num % 1 !== 0 || num < 0) {
+            num = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+        num = num.toString().split("");
+
+        let char = [];
+        for (let i = 0; i < num.length; i++) {
+            char.push(numberChar[num[i]]);
+        }
+
+        char = char.join(" ");
+
+        alert(`dữ liệu số dưới dạng chữ là: "${char}"`);
+    }
+
+    function bai5() {
+        let menu = ["1. cà phê", "2. cam vắt", "3. nước ép cà rốt", "4. nước ép cà chua", "5. nước lọc", "6. nước dừa", "7. thoát"];
+        let price = [10, 15, 15, 20, 10, 30];
+        let soLuong = 0;
+        let choice = 0;
+        do {
+            choice = +prompt(`chọn số thích hợp với lựa chọn của bạn ` +`\n` +`${menu.join(`\n`)}`);
+            // if (choice === 7) {
+            //     break;
+            // }
+        } while (choice > 7 || choice <= 0);
+
+        if (choice < 7) {
+            do {
+                soLuong = +prompt(`${menu[choice-1]} có giá ${price[choice-1]} ngàn đồng` + `\n` + ` nhập số lượng bạn muốn lấy:`);
+            } while (isNaN(soLuong));
+            alert(`${menu[choice-1]} với số lượng ${soLuong}` + `\n` + `tổng thiệt hại của bạn là ${price[choice-1]*soLuong} ngàn đồng`);
+        }
+    }
+
+
+
+
+</script>
+</body>
+</html>

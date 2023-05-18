@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+
+
+<script>
+    function sumEven(m, n) {
+        let arr = [];
+        let sum = 0;
+        for (let i = 0; i < n; i++) {
+            arr[i] = [];
+            for (let j = 0; j < m; j++) {
+                arr[i][j] = +prompt(`nhập phần tử [${i}][${j}]`);
+                if (arr[i][j] % 2 === 0) {
+                    sum += arr[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+    function bai1() {
+        let n = +prompt("nhập chiều dài của ma trận");
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập chiều dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        let m = +prompt("nhập chiều rộng của ma trận");
+        while (isNaN(m) || m % 1 !== 0 || m < 0) {
+            m = +prompt("vui lòng nhập chiều rộng mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        let sum = sumEven(m ,n);
+        alert(`tổng các số chẵn có trong ma trận là: ${sum}`);
+    }
+
+    function checkPrime(num) {
+        let count = 0;
+        if (num === 1) {
+            return false;
+        } else {
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    count++;
+                }
+            }
+            if (count === 2) {
+                return true;
+            } else return false;
+        }
+    }
+    function resultPrime(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (checkPrime(arr[i][j])) {
+                    newArr.push(arr[i][j]);
+                }
+            }
+        }
+        return newArr;
+    }
+    function bai2() {
+        let arr = [
+            [1,2,3,4,5],
+            [6,7,8,9,10],
+            [11,12,13,14,15]
+        ]
+        let newArr = resultPrime(arr);
+        alert("các số nguyên tố có trong mảng là: " + newArr + "\n" + "số lượng: " + newArr.length);
+    }
+
+    function minMax(arr) {
+        let newArr = [];
+        let max = arr[0][0];
+        let min = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (max < arr[i][j]) {
+                    max = arr[i][j]
+                }
+                if (min > arr[i][j]) {
+                    min = arr[i][j];
+                }
+            }
+        }
+        newArr.push(min, max);
+        return newArr;
+    }
+
+    function bai3() {
+        let arr = [
+            [1,2,3,4,5],
+            [6,7,8,9,10],
+            [11,12,13,14,15]
+        ]
+        let newArr = minMax(arr);
+        alert("số lớn nhất trong mảng là: " + newArr[1] + "\n" + "sô bé nhất trong mảng là: " + newArr[0]);
+    }
+
+</script>
+</body>
+</html>
