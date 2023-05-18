@@ -69,25 +69,16 @@
     }
 
     function bai3() {
-        let array = [];
-        let arraylength = +prompt("nhập độ dài mảng");
-
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
-        }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
-
-        for (let i = 0; i < arraylength; i++) {
-            let count = i + 1;
-            array[i] = prompt("nhấp phần tử thứ " + count + " :");
-        }
-        alert("mảng bạn vừa khởi tạo là: " + array);
-
+        let array = "";
+        array = prompt("nhập một câu bất kỳ");
+        alert("câu bạn vừa nhập là: " + array);
+        let newArr = array.split(" ");
+        console.log(newArr)
         let count = 0;
-
-        for (let i = 0; i < array.length; i++) {
-            if (!isNaN(array[i])) {
-                count++
+        debugger
+        for (let i = 0; i < newArr.length; i++) {
+            if (!isNaN(+newArr[i])) {
+                count++;
             }
         }
 
