@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>case study</title>
+    <style>
+
+        .left-column {
+            width: 20%;
+            height: 800px;
+            background: #ddd;
+            float: left;
+            text-align: center;
+
+        }
+        .right-column {
+            width: 79%;
+            height: 800px;
+            background: white;
+            float: right;
+            border: dotted;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div style="text-align: center"><h1>Hệ Thống Quản Lý Bài Tập Casestudy module 1</h1></div>
+<hr>
+<div class="left-column">
+    <br><br>
+    Bài tập vẽ hình
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="veHinhBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="veHinhBai2()" value="Bài 2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="veHinhBai3()" value="Bài 3"></td>
+                <td><input type="button" onclick="veHinhBai4()" value="Bài 4"></td>
+            </tr>
+        </table>
+    </div>
+    <a href="caseStudy_veHinh.html"></a>
+    <br><br><br>
+    Bài tập về if switch case
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="dieuKienBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="dieuKienBai2()" value="Bài 2"></td>
+            </tr>
+        </table>
+    </div>
+    <a href="caseStudy_ifSwitchCase.html"></a>
+    <br><br><br>
+    Bài tập về loop
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="loopBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="loopBai2()" value="Bài 2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="loopBai3()" value="Bài 3"></td>
+                <td><input type="button" onclick="loopBai4()" value="Bài 4"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="loopBai5()" value="Bài 5"></td>
+            </tr>
+        </table>
+    </div>
+    <a href="caseStudy_loop.html"></a>
+    <br><br><br>
+    Bài tập về string
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="stringBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="stringBai2()" value="Bài 2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="stringBai3()" value="Bài 3"></td>
+            </tr>
+        </table>
+    </div>
+    <a href="caseStudy_string.html"></a>
+    <br><br><br>
+    Bài tập về array 2D
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="arrayBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="arrayBai2()" value="Bài 2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="arrayBai3()" value="Bài 3"></td>
+            </tr>
+        </table>
+    </div>
+    <a href="caseStudy_array2way.html"></a>
+    <br><br><br>
+    <a href="caseStudy_OOP.html">Bài Tập OOP</a>
+</div>
+<div class="right-column" >
+    <br><br><br>
+    <div style="position: relative; display: inline-block" id="result"></div>
+</div>
+
+
+<script>
+    function veHinhBai1() {
+        let x = +prompt("nhập chiều dài hình chữ nhật");
+        let text = ""
+        while (isNaN(x) || x % 1 !== 0 || x <= 0) {
+            x = +prompt("hãy nhập chiều dài X dưới dạng dữ liệu số nguyên dương")
+        }
+
+        let y = +prompt("nhập chiều rộng hình chữ nhật");
+        while (isNaN(y) || y % 1 !== 0 || y <= 0) {
+            y = +prompt("hãy nhập chiều rộng Y dưới dạng dữ liệu số nguyên dương")
+        }
+
+        for (let i = 0; i < y; i++) {
+            for (let j = 0; j < x; j++) {
+                if (i === 0 || i === y - 1) {
+                    text += "*&nbsp&nbsp";
+                } else {
+                    if (j === 0 || j === x - 1) {
+                        text += "*&nbsp&nbsp";
+                    } else text += "&nbsp&nbsp&nbsp&nbsp";
+                }
+            }
+            text += "<br/>";
+        }
+        document.getElementById("result").innerHTML = text;
+    }
+    function veHinhBai2() {
+        let h = +prompt("nhập chiều cao hình tam giác, min = 4");
+        let text = "";
+        while (isNaN(h) || h % 1 !== 0 || h <= 0) {
+            h = +prompt("hãy nhập chiều cao h dưới dạng dữ liệu số nguyên dương")
+        }
+        for (let i = 0; i < h; i++) {
+            for (let j = 0; j <= i; j++) {
+                if (i > 1 && i < h - 1) {
+                    if (j === 0 || j === i) {
+                        text += "*&nbsp&nbsp";
+                    } else text += "&nbsp&nbsp&nbsp&nbsp";
+                } else text += "*&nbsp&nbsp";
+            }
+            text += "<br/>";
+        }
+        document.getElementById("result").innerHTML = text;
+    }
+
+    function veHinhBai3() {
+        let h = +prompt("nhập chiều cao hình tam giác");
+        let text = "";
+        while (isNaN(h) || h % 1 !== 0 || h <= 0) {
+            h = +prompt("hãy nhập chiều cao h dưới dạng dữ liệu số nguyên dương")
+        }
+        for (let i = 0; i < h; i++) {
+            for (let j = 0; j < h*2; j++) {
+                if (j >= h - i && j <= h + i) {
+                    text += "*&nbsp&nbsp";
+                } else text += "&nbsp&nbsp&nbsp&nbsp";
+            }
+            text += "<br/>";
+        }
+        document.getElementById("result").innerHTML = text;
+    }
+
+    function veHinhBai4() {
+        let h = +prompt("nhập chiều cao hình tam giác");
+        let text = "";
+        while (isNaN(h) || h % 1 !== 0 || h <= 0) {
+            h = +prompt("hãy nhập chiều cao h dưới dạng dữ liệu số nguyên dương")
+        }
+        for (let i = 0; i < h; i++) {
+            for (let j = 0; j < h*2; j++) {
+                if (j >= h - i && j <= h + i) {
+                    if (i > 0 && i < h - 1) {
+                        if (j === h - i || j === h + i) {
+                            text += "*&nbsp&nbsp";
+                        } else text += "&nbsp&nbsp&nbsp&nbsp";
+                    } else text += "*&nbsp&nbsp";
+                } else text += "&nbsp&nbsp&nbsp&nbsp";
+            }
+            text += "<br/>";
+        }
+        document.getElementById("result").innerHTML = text;
+    }
+
+    function dieuKienBai1() {
+        let num = +prompt("nhập lương nhân viên (ĐVT = triệu đồng)");
+        while (isNaN(num) || num <= 0) {
+            num = +prompt("hãy nhập lương dưới dạng dữ liệu số nguyên dương")
+        }
+        let salary = 0;
+        let tax = 0;
+
+        if (num >= 15) {
+            tax = num * 0.2;
+        } else if (num >= 7) {
+            tax = num * 0.1;
+        } else tax = num * 0.05;
+
+        tax = tax.toFixed(3)
+        salary = (num - tax).toFixed(3);
+
+        alert(`thuế thu nhập là: ${tax} triệu, lương ròng còn lại: ${salary} triệu`)
+    }
+
+    function dieuKienBai2() {
+        let word = prompt("nhập 1 ký tự bất kỳ");
+        let check = false;
+        while (!isNaN(word) || word.length > 1) {
+            word = prompt("hãy nhập giá trị dưới dạng 1 chữ cái");
+        }
+
+        let vowel = "euiaeEUIAE";
+
+        for (let i = 0; i < word.length; i++) {
+            if (vowel.indexOf(word[i]) !== -1) {
+                check = true;
+            }
+        }
+
+        if (check) {
+            alert(`"${word}" là ký tự nguyên âm`);
+        } else alert(`"${word}" là ký tự phụ âm`);
+    }
+
+    function loopBai1() {
+        let a = [1,2,3,4,5,6,7,8];
+        let b = [];
+        let sum = 0;
+        for (let i = 0; i < a.length; i++) {
+            sum = 0;
+            for (let j = 0; j <= i; j++) {
+                sum = sum + a[j];
+            }
+            b.push(sum);
+        }
+        alert("mảng a: " + a);
+        alert(`mảng chứa prefix sums của mảng a là ${b}`);
+    }
+
+    function loopBai2() {
+        let a = [1,2,3,4,5,6,7,8,12,13,14,15,16];
+        let b = [1,2,3,4,5,6,7,8,9,10,11];
+        let c = [];
+
+        for (let i = 0; i < b.length; i++) {
+            if (a.indexOf(b[i]) === -1) {
+                c.push(b[i]);
+            }
+        }
+        alert("mảng a: " + a);
+        alert("mảng b: " + b);
+        alert(`những phần tử có trong b mà không có trong a là: ${c}`);
+    }
+
+    function loopBai3() {
+        let numerators = [5,2,5];
+        let denominators = [6,3,4];
+        let max = numerators[0] / denominators[0];
+        let result = 0;
+        let index = 0;
+
+        for (let i = 1; i < numerators.length; i++) {
+            result = numerators[i] / denominators[i];
+            if (max < result) {
+                max = result;
+                index = i;
+            }
+        }
+        alert("mảng a: " + numerators);
+        alert("mảng b: " + denominators);
+        alert(`phân số lớn nhất là ${numerators[index]}/${denominators[index]} tại chỉ số ${index}`);
+    }
+
+    function loopBai4() {
+        let numberChar = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
+
+        let num = +prompt("nhập số bất kỳ");
+        while (isNaN(num) || num % 1 !== 0 || num < 0) {
+            num = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+        num = num.toString().split("");
+
+        let char = [];
+        for (let i = 0; i < num.length; i++) {
+            char.push(numberChar[num[i]]);
+        }
+
+        char = char.join(" ");
+
+        alert(`dữ liệu số dưới dạng chữ là: "${char}"`);
+    }
+
+    function loopBai5() {
+        let menu = ["1. cà phê", "2. cam vắt", "3. nước ép cà rốt", "4. nước ép cà chua", "5. nước lọc", "6. nước dừa", "7. thoát"];
+        let price = [10, 15, 15, 20, 10, 30];
+        let soLuong = 0;
+        let choice = 0;
+        do {
+            choice = +prompt(`chọn số thích hợp với lựa chọn của bạn ` +`\n` +`${menu.join(`\n`)}`);
+            // if (choice === 7) {
+            //     break;
+            // }
+        } while (choice > 7 || choice <= 0);
+
+        if (choice < 7) {
+            do {
+                soLuong = +prompt(`${menu[choice-1]} có giá ${price[choice-1]} ngàn đồng` + `\n` + ` nhập số lượng bạn muốn lấy:`);
+            } while (isNaN(soLuong));
+            alert(`${menu[choice-1]} với số lượng ${soLuong}` + `\n` + `tổng thiệt hại của bạn là ${price[choice-1]*soLuong} ngàn đồng`);
+        }
+    }
+
+    function checkSpace(arr) {
+        let newArr = arr.split(" ");
+        let array = [];
+        let box = [];
+
+        for (let i = 0; i < newArr.length; i++) {
+            if (newArr[i] !== "") {
+                array.push(newArr[i]);
+            }
+        }
+        for (let i = 0; i < array.length; i++) {
+            box = array[i].split("");
+            box[0] = box[0].toUpperCase();
+            for (let j = 1; j < box.length; j++) {
+                box[j] = box[j].toLowerCase();
+            }
+            array[i] = box.join("");
+        }
+        array = array.join(" ");
+        return array;
+    }
+
+    function checkLength(arr) {
+        arr = arr.split(" ");
+        let box = [];
+        let result = "";
+        let count1 = 0;
+        let count2 = 0;
+        for (let i = 0; i < arr.length; i++) {
+            box = arr[i].split("");
+            count1 = box.length;
+            if (count1 > count2) {
+                count2 = count1;
+                result = arr[i];
+            }
+        }
+        return result;
+    }
+
+    function stringBai1() {
+        let arr = prompt("nhập 1 câu bất kỳ");
+        alert(`câu bạn vừa nhập là: ${arr}`);
+        arr = checkSpace(arr);
+        alert(`câu bạn vừa nhập sau khi được chuẩn hoá: ${arr}`);
+        let arrLength = checkLength(arr);
+        alert(`từ dài nhất trong câu của bạn là: ${arrLength}`);
+    }
+
+    function stringBai2() {
+        let arr = prompt("nhập 1 sâu ký tự");
+        let box = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (box.indexOf(arr[i]) === -1) {
+                box.push(arr[i]);
+            }
+        }
+        alert(`sâu ${arr} có ${box.length} ký tự khác nhau là ${box}`);
+    }
+
+    function stringBai3() {
+        let s1 = "aabcc";
+        let s2 = "adcaa";
+        let index = 0;
+        let count = 0;
+        let word = [];
+        let wordCount = [];
+        let box = [];
+
+        for (let i = 0; i < s1.length; i++) {
+            for (let j = 0; j < s2.length; j++) {
+                if (s1[i] === s2[j]) {
+                    count = 1;
+                    box = [];
+                    for (let k = 1; k < 100; k++) {
+                        if (s1[i + k] === s2[j + k]) {
+                            count++;
+                        } else break;
+                    }
+                    for (let k = 0; k < count; k++) {
+                        box.push(s1[i + k]);
+                    }
+                    wordCount.push(count);
+                    word.push(box.join(""));
+                }
+            }
+        }
+
+        for (let i = 0; i < word.length; i++) {
+            for (let j = word.length - 1; j >= i + 1; j--) {
+                if (word[i] === word[j]) {
+                    word.splice(j, 1);
+                    wordCount.splice(j, 1);
+                }
+            }
+        }
+    }
+
+    function sumEven(m, n) {
+        let arr = [];
+        let sum = 0;
+        for (let i = 0; i < n; i++) {
+            arr[i] = [];
+            for (let j = 0; j < m; j++) {
+                arr[i][j] = +prompt(`nhập phần tử [${i}][${j}]`);
+                if (arr[i][j] % 2 === 0) {
+                    sum += arr[i][j];
+                }
+            }
+        }
+        return sum;
+    }
+    function arrayBai1() {
+        let n = +prompt("nhập chiều dài của ma trận");
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập chiều dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        let m = +prompt("nhập chiều rộng của ma trận");
+        while (isNaN(m) || m % 1 !== 0 || m < 0) {
+            m = +prompt("vui lòng nhập chiều rộng mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        let sum = sumEven(m ,n);
+        alert(`tổng các số chẵn có trong ma trận là: ${sum}`);
+    }
+
+    function checkPrime(num) {
+        let count = 0;
+        if (num === 1) {
+            return false;
+        } else {
+            for (let i = 1; i <= num; i++) {
+                if (num % i === 0) {
+                    count++;
+                }
+            }
+            if (count === 2) {
+                return true;
+            } else return false;
+        }
+    }
+    function resultPrime(arr) {
+        let newArr = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (checkPrime(arr[i][j])) {
+                    newArr.push(arr[i][j]);
+                }
+            }
+        }
+        return newArr;
+    }
+    function arrayBai2() {
+        let arr = [
+            [1,2,3,4,5],
+            [6,7,8,9,10],
+            [11,12,13,14,15]
+        ]
+        let newArr = resultPrime(arr);
+        alert("các số nguyên tố có trong mảng là: " + newArr + "\n" + "số lượng: " + newArr.length);
+    }
+
+    function minMax(arr) {
+        let newArr = [];
+        let max = arr[0][0];
+        let min = arr[0][0];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (max < arr[i][j]) {
+                    max = arr[i][j]
+                }
+                if (min > arr[i][j]) {
+                    min = arr[i][j];
+                }
+            }
+        }
+        newArr.push(min, max);
+        return newArr;
+    }
+
+    function arrayBai3() {
+        let arr = [
+            [1,2,3,4,5],
+            [6,7,8,9,10],
+            [11,12,13,14,15]
+        ]
+        let newArr = minMax(arr);
+        alert("mảng a: " + arr)
+        alert("số lớn nhất trong mảng là: " + newArr[1] + "\n" + "sô bé nhất trong mảng là: " + newArr[0]);
+    }
+</script>
+</body>
+</html>

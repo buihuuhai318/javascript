@@ -16,42 +16,18 @@
 </head>
 <body>
 <h1>Xổ Số Code Gym</h1>
+<input type="button" style="height: 50px; width: 100px; font-size: larger" value="Mua Vé" onclick="buyLottery()">
+<br>
+<br>
 <div>
     <table border="1">
         <tr>
-            <td>
-                <select>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                    <option>1</option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option></option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option></option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option></option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option></option>
-                </select>
-            </td>
-            <td>
-                <select>
-                    <option></option>
-                </select>
-            </td>
+            <td><div style="text-align: center" id="num0"></div></td>
+            <td><div style="text-align: center" id="num1"></div></td>
+            <td><div style="text-align: center" id="num2"></div></td>
+            <td><div style="text-align: center" id="num3"></div></td>
+            <td><div style="text-align: center" id="num4"></div></td>
+            <td><div style="text-align: center" id="num5"></div></td>
         </tr>
     </table>
 </div>
@@ -59,20 +35,115 @@
 <div>
     <table border="1">
         <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
+            <td><div style="text-align: center" id="codegym0"></div></td>
+            <td><div style="text-align: center" id="codegym1"></div></td>
+            <td><div style="text-align: center" id="codegym2"></div></td>
+            <td><div style="text-align: center" id="codegym3"></div></td>
+            <td><div style="text-align: center" id="codegym4"></div></td>
+            <td><div style="text-align: center" id="codegym5"></div></td>
         </tr>
     </table>
 </div>
-
-
+<br><br>
+<div id="result"></div>
+<br><br>
+<a href="index.html">Trang Chủ</a>
 
 <script>
 
+    class Lottery {
+        constructor(arr) {
+            this.num1 = arr[0];
+            this.num2 = arr[1];
+            this.num3 = arr[2];
+            this.num4 = arr[3];
+            this.num5 = arr[4];
+            this.num6 = arr[5];
+            this.numTicket = [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]]
+        }
+    }
+    function buyLottery() {
+        let choice = choiceAction();
+        let ticket;
+        if (choice === 1) {
+            ticket = new Lottery(choiceNumber());
+        } else {
+            ticket = new Lottery(randomNumber());
+        }
+        showMyTicket(ticket);
+        checkWin(ticket);
+    }
+
+    function randomNumber() {
+        let arr = [];
+        for (let i = 0; i < 6; i++) {
+            arr[i] = parseInt(Math.random()*99)
+        }
+        return arr;
+    }
+
+    function choiceNumber() {
+        let arr = [];
+        for (let i = 0; i < 6; i++) {
+            arr[i] = +prompt("nhập số thứ " + (i + 1) + " trong khoảng từ 0 đến 99");
+            while (isNaN(arr[i]) || arr[i] < 0 || arr[i] > 99 || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập dữ liệu dạng số nguyên trong khoảng từ 0 đến 99` + `\n` + `nhập số thứ ${i + 1}`);
+            }
+        }
+        return arr;
+    }
+
+    function choiceAction() {
+        let choice = 0;
+        do {
+            choice = +prompt(
+                "Cám ơn bạn đã sử dụng dịch vụ của chúng tôi"
+                + `\n` + "Nhập số tương ứng với lựa chọn của bạn: "
+                + `\n` + "1. Bạn tự chọn 6 số" + `\n`
+                + "2. Random 6 số ngẫu nhiên"
+            )
+        } while (!isNaN(choice) && choice > 2)
+        return choice;
+    }
+
+    function showMyTicket(myTicket) {
+        for (let i = 0; i < myTicket.numTicket.length; i++) {
+            document.getElementById(`num${i}`).innerHTML = myTicket.numTicket[i];
+        }
+    }
+
+    function checkWin(myTicket) {
+        // let result = randomNumber();
+        let result = [10,10,10,10,10,10];
+        let count = 0;
+        for (let i = 0; i < result.length; i++) {
+            document.getElementById(`codegym${i}`).innerHTML = result[i];
+        }
+        debugger
+        for (let i = myTicket.numTicket.length - 1; i > 0; i--) {
+            if (myTicket.numTicket[i] === result[i]) {
+                count++;
+            } else break;
+        }
+
+        let text = document.getElementById("result")
+        switch (count) {
+            case 3 :
+                text.innerHTML = "Bạn đã may mắn trúng giải 3 với phần thưởng là CÓ CÁI NỊT";
+                break;
+
+            case 5 :
+                text.innerHTML = "Bạn đã may mắn trúng giải 2 với phần thưởng là CÓ 2 CÁI NỊT";
+                break;
+
+            case 6 :
+                text.innerHTML = "Bạn đã may mắn trúng giải 3 với phần thưởng là VẪN CÓ CÁI NỊT";
+                break;
+
+            default :
+                text.innerHTML = "Chúc bạn may mắn lần sau :) !!";
+        }
+    }
 </script>
 </body>
 </html>
