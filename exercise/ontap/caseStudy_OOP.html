@@ -47,6 +47,8 @@
 <br><br>
 <div id="result"></div>
 <br><br>
+<input type="button" style="height: 50px; width: 300px; font-size: larger" value="Kiểm tra kết quả xổ số" onclick="check()">
+<br><br><br>
 <a href="index.html">Trang Chủ</a>
 
 <script>
@@ -62,15 +64,19 @@
             this.numTicket = [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]]
         }
     }
+    let ticket;
     function buyLottery() {
         let choice = choiceAction();
-        let ticket;
+
         if (choice === 1) {
             ticket = new Lottery(choiceNumber());
         } else {
             ticket = new Lottery(randomNumber());
         }
         showMyTicket(ticket);
+    }
+
+    function check() {
         checkWin(ticket);
     }
 
@@ -119,7 +125,7 @@
         for (let i = 0; i < result.length; i++) {
             document.getElementById(`codegym${i}`).innerHTML = result[i];
         }
-        debugger
+
         for (let i = myTicket.numTicket.length - 1; i > 0; i--) {
             if (myTicket.numTicket[i] === result[i]) {
                 count++;

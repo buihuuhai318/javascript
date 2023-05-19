@@ -75,39 +75,19 @@
     function bai3() {
         let s1 = "aabcc";
         let s2 = "adcaa";
-        let index = 0;
-        let count = 0;
+        s2 = s2.split("");
         let word = [];
-        let wordCount = [];
-        let box = [];
 
-        for (let i = 0; i < s1.length; i++) {
-            for (let j = 0; j < s2.length; j++) {
+        for (let i = 0; i < s1.length ; i++) {
+            for (let j = s2.length - 1; j >= 0; j--) {
                 if (s1[i] === s2[j]) {
-                    count = 1;
-                    box = [];
-                    for (let k = 1; k < 100; k++) {
-                        if (s1[i + k] === s2[j + k]) {
-                            count++;
-                        } else break;
-                    }
-                    for (let k = 0; k < count; k++) {
-                        box.push(s1[i + k]);
-                    }
-                    wordCount.push(count);
-                    word.push(box.join(""));
+                    word.push(s1[i]);
+                    s2.pop();
+                    break;
                 }
             }
         }
-
-        for (let i = 0; i < word.length; i++) {
-            for (let j = word.length - 1; j >= i + 1; j--) {
-                if (word[i] === word[j]) {
-                    word.splice(j, 1);
-                    wordCount.splice(j, 1);
-                }
-            }
-        }
+        alert(`2 chuỗi có số ký tự chung là ${word.length}, đó là ${word}`);
     }
 
 
