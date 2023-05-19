@@ -41,12 +41,12 @@
     }
     
     function bai3() {
-        var string = prompt("nhập 1 câu bất kỳ");
-        var str = string.toString();
+        let string = prompt("nhập 1 câu bất kỳ");
+        let str = string.toString();
         alert(str);
-        var UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        var LOWER = 'abcdefghijklmnopqrstuvwxyz';
-        var result = [];
+        let UPPER = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let LOWER = 'abcdefghijklmnopqrstuvwxyz';
+        let result = [];
 
         for (let i = 0; i < str.length; i++) {
             if (UPPER.indexOf(str[i]) !== -1) {

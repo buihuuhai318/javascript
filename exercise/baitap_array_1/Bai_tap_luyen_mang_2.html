@@ -65,17 +65,16 @@
             last--;
         }
 
-        alert("mảng của bạn sau khi đảo ngược lại là: " + array.join(""))
+        alert("mảng của bạn sau khi đảo ngược lại là: " + array.join("-"))
     }
 
     function bai3() {
-        let array = "";
+        let array;
         array = prompt("nhập một câu bất kỳ");
         alert("câu bạn vừa nhập là: " + array);
         let newArr = array.split(" ");
         console.log(newArr)
         let count = 0;
-        debugger
         for (let i = 0; i < newArr.length; i++) {
             if (!isNaN(+newArr[i])) {
                 count++;
@@ -90,11 +89,15 @@
         let myArray = Array.from(prompt("nhập một câu bất kỳ"))
         // alert(myArray);
 
-        var count = 1;
+        let count;
+
+        if (myArray[0] === " ") {
+            count = 0;
+        } else count = 1;
 
         for (let i = 0; i < myArray.length; i++) {
             if (myArray[i] === " ") {
-                if (myArray[i+1] !== " " && isNaN(myArray[i+1])) {
+                if (myArray[i+1] !== " " && isNaN(myArray[i+1]) && myArray[i+1] !== undefined) {
                     count++
                     console.log(myArray[i+1])
                     console.log(count)

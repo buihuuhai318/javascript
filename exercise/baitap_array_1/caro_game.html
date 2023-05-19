@@ -11,10 +11,10 @@
 <input type="button" value="Change Value" onclick="changeValue()">
 
 <script>
-    var b = document.getElementById("carogame");
-    var board = [];
-    var data = "";
-    var turn = 1;
+    let b = document.getElementById("carogame");
+    let board = [];
+    let data = "";
+    let turn = 1;
 
 
     for (let i = 0; i < 5; i++) {
@@ -32,8 +32,8 @@
     b.innerHTML = "<hr/>" + data;
 
     function changeValue() {
-        var positionX;
-        var positionY;
+        let positionX;
+        let positionY;
 
         if (turn % 2 === 1) {
             positionX = parseInt(prompt("Mời người chơi thứ 1: X: "));

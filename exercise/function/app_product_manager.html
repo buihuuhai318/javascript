@@ -8,7 +8,7 @@
 <div>
     <div><h2>Add new product</h2></div>
     <div>
-        <input type="text" id="add"/>
+        <label for="add"></label><input type="text" id="add"/>
         <button type="submit" onclick="btnAdd()">Add</button>
     </div>
 </div>
@@ -25,12 +25,15 @@
 
 
 <script>
-    var product = ["Sony", "Samsung", "Nokia"];
+    let product = ["Sony", "Samsung", "Nokia"];
 
     display();
 
     function btnAdd() {
-        add(product);
+        let nameProduct = document.getElementById("add").value;
+        if (nameProduct) {
+            add(product, nameProduct);
+        }
         display();
     }
 
@@ -46,7 +49,7 @@
     }
 
     function display() {
-        var text = "";
+        let text = "";
         for (let i = 0; i < product.length; i++) {
             text = text + `<tr>
                 <td id ='pro${i}'>${product[i]}</td>
@@ -68,7 +71,7 @@
 
     function add(string, name) {
         name = document.getElementById("add").value;
-        string = string.push(name);
+        string.push(name);
         document.getElementById("add").value = null;
     }
 

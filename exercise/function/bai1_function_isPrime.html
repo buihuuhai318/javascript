@@ -7,7 +7,7 @@
 <body>
 <script>
 
-    var num = +prompt("nhập vào số bất kỳ: ");
+    let num = +prompt("nhập vào số bất kỳ: ");
 
     if (isPrime(num)) {
         alert(num + " là số nguyên tố");
@@ -20,9 +20,7 @@
                 soUoc = soUoc + 1;
             }
         }
-        if (soUoc === 2) {
-            return true;
-        } else return false;
+        return soUoc === 2;
     }
 
 </script>

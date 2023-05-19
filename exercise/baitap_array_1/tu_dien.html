@@ -8,9 +8,9 @@
 
 <div>
     <label>Nhập từ tiếng anh</label>
-    <input type="text" id="txt"/>
+    <label for="txt"></label><input type="text" id="txt"/>
     <button onclick="trans()">Translate</button>
-    <input type="text" id="result"/>
+    <label for="result"></label><input type="text" id="result"/>
 </div>
 
 
@@ -19,14 +19,14 @@
 
     function trans() {
 
-        var english = ["apple", "banana", "orange"];
-        var vietNam = ["táo", "chuối", "cam"];
-        var inputEng = document.getElementById("txt").value;
-        var outputVn;
+        let english = ["apple", "banana", "orange"];
+        let vietNam = ["táo", "chuối", "cam"];
+        let inputEng = document.getElementById("txt").value;
+        let outputVn;
 
 
         if (english.indexOf(inputEng) !== -1) {
-            var adress = english.indexOf(inputEng);
+            let adress = english.indexOf(inputEng);
             outputVn = vietNam[adress];
         } else {
             outputVn = "không tìm thấy";

@@ -8,17 +8,15 @@
 <script>
 
   function footToMeter(foot) {
-    let result = 0.305 * foot;
-    return result;
+      return 0.305 * foot;
   }
 
   function meterToFoot(meter) {
-    let result = 3.279 * meter;
-    return result;
+      return 3.279 * meter;
   }
 
-  var feet = +prompt("enter foot");
-  var meters = +prompt("enter meter");
+  let feet = +prompt("enter foot");
+  let meters = +prompt("enter meter");
 
   alert(feet + " foot = " + footToMeter(feet));
   alert(meters + " meter = " + meterToFoot(meters));

@@ -6,8 +6,8 @@
 </head>
 <body>
 <button onclick="alertMess()">Bài 1</button>
-<input type="number" id="bai2" oninput="bai2(this.value)" onchange="bai2(this.value)" placeholder=" input bai 2"/>
-<input type="text" id="outputBai2" placeholder=" output bai 2">
+<label for="bai2"></label><input type="number" id="bai2" oninput="bai2(this.value)" onchange="bai2(this.value)" placeholder=" input bai 2"/>
+<label for="outputBai2"></label><input type="text" id="outputBai2" placeholder=" output bai 2">
 <button onclick="bai3()">Bài 3</button>
 <button onclick="bai4()">Bài 4</button>
 <button onclick="bai5()">Bài 5</button>
@@ -28,8 +28,7 @@
 
     function bai2() {
         let a = document.getElementById("bai2").value;
-        let newNum = numberBai2(a)
-        document.getElementById("outputBai2").value = newNum;
+        document.getElementById("outputBai2").value = numberBai2(a);
     }
 //bai 3
     function sum(a, b) {
@@ -53,40 +52,42 @@
 
 //bai 4
 
+    function addNumbers() {
+        let firstNum = 4;
+        let secondNum = 8;
+        return firstNum + secondNum;
+    }
+
     function bai4() {
-        function addNumbers() {
-            firstNum = 4;
-            secondNum = 8;
-            result = firstNum + secondNum;
-            return result;
-        }
-        result = 0;
+        let result = 0;
         alert(result);
         result = addNumbers();
         alert(result);
     }
 //bai 5
+
+    function findStar(name, arr, arr2) {
+        let local = arr.indexOf(name);
+        if (local === -1) {
+            return -1;
+        } else {
+            return arr2[local];
+        }
+    }
     function bai5() {
         let array1 = ["Polaris", "Aldebaran", "Deneb", "Vega", "Altair", "Dubhe", "Regulus"];
         let array2 = ["Ursa Minor", "Tarurus", "Cygnus", "Lyra", "Aquila", "Ursa Major", "Leo"];
 
         let star = prompt("nhập tên ngôi sao bạn cần tìm");
-        function findStar(name) {
-            let local = array1.indexOf(name);
-            if (local === -1) {
-                return -1;
-            } else {
-                return local;
-            }
-        }
 
-        let find = findStar(star);
+
+        let find = findStar(star, array1, array2);
         console.log(find)
 
         if (find === -1) {
             alert("không tìm thấy ngôi sao nào tên " + star);
         } else {
-            alert("ngôi sao " + star + " thuộc chòm sao " + array2[find]);
+            alert("ngôi sao " + star + " thuộc chòm sao " + find);
         }
     }
 

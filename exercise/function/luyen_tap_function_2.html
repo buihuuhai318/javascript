@@ -88,9 +88,7 @@
         let num = prompt("nhập vào 1 số bất kỳ");
 
         function isNumber(a) {
-            if (isNaN(a)) {
-                return false;
-            } else return true;
+            return !isNaN(a);
         }
 
         if (isNumber(num)) {
@@ -130,9 +128,7 @@
         let num = prompt("nhập vào 1 số bất kỳ");
 
         function isNumpPositive(a) {
-            if (a > 0) {
-                return true;
-            } else return false;
+            return a > 0;
         }
 
         let checkNum = isNumpPositive(num);
@@ -209,7 +205,7 @@
             }
             if (count > 0) {
                 return count;
-            } else return count = -1;
+            } else return -1;
         }
 
         let checking = check(someThing, thing);
