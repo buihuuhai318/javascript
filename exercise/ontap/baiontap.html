@@ -15,6 +15,11 @@
 <button onclick="bai8()">Bài 8</button>
 <button onclick="bai9()">Bài 9</button>
 <button onclick="bai10()">Bài 10</button>
+<button onclick="bai11()">Bài 10</button>
+<button onclick="bai12()">Bài 10</button>
+<button onclick="bai13()">Bài 10</button>
+<button onclick="bai14()">Bài 10</button>
+<button onclick="bai15()">Bài 10</button>
 
 
 
@@ -114,8 +119,8 @@
 
     function checkString(string) {
         let str = string.toString()
-        var upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        var lower = 'abcdefghijklmnopqrstuvwxyz';
+        let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let lower = 'abcdefghijklmnopqrstuvwxyz';
         let countUp = 0;
         let countLow = 0;
 
@@ -126,9 +131,7 @@
                 countLow++;
             }
         }
-        if (countLow === countUp) {
-            return true;
-        } else return false;
+        return countLow === countUp;
     }
     function bai4() {
         let str1 = "Toi La Hai";
@@ -320,6 +323,9 @@
         alert(`các số chính phương có trong mảng là ${newArr}`)
     }
 
+    function bai11() {
+        
+    }
 
 
 
