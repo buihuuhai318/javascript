@@ -20,6 +20,7 @@
 <button onclick="bai13()">Bài 13</button>
 <button onclick="bai14()">Bài 14</button>
 <button onclick="bai15()">Bài 15</button>
+<button onclick="bai16()">Bài 16</button>
 
 
 
@@ -445,33 +446,54 @@
         }
 
         if (checkArrFiboncacy(arr)) {
-            alert("yes");
+            alert("tất cả phần tử trong mảng đều thuộc dãy fibonacy");
         } else {
-            alert("no");
+            alert("mảng có chứa phần tử không thuộc dãy fibonacy");
         }
     }
 
     function checkFibonacy(num) {
-        if (num === 0 || num === 1 || num === 2 || num === 3 || num === 5 || num === 8) {
-            return true;
-        } else return checkFibonacy(num - 2) + checkFibonacy(num - 1);
+        let a = 0, b = 1, box;
+        while (b < num) {
+            box = a;
+            a = a + b;
+            b = box;
+        }
+        return b === num;
     }
 
     function checkArrFiboncacy(arr) {
         for (let i = 0; i < arr.length; i++) {
-            if (checkFibonacy(arr[i])) {
-
-            } else return false
+            if (!checkFibonacy(arr[i])) {
+                return false;
+            }
         }
         return true;
     }
 
     function bai16() {
-        let arr = " toi la hai "
+        let string = prompt("nhập một chuỗi từ bất kỳ");
 
+        alert(`từ viết tắt của chuỗi từ trên là ${getScronym(string)}`)
     }
 
-    function checkStr
+    function getScronym(arr) {
+        arr = arr.split(" ");
+        console.log(arr)
+        let acronym = [];
+        let box =[];
+        let count = 0;
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] !== "") {
+                count++;
+                acronym.push(arr[i][0].toUpperCase());
+                box.push(arr[i]);
+            }
+        }
+        if (count === 1) {
+            return box;
+        } else  return acronym.join("");
+    }
 
 
 

@@ -7,37 +7,10 @@
 <body>
 <script>
 
-    function kangaroo(arr) {
-        debugger
-        let count1 = 1;
-        let count2 = 0;
-        let min1 = arr[0];
-        let min2 = arr[0];
-        for (let i = 0; i < arr.length; i++) {
-            count1 = 1;
-            min1 = arr[i];
-            for (let j = i + 1; j < arr.length; j++) {
-                if (arr[i] === arr[j]) {
-                    count1++;
-                    min1 = arr[i];
-                }
-            }
-            if (count1 > count2) {
-                count2 = count1;
-                min2 = min1;
-            } else if (count2 === count1) {
-                if (min1 < min2) {
-                    min2 = min1;
-                }
-            }
-        }
-        return min2;
+    for (let i = 0; i < 10; ) {
+        console.log(i)
     }
 
-    let s = [5,2,3,4,1]
-
-    let test = kangaroo(s);
-    console.log(test)
 </script>
 </body>
 </html>
