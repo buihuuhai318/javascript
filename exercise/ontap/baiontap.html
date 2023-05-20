@@ -15,11 +15,11 @@
 <button onclick="bai8()">Bài 8</button>
 <button onclick="bai9()">Bài 9</button>
 <button onclick="bai10()">Bài 10</button>
-<button onclick="bai11()">Bài 10</button>
-<button onclick="bai12()">Bài 10</button>
-<button onclick="bai13()">Bài 10</button>
-<button onclick="bai14()">Bài 10</button>
-<button onclick="bai15()">Bài 10</button>
+<button onclick="bai11()">Bài 11</button>
+<button onclick="bai12()">Bài 12</button>
+<button onclick="bai13()">Bài 13</button>
+<button onclick="bai14()">Bài 14</button>
+<button onclick="bai15()">Bài 15</button>
 
 
 
@@ -158,7 +158,7 @@
 
         for (let i = 0; i < arr.length - 1; i = i + 2) {
             if (arr[i] < arr[i + 1]) {
-                check = true
+                check = true;
             } else {
                 check = false;
                 break;
@@ -219,12 +219,12 @@
             num = arr[i] % 10;
             numx10 = arr[i]/10;
             if (num > numx10) {
-                newArr.push(arr[i])
+                newArr.push(arr[i]);
             }
         }
 
         alert(`mảng bạn vừa nhập là: ${arr}`);
-        alert(`phần tử có hàng đơn vị lớn hơn hàng chục: ${newArr}`)
+        alert(`phần tử có hàng đơn vị lớn hơn hàng chục: ${newArr}`);
     }
 
     function bai8() {
@@ -258,11 +258,11 @@
             }
             if (count1 > count2) {
                 count2 = count1;
-                num2 = num1
+                num2 = num1;
             }
         }
         alert(`mảng bạn vừa nhập là: ${arr}`);
-        alert(`số ${num2} có số lượng lớn nhất trong mảng là ${count2} lần`)
+        alert(`số ${num2} có số lượng lớn nhất trong mảng là ${count2} lần`);
     }
 
     function bai9() {
@@ -291,7 +291,7 @@
             }
         }
         alert(`mảng bạn vừa nhập là: ${arr}`);
-        alert(`số lượng số bằng với giá trị trung bình(${avg}) của các phần tử trong mảng là ${count}`)
+        alert(`số lượng số bằng với giá trị trung bình(${avg}) của các phần tử trong mảng là ${count}`);
     }
 
     function bai10() {
@@ -320,13 +320,158 @@
                 newArr.push(arr[i]);
             }
         }
-        alert(`các số chính phương có trong mảng là ${newArr}`)
+        alert(`các số chính phương có trong mảng là ${newArr}`);
     }
 
     function bai11() {
-        
+        let string = prompt("nhập một chuỗi bất kỳ");
+        let alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let box = [];
+
+        for (let i = 0; i < string.length; i++) {
+            if (isNaN(string[i]) && alphabet.indexOf(string[i]) === -1) {
+                box.push(string[i]);
+            }
+        }
+        alert(`Các ký tự trong chuỗi không phải alphabet là ${box}`);
     }
 
+    function bai12() {
+        let str = "10/12/2023";
+        let str1 = "40/12/2023";
+        console.log(checkDate(str));
+        console.log(checkDate(str1));
+    }
+    function checkDate(string) {
+        string = string.split("/");
+        if (+string[2] <= 2023 && +string[2] > 0) {
+            if (+string[1] <= 12 && +string[1] >= 1) {
+                switch (+string[1]) {
+                    case 1:
+                    case 3:
+                    case 5:
+                    case 7:
+                    case 8:
+                    case 10:
+                    case 12:
+                        return +string[0] <= 31 && +string[0] >= 1;
+                    case 4:
+                    case 6:
+                    case 9:
+                    case 11:
+                        return +string[0] <= 30 && +string[0] >= 1;
+                    case 2:
+                        return +string[0] <= 28 && +string[0] >= 1;
+                }
+            }
+        } else return false;
+    }
+
+    function bai13() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+        }
+        alert(`mảng bạn vừa nhập là: ${arr}`);
+        if (checkPrime(arr)) {
+            alert("oke");
+        } else alert("no");
+    }
+
+    function checkPrime() {
+        let count = 0;
+        for (let k = 0; k < arguments.length; k++) {
+            for (let i = 0; i < arguments[k].length; i++) {
+                count = 0;
+                for (let j = 1; j <= arguments[0][i]; j++) {
+                    if (arguments[0][i] % j === 0) {
+                        count++;
+                    }
+                }
+                if (count !== 2) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    function bai14() {
+        let str = "asddfg ZXCASD";
+        let str1 = "vbnh VBNHGH"
+        alert(checkUpLow(str));
+        alert(checkUpLow(str1));
+    }
+
+    function checkUpLow(str) {
+        let upper = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        let lower = 'abcdefghijklmnopqrstuvwxyz';
+        let countUpper = 0;
+        let countLower = 0;
+        str = str.split("");
+        debugger
+        for (let i = 0; i < str.length; i++) {
+            if (upper.indexOf(str[i]) !== -1) {
+                countUpper++;
+            } else if (lower.indexOf(str[i]) !== -1) {
+                countLower++;
+            }
+        }
+        return countLower === countUpper;
+    }
+
+    function bai15() {
+        let arr = [];
+        let n = +prompt("nhập độ dài của mảng");
+
+        while (isNaN(n) || n % 1 !== 0 || n < 0) {
+            n = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
+        }
+
+        for (let i = 0; i < n; i++) {
+            arr[i] = +prompt(`nhập phần tử thứ ${i + 1}`);
+            while (isNaN(arr[i]) || arr[i] % 1 !== 0) {
+                arr[i] = +prompt(`vui lòng nhập nhập phần tử thứ ${i + 1} ở dạng dữ liệu số nguyên`);
+            }
+        }
+
+        if (checkArrFiboncacy(arr)) {
+            alert("yes");
+        } else {
+            alert("no");
+        }
+    }
+
+    function checkFibonacy(num) {
+        if (num === 0 || num === 1 || num === 2 || num === 3 || num === 5 || num === 8) {
+            return true;
+        } else return checkFibonacy(num - 2) + checkFibonacy(num - 1);
+    }
+
+    function checkArrFiboncacy(arr) {
+        for (let i = 0; i < arr.length; i++) {
+            if (checkFibonacy(arr[i])) {
+
+            } else return false
+        }
+        return true;
+    }
+
+    function bai16() {
+        let arr = " toi la hai "
+
+    }
+
+    function checkStr
 
 
 

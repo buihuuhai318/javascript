@@ -190,7 +190,7 @@ function boxThuDen(x) {
     }
     text = text + `</select>`;
     text = text + `<div id="boxThuDen${x}">
-          </div>`
+          </div>`;
     document.getElementById(`box${x}ThuDen${x}`).innerHTML = text;
 }
 
@@ -213,7 +213,7 @@ function boxDaGui(x) {
     }
     text = text + `</select>`;
     text = text + `<div id="boxDaGui${x}">
-          </div>`
+          </div>`;
     document.getElementById(`box${x}DaGui${x}`).innerHTML = text;
 }
 
@@ -239,7 +239,7 @@ function send(x) {
     };
     mobile[idNhan].thuDen.push(messGui);
     mobile[x].daGui.push(messNhan);
-    used(x)
+    used(x);
     main();
 }
 
@@ -252,7 +252,7 @@ function save(x) {
         noiDung: noiDung,
     };
     mobile[x].chuaGui.push(mess);
-    used(x)
+    used(x);
     main();
 }
 
