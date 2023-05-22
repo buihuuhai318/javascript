@@ -38,13 +38,10 @@
     }
 
     function change(i) {
-        // let newName = prompt("nhập tên mới");
         document.getElementById(`pro${i}`).innerHTML = `
             <td><input type="text" value="${product[i]}" id="newName${i}" /></td>
             <td><button onclick='save(${i})'>Save</button></td>
         `;
-
-
     }
 
     function save(i) {
@@ -65,8 +62,7 @@
                 <td><p>${product[i]}</p></td>
                 <td><button onclick='change(${i})'>Edit</button></td>
                 <td><button onclick='deleteProduct(${i})'>Delete</button></td>
-                </tr>`
-
+                </tr>`;
         }
         document.getElementById("list").innerHTML = text;
     }
