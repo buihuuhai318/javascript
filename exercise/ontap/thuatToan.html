@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick="bai1()">Bài 1</button>
+<button onclick="bai2()">Bài 2</button>
+<button onclick="bai3()">Bài 3</button>
+<button onclick="bai4()">Bài 4</button>
+<button onclick="bai5()">Bài 5</button>
+<button onclick="bai6()">Bài 6</button>
+<button onclick="bai7()">Bài 7</button>
+<button onclick="bai8()">Bài 8</button>
+<button onclick="bai9()">Bài 9</button>
+<button onclick="bai10()">Bài 10</button>
+<button onclick="bai11()">Bài 11</button>
+<button onclick="bai12()">Bài 12</button>
+<button onclick="bai13()">Bài 13</button>
+<button onclick="bai14()">Bài 14</button>
+<button onclick="bai15()">Bài 15</button>
+<button onclick="bai16()">Bài 16</button>
+
+
+
+
+
+
+
+
+
+
+<script>
+
+    function bai1() {
+        let num1 = "1,2,2,1";
+        let num2 = "1,2,2,3,1,3,1,3";
+        let num3 = "4,3,2,1,4,2,3,1";
+        if (checkBai1(num3)) {
+            alert("oke")
+        } else alert("no")
+    }
+
+    function checkBai1(num) {
+        num = num.split(",");
+        let countBox = 0;
+        let count = 0;
+        let box = [];
+        for (let i = 0; i < num.length; i++) {
+            if (box.indexOf(num[i]) === -1) {
+                box.push(num[i]);
+            }
+            if (num[0] === num[i]) {
+                countBox++;
+            }
+        }
+        if (num.length % box.length !== 0) {
+            return false;
+        } else {
+            for (let i = 0; i < box.length; i++) {
+                for (let j = 0; j < num.length; j++) {
+                    if (box[i] === num[j]) {
+                        count++;
+                    }
+                }
+                if (count !== countBox) {
+                    return false;
+                }
+                count = 0;
+            }
+        }
+        return true;
+    }
+
+    function bai2() {
+        let str1 = "Abcdef";
+        let str2 = "Adghjklbc";
+        console.log(checkBai2(str1, str2))
+    }
+    function checkBai2(str1, str2) {
+        str1 = str1.split("");
+        str2 = str2.split("");
+        let count = 0;
+        for (let i = 0; i < str1.length; i++) {
+            for (let j = 0; j < str2.length; j++) {
+                if (str1[i] === str2[j]) {
+                    count++;
+                    str2.splice(j, 1);
+                    break;
+                }
+            }
+        }
+        return count;
+    }
+
+    function bai3() {
+        let str1 = "1,2,3";
+        let str2 = "1,2,3,3";
+        let str3 = "1,2,3,4";
+        let str4 = "1,2,-1,2";
+        console.log(checkBai3(str1))
+        console.log(checkBai3(str2))
+        console.log(checkBai3(str3))
+        console.log(checkBai3(str4))
+    }
+    function checkBai3(str) {
+        str = str.split(",");
+        let sum1 = 0;
+        let sum2 = 0;
+        for (let i = 0; i < str.length; i++) {
+            for (let j = 0; j < i; j++) {
+                sum1 += +str[j];
+            }
+            for (let j = i + 1; j < str.length; j++) {
+                sum2 += +str[j];
+            }
+            if (sum1 === sum2) {
+                return true;
+            } else {
+                sum1 = 0;
+                sum2 = 0;
+            }
+        }
+        return false;
+    }
+
+    function bai4() {
+        let str = "CodeGymDaNang";
+        let str1 = "Hello"
+        console.log(checkBai4(str));
+        console.log(checkBai4(str1));
+    }
+    function checkBai4(str) {
+        let upper = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        let box = [];
+        box[0] = str[0].toLowerCase()
+        for (let i = 1; i < str.length; i++) {
+            if (upper.indexOf(str[i]) !== -1) {
+                box.push(" ", str[i].toLowerCase());
+            } else {
+                box.push(str[i]);
+            }
+        }
+        box = box.join("");
+        return box;
+    }
+
+    function bai5() {
+        let str = "-1,150,190,170,-1,-1,160,180";
+        console.log(checkBai5(str))
+    }
+    function checkBai5(str) {
+        let min;
+        str = str.split(",");
+        for (let i = 0; i < str.length; i++) {
+            if (+str[i] === -1) {
+                continue;
+            } else {
+                for (let j = i + 1; j < str.length; j++) {
+                    if (+str[j] === -1) {
+                        continue;
+                    } else {
+                        if (+str[i] > +str[j]) {
+                            min = str[j];
+                            str[j] = str[i];
+                            str[i] = min
+                        }
+                    }
+                }
+            }
+        }
+        return str;
+    }
+
+    function bai6() {
+        let str = "abdceffecdba";
+        console.log(checkBai6(str))
+    }
+    function checkBai6(str) {
+        let count = 0;
+        let box = [];
+        for (let i = 0; i < str.length; i++) {
+            for (let j = 0; j < str.length; j++) {
+                if (str[i] === str[j]) {
+                    count++;
+                }
+            }
+            if (count > 1) {
+                if (box.indexOf(str[i]) === -1) {
+                    box.push(str[i]);
+                }
+            }
+            count = 0;
+        }
+        return box;
+    }
+
+    function bai7() {
+        let arr = [
+            [1,2,8,43],
+            [9,4,11,7],
+            [11,6,4,0],
+            [1,2,6,51]
+        ];
+        console.log(checkBai7(arr));
+    }
+    function checkBai7(arr) {
+        let box = [];
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr[i].length; j++) {
+                if (checkPrimeBai7(arr[i][j]) && box.indexOf(arr[i][j]) === -1) {
+                    box.push(arr[i][j]);
+                }
+            }
+        }
+        box = box.sort((a, b) => a - b);
+        return box;
+    }
+    function checkPrimeBai7(num) {
+        let count = 0;
+        for (let i = 1; i <= num; i++) {
+            if (num % i === 0) {
+                count++;
+            }
+        }
+        return count === 2;
+    }
+
+    function bai8() {
+        let str1 = "1,4,5,2,3,2,3,1";
+        let str2 = "1,2,3";
+    }
+    function checkBai8(str1, str2) {
+        str1 = str1.split(",");
+        str2 = str2.split(",");
+        let count = 0;
+        let length = str1.length / str2.length;
+        for (let i = 0; i < length; i++) {
+            for (let j = 0; j < str2.length; j++) {
+                for (let k = 0; k < str1.length; k++) {
+                    if (str2[i] === str1[j]) {
+                        count++;
+                        continue;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
