@@ -19,37 +19,35 @@
 <script>
     function bai1() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             array[i] = parseInt(Math.random() * 20);
         }
         alert("mảng hệ thống tự khởi tạo là: " + array);
 
-        var doneArray = array.filter(function (num) {
+        let doneArray = array.filter(function (num) {
             return num > 10;
         });
 
-        //console.log(doneArray);
-
-        alert("có tổng cộng " + doneArray.length + " số lớn hơn 10 là: " + doneArray.toString())
+        alert("có tổng cộng " + doneArray.length + " số lớn hơn 10 là: " + doneArray.toString());
     }
 
     function bai2() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -59,25 +57,25 @@
         }
         alert("mảng bạn vừa khởi tạo là: " + array);
 
-        var max = array[0]
+        let max = array[0]
         for (let i = 1; i < array.length; i++) {
             if (max < array[i]) {
                 max = array[i];
             }
         }
-        alert("số lớn nhất trong mảng là " + max + " ở vị trí " + array.indexOf(max))
+        alert("số lớn nhất trong mảng là " + max + " ở vị trí " + array.indexOf(max));
     }
 
     function bai3() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -87,8 +85,8 @@
         }
         alert("mảng bạn vừa khởi tạo là: " + array);
 
-        var max = array[0]
-        var sum = 0;
+        let max = array[0]
+        let sum = 0;
 
         for (let i = 0; i < array.length; i++) {
             sum = sum + array[i];
@@ -101,20 +99,20 @@
         //     return total + arr;
         // })
 
-        var numAverage = sum / arraylength;
-        alert("số lớn nhất trong mảng là: " + max + " trung bình cộng của mảng là: " + numAverage)
+        let numAverage = sum / arrayLength;
+        alert("số lớn nhất trong mảng là: " + max + " trung bình cộng của mảng là: " + numAverage);
     }
 
     function bai4() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -136,19 +134,19 @@
             first++;
             last--;
         }
-        alert("mảng của bạn sau khi đảo ngược lại là: " + array)
+        alert("mảng của bạn sau khi đảo ngược lại là: " + array);
     }
 
     function bai5() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -158,25 +156,25 @@
         }
         alert("mảng hệ thống tự khởi tạo là: " + array);
 
-        var doneArray = array.filter(function (num) {
+        let doneArray = array.filter(function (num) {
             return num < 0;
         });
 
         //console.log(doneArray);
 
-        alert("có tổng cộng " + doneArray.length + " số nguyên âm, là: " + doneArray.toString())
+        alert("có tổng cộng " + doneArray.length + " số nguyên âm, là: " + doneArray.toString());
     }
 
     function bai6() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -195,14 +193,14 @@
 
     function bai7() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -220,7 +218,7 @@
                 for (let i = box; i < array.length; i++) {
                     array[i] = array[i + 1];
                 }
-                array[arraylength - 1] = 0;
+                array[arrayLength - 1] = 0;
             } while (array.includes(v));
         } else alert("V không thuộc trong mảng");
 
@@ -229,14 +227,14 @@
 
     function bai8() {
         let array = [];
-        let arraylength = +prompt("nhập số lượng số nguyên");
+        let arrayLength = +prompt("nhập số lượng số nguyên");
 
-        while (isNaN(arraylength)) {
-            arraylength = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength)) {
+            arrayLength = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arraylength);
+        alert("mảng của bạn vừa khởi tạo có độ dài là: " + arrayLength);
 
-        for (let i = 0; i < arraylength; i++) {
+        for (let i = 0; i < arrayLength; i++) {
             let count = i + 1;
             array[i] = +prompt("nhấp số thứ " + count + " :");
 
@@ -246,8 +244,7 @@
         }
         alert("mảng hệ thống tự khởi tạo là: " + array);
 
-        var max;
-        var num = 0;
+        let max;
         for (let i = 0; i < array.length; i++) {
             for (let j = i + 1; j < array.length; j++) {
                 if (array[i] < array[j]) {
@@ -267,32 +264,32 @@
 
     function bai9() {
         let array1 = [];
-        let arraylength1 = +prompt("nhập số lượng số nguyên mảng thứ 1");
+        let arrayLength1 = +prompt("nhập số lượng số nguyên mảng thứ 1");
 
-        while (isNaN(arraylength1)) {
-            arraylength1 = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength1)) {
+            arrayLength1 = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng thứ 1 vừa khởi tạo có độ dài là: " + arraylength1);
+        alert("mảng thứ 1 vừa khởi tạo có độ dài là: " + arrayLength1);
 
-        for (let i = 0; i < arraylength1; i++) {
+        for (let i = 0; i < arrayLength1; i++) {
             array1[i] = parseInt(Math.random() * 20);
         }
         alert("mảng thứ 1 hệ thống tự khởi tạo là: " + array1);
 
         let array2 = [];
-        let arraylength2 = +prompt("nhập số lượng số nguyên mảng thứ 2");
+        let arrayLength2 = +prompt("nhập số lượng số nguyên mảng thứ 2");
 
-        while (isNaN(arraylength2)) {
-            arraylength2 = +prompt("vui lòng nhập dữ liệu dạng số");
+        while (isNaN(arrayLength2)) {
+            arrayLength2 = +prompt("vui lòng nhập dữ liệu dạng số");
         }
-        alert("mảng thứ 2 vừa khởi tạo có độ dài là: " + arraylength2);
+        alert("mảng thứ 2 vừa khởi tạo có độ dài là: " + arrayLength2);
 
-        for (let i = 0; i < arraylength2; i++) {
+        for (let i = 0; i < arrayLength2; i++) {
             array2[i] = parseInt(Math.random() * 20);
         }
         alert("mảng thứ 2 hệ thống tự khởi tạo là: " + array2);
 
-        var newArray = array1.concat(array2);
+        let newArray = array1.concat(array2);
 
         // for (let i = 0; i < array2.length; i++) {
         //     array1.push(array2[i]);
