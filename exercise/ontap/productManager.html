@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>product</title>
+</head>
+<body>
+<h2>Product Manager</h2>
+<div id="addNewProduct">
+
+    <button onclick="displayAddProduct()">Thêm Mới</button>
+</div>
+<hr>
+<div id="tableProduct">
+
+
+
+
+</div>
+
+
+<script>
+    class Product {
+        constructor(id, name, price) {
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+    let apple = new Product(1, "apple", 1000);
+    let nokia = new Product(2, "nokia", 2000);
+
+    let listProduct = [];
+    listProduct.push(apple, nokia);
+
+    displayProduct(listProduct);
+    function displayProduct(list) {
+        let text = `<table border="1" style="border-collapse: collapse" >`;
+        text += `
+            <tr>
+                <th>#</th>
+                <th>Tên Sản Phẩm</th>
+                <th>Giá</th>
+                <th colspan="2">Thao Tác</th>
+            </tr>`;
+        for (let i = 0; i < list.length; i++) {
+            text += `
+            <tr id="product${i}">
+                <td>${i + 1}</td>
+                <td>${list[i].name}</td>
+                <td>${list[i].price}</td>
+                <td><button onclick="displayEdit(${i})">Sửa</button></td>
+                <td><button onclick="deleteProduct(${i})">Xoá</button></td>
+            </tr>`;
+        }
+        text += `</table>`;
+        document.getElementById("tableProduct").innerHTML = text;
+    }
+
+    function deleteProduct(i) {
+        listProduct.splice(i, 1);
+        displayProduct(listProduct);
+    }
+
+    function displayAddProduct() {
+        document.getElementById("addNewProduct").innerHTML = `
+            <input type="text" id="idProduct" placeholder="id"><br>
+            <input type="text" id="nameProduct" placeholder="Tên Sản Phẩm"><br>
+            <input type="text" id="priceProduct" placeholder="Giá ($)"><br><br>
+            <button onclick="addProduct()">Thêm Mới</button>
+        `;
+    }
+    function addProduct() {
+        let id = document.getElementById("idProduct").value;
+        let name = document.getElementById("nameProduct").value;
+        let price = document.getElementById("priceProduct").value;
+        let newProduct = new Product(id, name, price);
+        listProduct.push(newProduct);
+        displayProduct(listProduct);
+        document.getElementById("idProduct").value = "";
+        document.getElementById("nameProduct").value = "";
+        document.getElementById("priceProduct").value = "";
+        document.getElementById("addNewProduct").innerHTML = `<button onclick="displayAddProduct()">Thêm Mới</button>`;
+    }
+
+    function displayEdit(i) {
+        displayProduct(listProduct);
+        document.getElementById(`product${i}`).innerHTML = `
+            <td>${i + 1}</td>
+            <td><input type="text" id="nameEdit" value="${listProduct[i].name}"></td>
+            <td><input type="text" id="priceEdit" value="${listProduct[i].price}"></td>
+            <td colspan="2"><button onclick="eidtProduct(${i})">Save</button></td>
+        `;
+
+    }
+
+    function eidtProduct(i) {
+        let name = document.getElementById("nameEdit").value;
+        let price = document.getElementById("priceEdit").value;
+        listProduct[i].name = name;
+        listProduct[i].price = price;
+        displayProduct(listProduct);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
