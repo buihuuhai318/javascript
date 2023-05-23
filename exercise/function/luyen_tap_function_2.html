@@ -114,14 +114,14 @@
         } while (isNaN(num3));
 
 
-        function max(a, b, c) {
-            let numMax = a;
-            numMax = numMax > c ? numMax : c;
-            numMax = numMax > b ? numMax : b;
-            return numMax;
+        function min(a, b, c) {
+            let numMin = a;
+            numMin = numMin < c ? numMin : c;
+            numMin = numMin < b ? numMin : b;
+            return numMin;
         }
 
-        alert("số lớn nhất trong 3 số " + num1 + ", " + num2 + ", " + num3 + " là: " + max(num1, num2, num3));
+        alert("số nhỏ nhất trong 3 số " + num1 + ", " + num2 + ", " + num3 + " là: " + min(num1, num2, num3));
     }
 
     function bai6() {

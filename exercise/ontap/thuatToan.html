@@ -228,23 +228,87 @@
     }
 
     function bai8() {
-        let str1 = "1,4,5,2,3,2,3,1";
+        let str1 = "1,4,5,2,3,2,3,8";
         let str2 = "1,2,3";
+        console.log(checkBai8(str1, str2))
     }
     function checkBai8(str1, str2) {
         str1 = str1.split(",");
         str2 = str2.split(",");
         let count = 0;
+        let countArr = 0;
         let length = str1.length / str2.length;
         for (let i = 0; i < length; i++) {
             for (let j = 0; j < str2.length; j++) {
                 for (let k = 0; k < str1.length; k++) {
-                    if (str2[i] === str1[j]) {
+                    if (+str2[j] === +str1[k]) {
                         count++;
-                        continue;
+                        str1.splice(k, 1);
+                        break;
                     }
                 }
             }
+            if (count === str2.length) {
+                countArr++;
+            }
+            count = 0;
+        }
+        return countArr;
+    }
+
+    function bai9() {
+        let a = 10;
+        let b = 100;
+        console.log(checkBai9(a, b))
+    }
+    function checkBai9(a, b) {
+        let arr = [];
+        let box = [];
+        let count = 0;
+        for (let i = a; i <= b; i++) {
+            arr.push(i);
+        }
+        for (let i = 0; i < arr.length; i++) {
+            box = arr[i].toString().split("");
+            if (box[0] === box[box.length - 1]) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    function bai10() {
+        let a = [3, 2, 1, 0, 3];
+        let b = 10;
+        console.log(checkBai10(a, b));
+    }
+    function checkBai10(a, b) {
+        let max = a[0];
+        let idMax = 0, idMin = 0;
+        let min = 0;
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== 0) {
+                min = a[i];
+                break;
+            }
+        }
+        debugger
+        for (let i = 0; i < a.length; i++) {
+            if (max <= a[i]) {
+                max = a[i];
+                idMax = i;
+            }
+        }
+        for (let i = 0; i < a.length; i++) {
+            if (min >= a[i] && a[i] !== 0 && i < idMax) {
+                min = a[i];
+                idMin = i;
+            }
+        }
+        if (idMin > idMax) {
+            return b;
+        } else {
+            return max - min + b;
         }
     }
 

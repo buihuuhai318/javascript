@@ -1,279 +1,245 @@
-let mobile = [
+
+class Mobile {
+    constructor(id, name, status) {
+        this.id = id;
+        this.name = name;
+        this.battery = 100;
+        this.batteryCharger = false;
+        this.status = status;
+        this.daGui = [];
+        this.chuaGui = [];
+        this.thuDen = [];
+    };
+    xemChuaGui(id) {
+        let ngNhan = "";
+        let noiDung = "";
+        let options = id.children;
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                noiDung = options[i].value;
+                ngNhan = this.chuaGui[i].ngNhan;
+            }
+        }
+        document.getElementById(`send${this.id}`).value = noiDung;
+        document.getElementById(`ngNhan${this.id}`).value = ngNhan;
+    }
+    boxChuaGui() {
+        let text = `<select class="select-css" id="chuaGui${this.id}" onchange="mobile${this.id}.xemChuaGui(this)">`;
+        for (let i = this.chuaGui.length - 1; i >= 0; i--) {
+            text = text + `<option id="idChuaGui${this.id}${i}" value="${this.chuaGui[i].noiDung}">Nhap ${i+1}: ${this.chuaGui[i].ngNhan}</option>`;
+        }
+        text = text + `</select>`;
+        let doc = document.getElementById(`box${this.id}ChuaGui${this.id}`);
+        if (doc !== null) {
+            doc.innerHTML = text;
+        }
+    }
+    used() {
+        this.battery = this.battery - 1;
+    }
+    batteryCharger() {
+        let charger = true;
+        this.batteryCharger = charger;
+        if (charger) {
+            this.battery = 100;
+            this.batteryCharger = !charger;
+        }
+    }
+
+    changeStatus() {
+        this.status = !this.status;
+        mobileStyle(mobile0)
+        mobileStyle(mobile1)
+        return this.status
+    }
+    battery() {
+        document.getElementById(`battery${this.id}`).value = "pin: " + this.battery + "%";
+        if (this.battery === 0) {
+            this.changeStatus();
+        }
+    }
+    xemThuDen(id) {
+        let noiDung = "";
+        let options = id.children;
+
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                noiDung = options[i].value;
+            }
+        }
+        document.getElementById(`send${this.id}`).value = noiDung;
+    }
+    boxThuDen() {
+        let text = `<select class="select-css" id="chuaGui${this.id}" onchange="mobile${this.id}.xemThuDen(this)">`;
+        for (let i = this.thuDen.length - 1; i >= 0; i--) {
+            text = text + `<option id="idThuDen${this.id}${i}" value="${this.thuDen[i].noiDung}">hop thu den ${i+1}: ${this.thuDen[i].ngGui}</option>`;
+        }
+        text = text + `</select>`;
+        text = text + `<div id="boxThuDen${this.id}">
+          </div>`;
+        let doc = document.getElementById(`box${this.id}ThuDen${this.id}`);
+        if (doc !== null) {
+            doc.innerHTML = text;
+        }
+    }
+    xemDaGui(id) {
+        let noiDung = "";
+        let ngNhan = "";
+        let options = id.children;
+
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].selected) {
+                noiDung = options[i].value;
+                ngNhan = this.chuaGui[i].ngNhan;
+            }
+        }
+        document.getElementById(`send${this.id}`).value = noiDung;
+        document.getElementById(`ngNhan${this.id}`).value = ngNhan;
+    }
+    boxDaGui() {
+        let text = `<select class="select-css" id="chuaGui${this.id}" onchange="mobile${this.id}.xemDaGui(this)">`;
+        for (let i = this.daGui.length - 1; i >= 0; i--) {
+            text = text + `<option id="idDaGui${this.id}${i}" value="${this.daGui[i].noiDung}">Tin da gui ${i+1}: ${this.daGui[i].ngNhan}</option>`;
+        }
+        text = text + `</select>`;
+        text = text + `<div id="boxDaGui${this.id}">
+          </div>`;
+        let doc = document.getElementById(`box${this.id}DaGui${this.id}`);
+        if (doc !== null) {
+            doc.innerHTML = text;
+        }
+    }
+    send() {
+        let ngNhan = document.getElementById(`ngNhan${this.id}`).value;
+        let noiDung = document.getElementById(`send${this.id}`).value;
+        let ngGui = this.name;
+
+
+        let messGui = {
+            id: this.thuDen.length,
+            ngGui: ngGui,
+            noiDung: noiDung,
+        };
+        let messNhan = {
+            id: this.thuDen.length,
+            ngNhan: ngNhan,
+            noiDung: noiDung,
+        };
+        eval(ngNhan).thuDen.push(messGui);
+        this.daGui.push(messNhan);
+        mobileStyle(mobile0)
+        mobileStyle(mobile1)
+        this.used();
+    }
+    save() {
+        this.used();
+        let ngNhan = document.getElementById(`ngNhan${this.id}`).value;
+        let noiDung = document.getElementById(`send${this.id}`).value;
+        let mess = {
+            id: this.chuaGui.length,
+            ngNhan: ngNhan,
+            noiDung: noiDung,
+        };
+        this.chuaGui.push(mess);
+        mobileStyle(mobile0)
+        mobileStyle(mobile1)
+
+    }
+    main() {
+        if (this.status) {
+            this.boxDaGui();
+            this.boxChuaGui();
+            this.boxThuDen();
+        }
+    }
+}
+
+
+
+
+
+let mobile0 = new Mobile(0, "nokia", true);
+let mobile1 = new Mobile(1, "apple", true);
+mobile0.chuaGui = [
     {
         id: 0,
-        name: "nokia",
-        pin: 50,
-        batteryCharger: false,
-        chuaGui: [
-            {
-                id: 0,
-                ngNhan: "apple",
-                noiDung: "chua gui 1 nokia",
-            },
-            {
-                id: 1,
-                ngNhan: "apple",
-                noiDung: "chua gui 2 nokia",
-            }
-        ],
-        daGui: [
-            {
-                id: 0,
-                ngNhan: "apple",
-                noiDung: "da gui 1 nokia",
-            },
-            {
-                id: 1,
-                ngNhan: "apple",
-                noiDung: "da gui 2 nokia",
-            }
-        ],
-        thuDen: [
-            {
-                id: 0,
-                ngGui: "apple",
-                noiDung: "thu den 1 nokia",
-            },
-            {
-                id: 1,
-                ngGui: "apple",
-                noiDung: "thu den 2 nokia",
-            }
-        ],
-        status: true
+        ngNhan: "mobile1",
+        noiDung: "chua gui 1 nokia",
     },
     {
         id: 1,
-        name: "apple",
-        pin: 70,
-        batteryCharger: false,
-        chuaGui: [
-            {
-                id: 0,
-                ngNhan: "nokia",
-                noiDung: "chua gui 1 apple",
-            },
-            {
-                id: 1,
-                ngNhan: "nokia",
-                noiDung: "chua gui 2 apple",
-            }
-        ],
-        daGui: [
-            {
-                id: 0,
-                ngNhan: "nokia",
-                noiDung: "da gui 1 apple",
-            },
-            {
-                id: 1,
-                ngNhan: "nokia",
-                noiDung: "da gui 2 apple",
-            }
-        ],
-        thuDen: [
-            {
-                id: 0,
-                ngGui: "nokia",
-                noiDung: "thu den 1 apple",
-            },
-            {
-                id: 1,
-                ngGui: "nokia",
-                noiDung: "thu den 2 apple",
-            }
-        ],
-        status: true,
+        ngNhan: "mobile1",
+        noiDung: "chua gui 2 nokia",
+    }
+];
+mobile0.daGui = [
+    {
+        id: 0,
+        ngNhan: "mobile1",
+        noiDung: "da gui 1 nokia",
+    },
+    {
+        id: 1,
+        ngNhan: "mobile1",
+        noiDung: "da gui 2 nokia",
+    }
+]
+mobile0.thuDen = [
+    {
+        id: 0,
+        ngGui: "mobile1",
+        noiDung: "thu den 1 nokia",
+    },
+    {
+        id: 1,
+        ngGui: "mobile1",
+        noiDung: "thu den 2 nokia",
     }
 ]
 
-function main() {
-    mobileStyle();
-    for (let i = 0; i < mobile.length; i++) {
-        if (mobile[i].status) {
-            boxDaGui(i);
-            boxChuaGui(i);
-            boxThuDen(i);
-            battery(i);
-            inputOutput(i)
-            document.getElementById(`statusMB${i}`).checked = mobile[i].status;
-        }
 
-    }
-}
-
-function used(x) {
-    let pin = mobile[x].pin;
-    mobile[x].pin = pin - 1;
-}
-
-function batteryCharger(x) {
-    let charger = true;
-    mobile[x].batteryCharger = charger;
-    if (charger) {
-        mobile[x].pin = 100;
-        mobile[x].batteryCharger = !charger;
-    }
-}
-
-main()
-
-function mobileStyle() {
+mobileStyle(mobile0)
+mobileStyle(mobile1)
+function mobileStyle(mobile) {
     let text = ``;
-    for (let i = 0; i < mobile.length; i++) {
         text = text + `
           <div>
-            <h3 style="text-align: center;">${mobile[i].name}</h3>
+            <h3 style="text-align: center;">${mobile.name}</h3>
             <form action="" name="form">
               <div class="row">
-                <input type="checkbox" id="statusMB${i}" onchange="changeStatus(${i})">
-                <button onclick="main()">on/off</button>
-                <input type="checkbox" onchange="batteryCharger(${i})">
-                <button onclick="main()">Charger</button>
-                <input type="text" id="battery${i}" style="width: 50px">
+                <input type="checkbox" id="statusMB${mobile.id}" onchange="mobile${mobile.id}.changeStatus()">
+                <button onclick="mobile${mobile.id}.changeStatus()">on/off</button>
+                <input type="checkbox" onchange="mobile${mobile.id}.batteryCharger()">
+                <button onclick="">Charger</button>
+                <input type="text" id="battery${mobile.id}" style="width: 50px" value="${mobile.battery}">
               </div>
-              <div class="result" id="textBox${i}">
+              <div class="result" id="textBox${mobile.id}">
               </div>
               <div class="buttons">
-                <div class="row" id="button${i}">
+                <div class="row" id="button${mobile.id}">
                 </div>
-                <div class="row" id="buttons${i}">
+                <div class="row" id="buttons${mobile.id}">
                 </div>
-                <div class="row" id="box${i}ThuDen${i}">
+                <div class="row" id="box${mobile.id}ThuDen${mobile.id}">
                 </div>
-                <div class="row" id="box${i}DaGui${i}">
+                <div class="row" id="box${mobile.id}DaGui${mobile.id}">
                 </div>
-                <div class="row" id="box${i}ChuaGui${i}">
+                <div class="row" id="box${mobile.id}ChuaGui${mobile.id}">
                 </div>
               </div>
             </form>
           </div>
           <hr>`
-    }
-    document.getElementById("mobile0").innerHTML = text;
-}
-
-function inputOutput(x) {
-    document.getElementById(`textBox${x}`).innerHTML = `<input type="text" id="send${x}" placeholder="Soạn tin nhắn"/>
-          <input type="text" id="ngNhan${x}" placeholder="Người Nhận"/>`;
-    document.getElementById(`button${x}`).innerHTML = `<input type="button" value="send" onclick="send(${x})">
-          <input type="button" value="save" onclick="save(${x})">`;
-}
-
-function changeStatus(x) {
-    let mobileStatus = mobile[x].status;
-    mobile[x].status = !mobileStatus;
+    document.getElementById(`mobile${mobile.id}`).innerHTML = text;
+    document.getElementById(`textBox${mobile.id}`).innerHTML = `
+        <input type="text" id="send${mobile.id}" placeholder="Soạn tin nhắn"/>
+        <input type="text" id="ngNhan${mobile.id}" placeholder="Người Nhận"/>`;
+    document.getElementById(`button${mobile.id}`).innerHTML = `
+        <input type="button" value="send" onclick="mobile${mobile.id}.send()">
+        <input type="button" value="save" onclick="mobile${mobile.id}.save()">`;
+    document.getElementById(`statusMB${mobile.id}`).checked = mobile.status;
+    mobile.main()
 }
 
 
-function battery(x) {
-    document.getElementById(`battery${x}`).value = "pin: " + mobile[x].pin + "%";
-}
 
-function xemThuDen(x, id) {
-    let noiDung = "";
-    let options = id.children;
-
-    for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) {
-            noiDung = options[i].value;
-        }
-    }
-    document.getElementById(`send${x}`).value = noiDung;
-}
-function boxThuDen(x) {
-    let text = '<select class="select-css" id="' + "thuDen" + x + '" onchange="' + "xemThuDen(" + x + ", this)" + '">';
-    for (let i = mobile[x].thuDen.length - 1; i >= 0; i--) {
-        text = text + `<option id="idThuDen${x}${i}" value="${mobile[x].thuDen[i].noiDung}">hop thu den ${i+1}: ${mobile[x].thuDen[i].ngGui}</option>`;
-    }
-    text = text + `</select>`;
-    text = text + `<div id="boxThuDen${x}">
-          </div>`;
-    document.getElementById(`box${x}ThuDen${x}`).innerHTML = text;
-}
-
-function xemDaGui(x, id) {
-    let noiDung = "";
-    let options = id.children;
-
-    for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) {
-            noiDung = options[i].value;
-        }
-    }
-    document.getElementById(`send${x}`).value = noiDung;
-}
-
-function boxDaGui(x) {
-    let text = '<select class="select-css" id="' + "daGui" + x + '" onchange="' + "xemDaGui(" + x + ", this)" + '">';
-    for (let i = mobile[x].daGui.length - 1; i >= 0; i--) {
-        text = text + `<option id="idDaGui${x}${i}" value="${mobile[x].daGui[i].noiDung}">Tin da gui ${i+1}: ${mobile[x].daGui[i].ngNhan}</option>`;
-    }
-    text = text + `</select>`;
-    text = text + `<div id="boxDaGui${x}">
-          </div>`;
-    document.getElementById(`box${x}DaGui${x}`).innerHTML = text;
-}
-
-function send(x) {
-    let ngNhan = document.getElementById(`ngNhan${x}`).value;
-    let idNhan;
-    let noiDung = document.getElementById(`send${x}`).value;
-    let ngGui = mobile[x].name;
-    for (let i = 0; i < mobile.length; i++) {
-        if (ngNhan === mobile[i].name) {
-            idNhan = mobile[i].id;
-        }
-    }
-    let messGui = {
-            id: mobile[idNhan].thuDen.length,
-            ngGui: ngGui,
-            noiDung: noiDung,
-        };
-    let messNhan = {
-        id: mobile[idNhan].thuDen.length,
-        ngNhan: ngNhan,
-        noiDung: noiDung,
-    };
-    mobile[idNhan].thuDen.push(messGui);
-    mobile[x].daGui.push(messNhan);
-    used(x);
-    main();
-}
-
-function save(x) {
-    let ngNhan = document.getElementById(`ngNhan${x}`).value;
-    let noiDung = document.getElementById(`send${x}`).value;
-    let mess = {
-        id: mobile[x].chuaGui.length,
-        ngNhan: ngNhan,
-        noiDung: noiDung,
-    };
-    mobile[x].chuaGui.push(mess);
-    used(x);
-    main();
-}
-
-function xemChuaGui(x, id) {
-    let ngNhan = ""
-    let noiDung = "";
-    let options = id.children;
-    for (let i = 0; i < options.length; i++) {
-        if (options[i].selected) {
-            noiDung = options[i].value;
-            ngNhan = mobile[x].chuaGui[i].ngNhan;
-        }
-    }
-    document.getElementById(`send${x}`).value = noiDung;
-    document.getElementById(`ngNhan${x}`).value = ngNhan;
-}
-function boxChuaGui(x) {
-    let text = '<select class="select-css" id="' + "chuaGui" + x + '" onchange="' + "xemChuaGui(" + x + ", this)" + '">';
-    for (let i = mobile[x].chuaGui.length - 1; i >= 0; i--) {
-        text = text + `<option id="idChuaGui${x}${i}" value="${mobile[x].chuaGui[i].noiDung}">Nhap ${i+1}: ${mobile[x].chuaGui[i].ngNhan}</option>`;
-    }
-    text = text + `</select>`;
-    // text = text + `<div id="boxChuaGui${x}">
-    //       </div>`
-    document.getElementById(`box${x}ChuaGui${x}`).innerHTML = text;
-}
