@@ -4,7 +4,6 @@ class Mobile {
         this.id = id;
         this.name = name;
         this.battery = 100;
-        this.batteryCharger = false;
         this.status = status;
         this.daGui = [];
         this.chuaGui = [];
@@ -38,18 +37,16 @@ class Mobile {
         this.battery = this.battery - 1;
     }
     batteryCharger() {
-        let charger = true;
-        this.batteryCharger = charger;
-        if (charger) {
-            this.battery = 100;
-            this.batteryCharger = !charger;
-        }
+        this.battery = 100;
+        mobileStyle(mobile0);
+        mobileStyle(mobile1);
+        return this.battery;
     }
 
     changeStatus() {
         this.status = !this.status;
-        mobileStyle(mobile0)
-        mobileStyle(mobile1)
+        mobileStyle(mobile0);
+        mobileStyle(mobile1);
         return this.status
     }
     battery() {
@@ -110,6 +107,7 @@ class Mobile {
         }
     }
     send() {
+        this.used();
         let ngNhan = document.getElementById(`ngNhan${this.id}`).value;
         let noiDung = document.getElementById(`send${this.id}`).value;
         let ngGui = this.name;
@@ -127,9 +125,8 @@ class Mobile {
         };
         eval(ngNhan).thuDen.push(messGui);
         this.daGui.push(messNhan);
-        mobileStyle(mobile0)
-        mobileStyle(mobile1)
-        this.used();
+        mobileStyle(mobile0);
+        mobileStyle(mobile1);
     }
     save() {
         this.used();
@@ -141,9 +138,8 @@ class Mobile {
             noiDung: noiDung,
         };
         this.chuaGui.push(mess);
-        mobileStyle(mobile0)
-        mobileStyle(mobile1)
-
+        mobileStyle(mobile0);
+        mobileStyle(mobile1);
     }
     main() {
         if (this.status) {
@@ -209,8 +205,8 @@ function mobileStyle(mobile) {
               <div class="row">
                 <input type="checkbox" id="statusMB${mobile.id}" onchange="mobile${mobile.id}.changeStatus()">
                 <button onclick="mobile${mobile.id}.changeStatus()">on/off</button>
-                <input type="checkbox" onchange="mobile${mobile.id}.batteryCharger()">
-                <button onclick="">Charger</button>
+<!--                <input type="checkbox" onchange="mobile${mobile.id}.batteryCharger()">-->
+                <button onclick="mobile${mobile.id}.batteryCharger()">Charger</button>
                 <input type="text" id="battery${mobile.id}" style="width: 50px" value="${mobile.battery}">
               </div>
               <div class="result" id="textBox${mobile.id}">
