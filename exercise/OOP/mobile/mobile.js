@@ -205,7 +205,6 @@ function mobileStyle(mobile) {
               <div class="row">
                 <input type="checkbox" id="statusMB${mobile.id}" onchange="mobile${mobile.id}.changeStatus()">
                 <button onclick="mobile${mobile.id}.changeStatus()">on/off</button>
-<!--                <input type="checkbox" onchange="mobile${mobile.id}.batteryCharger()">-->
                 <button onclick="mobile${mobile.id}.batteryCharger()">Charger</button>
                 <input type="text" id="battery${mobile.id}" style="width: 50px" value="${mobile.battery}">
               </div>

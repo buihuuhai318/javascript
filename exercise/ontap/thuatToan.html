@@ -312,7 +312,52 @@
     }
 
     function bai11() {
+        let arr = "5,2,10";
+        alert(checkBai11(arr));
+    }
+    function checkBai11(arr) {
+        arr = arr.split(",");
+        let get = 0;
+        let count = 0;
+        let a = arr[2] / arr[0];
+        debugger
+        for (let i = 1; i <= a; i++) {
+            get = arr[0] * i + arr[1] * i;
+            count = i;
+            if (arr[2] - get < arr[0]) {
+                break;
+            }
+        }
+        let b = +arr[2] - (+arr[0] + +arr[1]) * count;
+        if (b < 0) {
+            return arr[0] * count;
+        } else return b + arr[0] * count;
+    }
 
+    function bai12() {
+        let arr = "1,2,4,2,3";
+        alert(checkBai12(arr))
+    }
+    function checkBai12(arr) {
+        arr = arr.split(",");
+        let box = [];
+        let sum = 0;
+        let count = 0;
+        debugger
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                sum = arr[i];
+                if (arr[i] + arr[j] <= 4) {
+                    sum += arr[j];
+                    arr.splice(j, 1);
+                } else {
+                    count++;
+                    break;
+                }
+            }
+            arr.slice(i, 1);
+        }
+        return count;
     }
 
 
