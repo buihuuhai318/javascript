@@ -19,40 +19,36 @@
 
 <script>
 
+    function square(a) {
+        if (!isNaN(a)) {
+            return a*a;
+        } else return null;
+    }
     function bai1() {
         let num = +prompt("nhập vào 1 số bất kỳ");
-
-        function square(a) {
-            if (!isNaN(a)) {
-                return a*a;
-            } else return null;
-        }
-
-       if (square(num) === null) {
+        if (square(num) === null) {
            while (square(num) === null) {
                num = +prompt("vui lòng nhập dữ liệu dạng số");
            }
            alert("bình phương của " + num + " là: " + square(num));
-       } else {
+        } else {
            alert("bình phương của " + num + " là: " + square(num));
-       }
+        }
     }
 
+    function diameterCirle(a) {
+        if (!isNaN(a)) {
+            return 2*a*Math.PI;
+        } else return null;
+    }
+
+    function cirleArea(a) {
+        if (!isNaN(a)) {
+            return a*a*Math.PI;
+        } else return null;
+    }
     function bai2() {
         let num = +prompt("nhập bán kính hình tròn");
-
-        function diameterCirle(a) {
-            if (!isNaN(a)) {
-                return 2*a*Math.PI;
-            } else return null;
-        }
-
-        function cirleArea(a) {
-            if (!isNaN(a)) {
-                return a*a*Math.PI;
-            } else return null;
-        }
-
         if (diameterCirle(num) === null) {
             while (diameterCirle(num) === null) {
                 num = +prompt("vui lòng nhập dữ liệu dạng số");
@@ -63,19 +59,17 @@
         }
     }
 
+    function factorial(a) {
+        if (!isNaN(a)) {
+            let b = 1;
+            for (let i = 1; i <= a; i++) {
+                b = b*i;
+            }
+            return b ;
+        } else return null;
+    }
     function bai3() {
         let num = +prompt("nhập vào 1 số bất kỳ");
-
-        function factorial(a) {
-            if (!isNaN(a)) {
-                let b = 1;
-                for (let i = 1; i <= a; i++) {
-                    b = b*i;
-                }
-                return b ;
-            } else return null;
-        }
-
         if (factorial(num) === null) {
             do {
                 num = +prompt("vui lòng nhập dữ liệu dạng số");
@@ -84,18 +78,22 @@
         } else alert("giai thứa của " + num + " là: " + num + "!" + " = " + factorial(num));
     }
 
+    function isNumber(a) {
+        return !isNaN(a);
+    }
     function bai4() {
         let num = prompt("nhập vào 1 số bất kỳ");
-
-        function isNumber(a) {
-            return !isNaN(a);
-        }
-
         if (isNumber(num)) {
             alert(num + " là 1 ký tự số");
         } else alert(num + " không phải là 1 số");
     }
 
+    function min(a, b, c) {
+        let numMin = a;
+        numMin = numMin < c ? numMin : c;
+        numMin = numMin < b ? numMin : b;
+        return numMin;
+    }
     function bai5() {
         let num1;
         let num2;
@@ -113,31 +111,28 @@
             num3 = +prompt("nhập vào số thứ 3");
         } while (isNaN(num3));
 
-
-        function min(a, b, c) {
-            let numMin = a;
-            numMin = numMin < c ? numMin : c;
-            numMin = numMin < b ? numMin : b;
-            return numMin;
-        }
-
         alert("số nhỏ nhất trong 3 số " + num1 + ", " + num2 + ", " + num3 + " là: " + min(num1, num2, num3));
     }
 
+    function isNumpPositive(a) {
+        return a > 0;
+    }
+
+    let checkNum = isNumpPositive(num);
     function bai6() {
         let num = prompt("nhập vào 1 số bất kỳ");
-
-        function isNumpPositive(a) {
-            return a > 0;
-        }
-
-        let checkNum = isNumpPositive(num);
-
         if (checkNum) {
             alert(num + " là số nguyên dương");
         } else alert(num + " không phải là số nguyên dương");
     }
 
+    function change(a, b) {
+        let arrayBox = [a, b];
+        let box = arrayBox[0];
+        arrayBox[0] = arrayBox[1];
+        arrayBox[1] = box;
+        return arrayBox;
+    }
     function bai7() {
         let num1;
         let num2;
@@ -150,19 +145,19 @@
             num2 = +prompt("nhập vào số thứ 2");
         } while (isNaN(num2));
 
-        function change(a, b) {
-            let arrayBox = [a, b];
-            let box = arrayBox[0];
-            arrayBox[0] = arrayBox[1];
-            arrayBox[1] = box;
-            return arrayBox;
-        }
-
         let newArray = change(num1, num2);
 
         alert("sau khi hoán đổi, số thứ 1 bây giờ là : " + newArray[0] + ", số thứ 2 là: " + newArray[1]);
     }
 
+    function changeBai8(string) {
+        for (let i = 0, j = string.length -1; i < j; i++, j--) {
+            let box = string[i];
+            string[i] = string[j];
+            string[j] = box;
+        }
+        return string;
+    }
     function bai8() {
         let arrayLength;
         let array = [];
@@ -178,35 +173,25 @@
             } while (isNaN(array[i]));
         }
 
-        function change(string) {
-            for (let i = 0, j = string.length -1; i < j; i++, j--) {
-                let box = string[i];
-                string[i] = string[j];
-                string[j] = box;
-            }
-            return string;
-        }
-
-        array = change(array);
+        array = changeBai8(array);
         alert("mảng mới sau khi thay đổi thứ tự ngược lại là " + array);
     }
 
+    function check(string, a) {
+        let count = 0;
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === a) {
+                count = count + 1;
+            }
+        }
+        if (count > 0) {
+            return count;
+        } else return -1;
+    }
     function bai9() {
         let someThing = Array.from(prompt("nhập vào bất kỳ"));
 
         let thing = prompt("nhập vào 1 ký tự bất kỳ");
-
-        function check(string, a) {
-            let count = 0;
-            for (let i = 0; i < string.length; i++) {
-                if (string[i] === a) {
-                    count = count + 1;
-                }
-            }
-            if (count > 0) {
-                return count;
-            } else return -1;
-        }
 
         let checking = check(someThing, thing);
 
