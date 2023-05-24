@@ -334,32 +334,82 @@
         } else return b + arr[0] * count;
     }
 
-    function bai12() {
-        let arr = "1,2,4,2,3";
-        alert(checkBai12(arr))
+    // function bai12() {
+    //     let arr = "1,2,4,2,3";
+    //     alert(checkBai12(arr))
+    // }
+    // function checkBai12(arr) {
+    //     arr = arr.split(",");
+    //     let box = [];
+    //     let sum = 0;
+    //     let count = 0;
+    //     debugger
+    //     for (let i = 0; i < arr.length; i++) {
+    //         for (let j = i + 1; j < arr.length; j++) {
+    //             sum = arr[i];
+    //             if (arr[i] + arr[j] <= 4) {
+    //                 sum += arr[j];
+    //                 arr.splice(j, 1);
+    //             } else {
+    //                 count++;
+    //                 break;
+    //             }
+    //         }
+    //         arr.slice(i, 1);
+    //     }
+    //     return count;
+    // }
+
+    function bai13() {
+        let arr = "10,3,8,1,9,4,9";
+        alert(checkBai13(arr));
     }
-    function checkBai12(arr) {
+    function checkBai13(arr) {
         arr = arr.split(",");
+        let max = +arr[0];
+        let index = 0;
         let box = [];
-        let sum = 0;
-        let count = 0;
-        debugger
+        let box2 = [];
         for (let i = 0; i < arr.length; i++) {
-            for (let j = i + 1; j < arr.length; j++) {
-                sum = arr[i];
-                if (arr[i] + arr[j] <= 4) {
-                    sum += arr[j];
-                    arr.splice(j, 1);
-                } else {
-                    count++;
-                    break;
+            box.push(+arr[i]);
+            arr[i] = +arr[i];
+            if (max < +arr[i]) {
+                max = +arr[i];
+                index = i;
+            }
+        }
+        for (let i = box.length - 1; i > 0; i--) {
+            if (box[i] !== max) {
+                box2.push(box[i]);
+            }
+        }
+        if (box2 === []) {
+            return -1;
+        } else {
+            max = +box2[0];
+            for (let i = 1; i < box2.length; i++) {
+                if (max < box2[i]) {
+                    max = box2[i];
                 }
             }
-            arr.slice(i, 1);
+            return arr.indexOf(+max);
         }
-        return count;
     }
 
+    function bai14() {
+        let arr = "12sdvcs";
+        alert(checkBai14(arr))
+    }
+    function checkBai14(arr) {
+        arr = arr.split("");
+        let box = [];
+        for (let i = 0; i < arr.length; i++) {
+            if (box.indexOf(arr[i]) === -1) {
+                box.push(arr[i]);
+            }
+        }
+        return box.length;
+    }
 
 
 

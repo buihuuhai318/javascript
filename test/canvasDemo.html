@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>OK</div>
+<canvas id="myCanvas" style="border: 1px solid" width="500" height="500"></canvas>
+<div>OK</div>
+<script>
+    let canvas = document.getElementById("myCanvas");
+    let context = canvas.getContext("2d");
+
+    // ========== Vẽ hình chữ nhật ==========
+    // Thiết lập thuộc tính cho hình chữ nhật
+    // context.fillStyle = "red"; // Màu sắc nền
+    // context.fillRect(50, 50, 200, 100); // Vẽ hình chữ nhật với tọa độ x, y là (50, 50), chiều rộng 200 và chiều cao 100
+
+    // ========== Vẽ hình tròn ==========
+    // context.fillStyle = "blue"; // Thiết lập màu nền cho hình tròn
+    // context.arc(100, 100, 50, 0, Math.PI * 2, false); // Vẽ hình tròn với tọa độ trung tâm (100, 100), bán kính 50, góc bắt đầu là 0 và góc kết thúc là Math.PI * 2 (vòng tròn đầy đủ), chiều kim đồng hồ (false)
+    // context.fill(); // Tô màu hình tròn
+
+
+    // ========== Đường thẳng ==========
+    // context.strokeStyle = "green"; // Thiết lập màu đường vẽ
+    // context.moveTo(50, 50); // Di chuyển con trỏ vẽ đến điểm (50, 50)
+    // context.lineTo(150, 150); // Vẽ đường thẳng từ điểm hiện tại đến điểm (150, 150)
+    // context.stroke(); // Vẽ đường thẳng
+
+    // ========== Tam giác ==========
+    // context.fillStyle = "orange"; // Thiết lập màu nền cho tam giác
+    // context.moveTo(50, 50); // Di chuyển con trỏ vẽ đến điểm (50, 50)
+    // context.lineTo(100, 150); // Vẽ đường thẳng từ điểm hiện tại đến điểm (100, 150)
+    // context.lineTo(150, 50); // Vẽ đường thẳng từ điểm hiện tại đến điểm (150, 50)
+    // context.fill(); // Tô màu tam giác
+
+
+    // ========== ellipses ==========
+    // context.fillStyle = "purple"; // Thiết lập màu nền cho hình ellipses
+    // context.beginPath(); // Bắt đầu một đường vẽ mới
+    // context.ellipse(100, 100, 50, 80, 0, 0, Math.PI * 2); // Vẽ hình ellipses với tọa độ trung tâm (100, 100), bán kính ngang 50, bán kính dọc 80, Góc quay của hình elip 0 (radian => Độ * Math.PI/180), góc bắt đầu là 0 và góc kết thúc là Math.PI * 2 (vòng tròn đầy đủ)
+    // context.closePath(); // Kết thúc đường vẽ
+    // context.fill(); // Tô màu hình ellipses
+</script>
+</body>
+</html>

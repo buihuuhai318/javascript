@@ -32,20 +32,20 @@
 </div>
 
 <script>
-    var anyT;
-    let Temperature = function (x) {
-        this.x = x;
-        this.getX = function () {
-            return this.x;
+    let anyT;
+    let Temperature = function (c) {
+        this.c = c;
+        this.getC = function () {
+            return this.c;
         }
-        this.setX = function (x) {
-            this.x = x;
+        this.setC = function (c) {
+            this.c = c;
         }
-        this.F = function () {
-            return 9/5 * this.x + 32;
+        this.getF = function () {
+            return 9/5 * this.c + 32;
         }
-        this.K = function () {
-            return this.x + 273.15;
+        this.getK = function () {
+            return this.c + 273.15;
         }
     }
 
@@ -61,13 +61,13 @@
     }
 
     function outputT() {
-        let fT = anyT.F();
-        let cT = anyT.getX();
-        let kT = anyT.K();
+        let fTemperature = anyT.getF();
+        let cTemperature = anyT.getC();
+        let kTemperature = anyT.getK();
 
-        document.getElementById("outputC").value = cT;
-        document.getElementById("outputF").value = fT;
-        document.getElementById("outputK").value = kT;
+        document.getElementById("outputC").value = cTemperature;
+        document.getElementById("outputF").value = fTemperature;
+        document.getElementById("outputK").value = kTemperature;
     }
 
 </script>
