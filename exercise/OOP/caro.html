@@ -47,13 +47,12 @@
         getHtml() {
             let top = this.x * DEFAULT_CELL_SIZE;
             let left = this.y * DEFAULT_CELL_SIZE;
-            let cellHtml = '<div id="cell-'+this.x+'-'+this.y+'" onclick="play('+this.x+','+this.y+')" class="cell" style="position: absolute; width: '+
-                    DEFAULT_CELL_SIZE+'px; height:'+
-                    DEFAULT_CELL_SIZE+'px; left:'+
-                    left+'px; top:'+
-                    top+'px; line-height: '+
-                    DEFAULT_CELL_SIZE+'px;"></div>';
-            return cellHtml;
+            return '<div id="cell-' + this.x + '-' + this.y + '" onclick="play(' + this.x + ',' + this.y + ')" class="cell" style="position: absolute; width: ' +
+                DEFAULT_CELL_SIZE + 'px; height:' +
+                DEFAULT_CELL_SIZE + 'px; left:' +
+                left + 'px; top:' +
+                top + 'px; line-height: ' +
+                DEFAULT_CELL_SIZE + 'px;"></div>';
         }
     }
 
@@ -214,7 +213,7 @@
       gameBoard = new GameBoard(DEFAULT_ROWS, DEFAULT_COLS, "game-board");
       gameBoard.draw();
     }
-    var gameBoard;
+    let gameBoard;
     start();
 </script>
 </body>
