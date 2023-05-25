@@ -413,14 +413,17 @@
 
     function bai15() {
         let arr = "HelloWorld";
-        let arr1 = "class";
+        let arr1 = "cLass";
+        checkBai15(arr, arr1)
     }
     function checkBai15(arr, arr1) {
+        let checkUpper = "QWRTYUIOPASDFGHJKLZXCVBNM"
         arr = arr.split("");
-        switch (arr1) {
-            case "class":
-            case "CLASS":
-
+        arr1 = arr1.toLowerCase();
+        if (arr1 === "class") {
+            return checkUpper.indexOf(arr[0]) !== -1 && isNaN(arr[0]);
+        } else if (arr1 === "field" || arr1 === "method") {
+            if ()
         }
     }
 

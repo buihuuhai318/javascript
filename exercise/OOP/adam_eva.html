@@ -7,69 +7,47 @@
 <body>
 <script>
 
-    function Apple () {
-        this.weight = 10;
-        this.getWeight = function () {
+    class Apple {
+        constructor() {
+            this.weight = 10;
+        }
+        getWeight() {
             return this.weight;
         }
-        this.setWeight = function (weight) {
-            this.weight = weight
+        setWeight(weight) {
+            this.weight = weight;
         }
-        this.isEmpty = function () {
-            if (this.weight <=0) {
-                return true;
-            } else {
-                return false;
-            }
+        isEmpty() {
+            return this.weight <= 0;
         }
-        this.decreaseApple = function () {
+        decreaseApple() {
             if (this.isEmpty()) {
                 alert("táo đã hết")
             } else this.weight--
         }
     }
 
-    function Human (name, gender, weight){
-        this.name = name;
-        this.getName = function () {
-            return this.name;
-        }
-        this.setName = function (name) {
+    class Human {
+        constructor(name, gender, weight) {
             this.name = name;
-        }
-
-        this.gender = gender;
-        this.isMale = function () {
-            if (this.gender === 1) {
-                return true;
-            } else {
-                return false
-            }
-        }
-        this.setGender = function () {
-            if (this.isMale()) {
-                return "Male";
-            } else return "Female";
-        }
-
-        this.weight = weight;
-        this.getWeight = function () {
-            return this.weight;
-        }
-        this.setWeight = function (weight) {
+            this.gender = gender;
             this.weight = weight;
         }
-
-        this.checkApple = function (apple) {
+        checkApple(apple) {
             return apple.isEmpty();
         }
-        this.eat = function (apple) {
+        eat(apple) {
             if (apple.getWeight() > 0) {
                 apple.decreaseApple();
                 this.weight++;
             } else alert("táo đã ăn hết");
         }
+        getWeight() {
+            return this.weight;
+        }
     }
+
+
 
     let adam = new Human("adam", 1, 55);
     let eva = new Human("eva", 2, 40);
