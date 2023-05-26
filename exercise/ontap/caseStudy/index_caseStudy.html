@@ -71,6 +71,9 @@
                 <td><input type="button" onclick="stringBai1()" value="Bài 1"></td>
                 <td><input type="button" onclick="stringBai2()" value="Bài 2"></td>
             </tr>
+            <tr>
+                <td><input type="button" onclick="stringBai3()" value="Bài 3"></td>
+            </tr>
         </table>
     </div>
     <br><br><br>
@@ -158,8 +161,8 @@
         while (isNaN(num) || num <= 0) {
             num = +prompt("hãy nhập lương dưới dạng dữ liệu số nguyên dương")
         }
-        let salary;
-        let tax;
+        let salary = 0;
+        let tax = 0;
 
         if (num >= 15) {
             tax = num * 0.2;
@@ -321,6 +324,24 @@
         alert(`sâu ${arr} có ${box.length} ký tự khác nhau là ${box}`);
     }
 
+    function stringBai3() {
+        let s1 = "aabcc";
+        let s2 = "adcaa";
+        s2 = s2.split("");
+        let word = [];
+
+        for (let i = 0; i < s1.length ; i++) {
+            for (let j = s2.length - 1; j >= 0; j--) {
+                if (s1[i] === s2[j]) {
+                    word.push(s1[i]);
+                    s2.pop();
+                    break;
+                }
+            }
+        }
+        alert(`2 chuỗi có số ký tự chung là ${word.length}, đó là ${word}`);
+    }
+
     function sumEven(m, n) {
         let arr = [];
         let sum = 0;
@@ -360,7 +381,9 @@
                     count++;
                 }
             }
-            return count === 2;
+            if (count === 2) {
+                return true;
+            } else return false;
         }
     }
     function resultPrime(arr) {
