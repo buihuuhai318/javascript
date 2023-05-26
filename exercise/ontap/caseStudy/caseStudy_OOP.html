@@ -1,155 +1,313 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-    <style>
-        table td{
-            width: 50px;
-            height: 30px;
-        }
-        select {
-            width: 50px;
-            height: 30px;
-        }
-    </style>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>study manager</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>Xổ Số Code Gym</h1>
-<input type="button" style="height: 50px; width: 100px; font-size: larger" value="Mua Vé" onclick="buyLottery()">
-<br>
-<br>
 <div>
-    <table border="1">
-        <tr>
-            <td><div style="text-align: center" id="num0"></div></td>
-            <td><div style="text-align: center" id="num1"></div></td>
-            <td><div style="text-align: center" id="num2"></div></td>
-            <td><div style="text-align: center" id="num3"></div></td>
-            <td><div style="text-align: center" id="num4"></div></td>
-            <td><div style="text-align: center" id="num5"></div></td>
-        </tr>
-    </table>
+    <br>
+    <!-- Button trigger modal -->
+    <button type="button"  data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Thêm Học Viên Mới
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thêm Học Viên Mới</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <table>
+                        <tr>
+                            <td>Họ và Tên:   </td>
+                            <td>  <input type="text" placeholder="dưới 50 ký tự" id="newName"></td>
+                        </tr>
+                        <tr>
+                            <td>Lớp:   </td>
+                            <td>  <input type="text" placeholder="room" id="newRoom"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:   </td>
+                            <td>  <input type="text" placeholder="email" id="newEmail"></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Sinh:   </td>
+                            <td>  <input type="text" placeholder="dd/mm/yyyy" id="newDate"></td>
+                        </tr>
+                        <tr>
+                            <td>Module:   </td>
+                            <td>  <input type="text" placeholder="từ 1 đến 6" id="newModule"></td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="modal-footer" id="buttonNewStudent">
+                    <button type="button" class="btn btn-primary" onclick="checkInput()">Kiểm Tra</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" onclick="editStudent()" data-bs-toggle="modal" data-bs-target="#exampleModalEdit">
+        Sửa Thông Tin Học Viên
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabelEdit">Sửa Thông Tin Học Viên</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="editStudent">
+
+                </div>
+                <div class="modal-footer" id="buttonSave">
+
+                </div>
+            </div>
+        </div>
+    </div>
+<!--    <div id="editStudent"></div>-->
+
+    <button onclick="removeStudent()">Xoá Học Viên</button>
+    <br>
 </div>
-<br>
+<hr>
+<div id="displayManeger">
+
+</div>
 <div>
-    <table border="1">
-        <tr>
-            <td><div style="text-align: center" id="codegym0"></div></td>
-            <td><div style="text-align: center" id="codegym1"></div></td>
-            <td><div style="text-align: center" id="codegym2"></div></td>
-            <td><div style="text-align: center" id="codegym3"></div></td>
-            <td><div style="text-align: center" id="codegym4"></div></td>
-            <td><div style="text-align: center" id="codegym5"></div></td>
-        </tr>
-    </table>
+
 </div>
-<br><br>
-<div id="result"></div>
-<br><br>
-<input type="button" style="height: 50px; width: 300px; font-size: larger" value="Kiểm tra kết quả xổ số" onclick="check()">
-<br><br><br>
-<a href="index_caseStudy.html">Trang Chủ</a>
 
 <script>
-
-    class Lottery {
-        constructor(arr) {
-            this.num1 = arr[0];
-            this.num2 = arr[1];
-            this.num3 = arr[2];
-            this.num4 = arr[3];
-            this.num5 = arr[4];
-            this.num6 = arr[5];
-            this.numTicket = [arr[0],arr[1],arr[2],arr[3],arr[4],arr[5]]
+    let countStudent = 0;
+    class Student {
+        constructor(name, room, email, date, module) {
+            this.id = "";
+            this.name = name;
+            this.room = room;
+            this.email = email;
+            this.date = date;
+            this.module = module;
         }
-    }
-    let ticket;
-    function buyLottery() {
-        let choice = choiceAction();
-
-        if (choice === 1) {
-            ticket = new Lottery(choiceNumber());
-        } else {
-            ticket = new Lottery(randomNumber());
-        }
-        showMyTicket(ticket);
-    }
-
-    function check() {
-        checkWin(ticket);
-    }
-
-    function randomNumber() {
-        let arr = [];
-        for (let i = 0; i < 6; i++) {
-            arr[i] = parseInt(Math.random()*99)
-        }
-        return arr;
-    }
-
-    function choiceNumber() {
-        let arr = [];
-        for (let i = 0; i < 6; i++) {
-            arr[i] = +prompt("nhập số thứ " + (i + 1) + " trong khoảng từ 0 đến 99");
-            while (isNaN(arr[i]) || arr[i] < 0 || arr[i] > 99 || arr[i] % 1 !== 0) {
-                arr[i] = +prompt(`vui lòng nhập dữ liệu dạng số nguyên trong khoảng từ 0 đến 99` + `\n` + `nhập số thứ ${i + 1}`);
+        getId() {
+            if (this.id < 10 && this.id >= 0) {
+                this.id = "HV_000" + countStudent;
             }
         }
-        return arr;
+    }
+    let hai = new Student("Bui Huu Hai", "C0423G1", "buihuuhai318@gmail.com", "31/08/1996", 1);
+    hai.getId();
+    countStudent++;
+    let thien = new Student("Thien", "C0423G1", "thien@gmail.com", "01/01/2000", 1);
+    thien.getId();
+    countStudent++;
+    let sang = new Student("Sang", "C0423G1", "sang@gmail.com", "01/01/2000", 1);
+    sang.getId();
+    countStudent++;
+    let minh = new Student("Minh", "C0423G1", "minh@gmail.com", "01/01/2000", 1);
+    minh.getId();
+    countStudent++;
+    let arrIdStudent = [];
+    let arrListStudent = [];
+    arrIdStudent.push(hai.id, thien.id, sang.id, minh.id);
+    arrListStudent.push(hai, thien, sang, minh);
+
+    displayManger();
+
+    function displayManger() {
+        let text = `
+            <table class="table">
+                <tr>
+                    <th scope="col">Mã Học Viên</th>
+                    <th scope="col">Họ Và Tên</th>
+                    <th scope="col">Lớp</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Ngày Sinh</th>
+                </tr>
+        `;
+        for (let i = 0; i < arrListStudent.length; i++) {
+            text += `
+                 <tr>
+                    <th scope="row">${arrListStudent[i].id}</th>
+                    <td>${arrListStudent[i].name}</td>
+                    <td>${arrListStudent[i].room}</td>
+                    <td>${arrListStudent[i].email}</td>
+                    <td>${arrListStudent[i].date}</td>
+                </tr>
+            `;
+        }
+        text += `</table>`;
+        document.getElementById("displayManeger").innerHTML = text;
     }
 
-    function choiceAction() {
-        let choice = 0;
-        do {
-            choice = +prompt(
-                "Cám ơn bạn đã sử dụng dịch vụ của chúng tôi"
-                + `\n` + "Nhập số tương ứng với lựa chọn của bạn: "
-                + `\n` + "1. Bạn tự chọn 6 số" + `\n`
-                + "2. Random 6 số ngẫu nhiên"
-            )
-        } while (!isNaN(choice) && choice > 2)
-        return choice;
+    function addNewStudent() {
+        let name = document.getElementById("newName").value;
+        let room = document.getElementById("newRoom").value;
+        let email = document.getElementById("newEmail").value;
+        let date = document.getElementById("newDate").value;
+        let newStudent = new Student(name, room, email, date);
+        newStudent.getId();
+        arrListStudent.push(newStudent);
+        arrIdStudent.push(newStudent.id);
+        countStudent++;
+        displayManger();
+        document.getElementById("newName").value = "";
+        document.getElementById("newRoom").value = "";
+        document.getElementById("newEmail").value = "";
+        document.getElementById("newDate").value = "";
+    }
+    function removeStudent() {
+        let index = prompt("Nhập Mã Số Học Viên: ");
+        index = arrIdStudent.indexOf(index);
+        if (index === -1) {
+            alert("Không Tìm Thấy Học Viên!!!");
+        } else {
+            let confirmStudent = confirm(`Bạn Muốn Xoá Thông Tin Học Viên: ${arrListStudent[index].name}`);
+            if (confirmStudent) {
+                arrListStudent.splice(index, 1);
+                arrIdStudent.splice(index, 1);
+            }
+        }
+        displayManger();
+    }
+    function editStudent() {
+        let index = prompt("Nhập Mã Số Học Viên: ");
+        console.log(index);
+        let i = arrIdStudent.indexOf(index);
+        if (i === -1) {
+            alert("Không Tìm Thấy Học Viên!!!");
+        } else {
+            let confirmStudent = confirm(`Bạn Muốn Sữa Thông Tin Học Viên: ${arrListStudent[i].name}`);
+            console.log(confirmStudent)
+            if (confirmStudent) {
+
+                let text = `
+                    <table>
+                        <tr>
+                            <td>Họ và Tên:   </td>
+                            <td>  <input type="text" placeholder="name" id="editName" value="${arrListStudent[i].name}"></td>
+                        </tr>
+                        <tr>
+                            <td>Lớp:   </td>
+                            <td>  <input type="text" placeholder="room" id="editRoom" value="${arrListStudent[i].room}"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:   </td>
+                            <td>  <input type="text" placeholder="email" id="editEmail" value="${arrListStudent[i].email}"></td>
+                        </tr>
+                        <tr>
+                            <td>Ngày Sinh:   </td>
+                            <td>  <input type="text" placeholder="date" id="editDate" value="${arrListStudent[i].date}"></td>
+                        </tr>
+                        <tr>
+                            <td>Module (1 - 6):   </td>
+                            <td>  <input type="text" placeholder="date" id="newModule" value="${arrListStudent[i].module}"></td>
+                        </tr>
+                    </table>
+                `;
+                document.getElementById("editStudent").innerHTML = text;
+                document.getElementById("buttonSave").innerHTML = `
+                    <button type="button" class="btn btn-primary" onclick="save(${i})" data-bs-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                `;
+            }
+        }
+    }
+    function save(i) {
+        let name = document.getElementById("editName").value;
+        let room = document.getElementById("editRoom").value;
+        let email = document.getElementById("editEmail").value;
+        let date = document.getElementById("editDate").value;
+        let module = document.getElementById("editModule").value;
+        arrListStudent[i].name = name;
+        arrListStudent[i].room = room;
+        arrListStudent[i].email = email;
+        arrListStudent[i].date = date;
+        arrListStudent[i].module = module;
+        displayManger();
+    }
+    function checkInput() {
+        let name = document.getElementById("newName").value;
+        let date = document.getElementById("newDate").value;
+        let module = document.getElementById("newModule").value;
+        let nameFlag = false;
+        let moduleFlag = false;
+        let dateFlag = false;
+        let arrName = name.split("");
+        if (arrName.length > 50) {
+            alert("Tên không được dài quá 50 ký tự !!!");
+            document.getElementById("newName").value = "";
+        } else if (name === "") {
+            alert("Tên Không Được Để Trống !!!");
+        } else nameFlag = true;
+        if (!valDate(date)) {
+            alert("Ngày sinh không đúng định dạng !!!");
+        } else dateFlag = true;
+        if (+module < 1 || +module > 6 && isNaN(module)) {
+            alert("Module chỉ từ 1 đến 6");
+        } else moduleFlag = true;
+
+        if (moduleFlag && nameFlag && dateFlag) {
+            let text = `
+                <button type="button" class="btn btn-primary" onclick="addNewStudent()" data-bs-dismiss="modal">Thêm Mới</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+            `;
+            document.getElementById("buttonNewStudent").innerHTML = text;
+        }
+    }
+    function valDate(date) {
+        let dateformat = /^(0?[1-9]|[1-2][0-9]|3[01])[\/](0?[1-9]|1[0-2])/;
+
+        if (date.match(dateformat)) {
+            let operator = date.split('/');
+
+            let datepart = [];
+            if (operator.length > 1) {
+                datepart = date.split('/');
+            }
+            let day = parseInt(datepart[0]);
+            let month = parseInt(datepart[1]);
+            let year = parseInt(datepart[2]);
+
+            if (year < 1900 || year > 2023) {
+                return false;
+            }
+            if (month < 1 || month > 12) {
+                return false;
+            }
+
+            let ListofDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+            if (month === 1 || month > 2) {
+                if (day > ListofDays[month - 1]) {
+                    return false;
+                }
+            } else if (month === 2) {
+                let leapYear = false;
+                if ((!(year % 4) && year % 100) || !(year % 400)) leapYear = true;
+                if ((leapYear === false) && (day >= 29)) {
+                    return false;
+                }
+                else if ((leapYear === true) && (day > 29)) {
+                    return false;
+                }
+            }
+        } else {
+            return false;
+        }
+        return true;
     }
 
-    function showMyTicket(myTicket) {
-        for (let i = 0; i < myTicket.numTicket.length; i++) {
-            document.getElementById(`num${i}`).innerHTML = myTicket.numTicket[i];
-        }
-    }
 
-    function checkWin(myTicket) {
-        // let result = randomNumber();
-        let result = [10,10,10,10,10,10];
-        let count = 0;
-        for (let i = 0; i < result.length; i++) {
-            document.getElementById(`codegym${i}`).innerHTML = result[i];
-        }
-
-        for (let i = myTicket.numTicket.length - 1; i > 0; i--) {
-            if (myTicket.numTicket[i] === result[i]) {
-                count++;
-            } else break;
-        }
-
-        let text = document.getElementById("result")
-        switch (count) {
-            case 3 :
-                text.innerHTML = "Bạn đã may mắn trúng giải 3 với phần thưởng là CÓ CÁI NỊT";
-                break;
-
-            case 5 :
-                text.innerHTML = "Bạn đã may mắn trúng giải 2 với phần thưởng là CÓ 2 CÁI NỊT";
-                break;
-
-            case 6 :
-                text.innerHTML = "Bạn đã may mắn trúng giải 3 với phần thưởng là VẪN CÓ CÁI NỊT";
-                break;
-
-            default :
-                text.innerHTML = "Chúc bạn may mắn lần sau :) !!";
-        }
-    }
 </script>
 </body>
 </html>
