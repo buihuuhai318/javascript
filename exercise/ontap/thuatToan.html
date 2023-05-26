@@ -21,6 +21,14 @@
 <button onclick="bai14()">Bài 14</button>
 <button onclick="bai15()">Bài 15</button>
 <button onclick="bai16()">Bài 16</button>
+<button onclick="bai17()">Bài 17</button>
+<button onclick="bai18()">Bài 18</button>
+<button onclick="bai19()">Bài 19</button>
+<button onclick="bai20()">Bài 20</button>
+<button onclick="bai21()">Bài 21</button>
+<button onclick="bai22()">Bài 22</button>
+<button onclick="bai23()">Bài 23</button>
+<button onclick="bai24()">Bài 24</button>
 
 
 
@@ -334,31 +342,45 @@
         } else return b + arr[0] * count;
     }
 
-    // function bai12() {
-    //     let arr = "1,2,4,2,3";
-    //     alert(checkBai12(arr))
-    // }
-    // function checkBai12(arr) {
-    //     arr = arr.split(",");
-    //     let box = [];
-    //     let sum = 0;
-    //     let count = 0;
-    //     debugger
-    //     for (let i = 0; i < arr.length; i++) {
-    //         for (let j = i + 1; j < arr.length; j++) {
-    //             sum = arr[i];
-    //             if (arr[i] + arr[j] <= 4) {
-    //                 sum += arr[j];
-    //                 arr.splice(j, 1);
-    //             } else {
-    //                 count++;
-    //                 break;
-    //             }
-    //         }
-    //         arr.slice(i, 1);
-    //     }
-    //     return count;
-    // }
+    function bai12() {
+        let arr = "2,2,4,3,2,3";
+        alert(checkBai12(arr))
+    }
+    function checkBai12(arr) {
+        arr = arr.split(",");
+        let car1 = [];
+        let car2 = [];
+        let car3 = [];
+        let car4 = [];
+        let car = 0;
+        debugger
+        for (let i = 0; i < arr.length; i++) {
+            switch (+arr[i]) {
+                case 1:
+                    car1.push(arr[i]);
+                    break;
+                case 2:
+                    car2.push(arr[i]);
+                    break;
+                case 3:
+                    car3.push(arr[i]);
+                    break;
+                case 4:
+                    car4.push(arr[i]);
+                    break;
+            }
+        }
+        car = car4.length;
+        if (car3.length >= car1.length) {
+            car += car3.length;
+            car += Math.ceil(car2.length/2);
+        } else if (car3.length < car1.length) {
+            car += car3.length;
+            car += Math.floor(car2.length/4);
+            car += Math.ceil((car1.length - car3.length)*2 + (car2.length % 2) / 4);
+        }
+        return car;
+    }
 
     function bai13() {
         let arr = "10,3,8,1,9,4,9";
@@ -423,10 +445,149 @@
         if (arr1 === "class") {
             return checkUpper.indexOf(arr[0]) !== -1 && isNaN(arr[0]);
         } else if (arr1 === "field" || arr1 === "method") {
-            if ()
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] === "_" || arr[i] === "-") {
+                    return false;
+                } else if (checkUpper.indexOf(arr[i]) !== -1 && i !== 0) {
+                    return true;
+                }
+            }
+        } else if (arr1 === "package") {
+            for (let i = 0; i < arr.length; i++) {
+                if (checkUpper.indexOf(arr[i]) !== -1) {
+                    return false;
+                } else if (arr[i] === "_") {
+                    return true;
+                }
+            }
         }
     }
 
+    function bai16() {
+        let arr = "1,2,3,4,5";
+        alert(checkBai16(arr))
+    }
+    function checkBai16(arr) {
+        arr = arr.split(",");
+        let box = [];
+        let sum = 0;
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j <= i; j++) {
+                sum += +arr[j];
+            }
+            box.push(sum);
+            sum = 0;
+        }
+        return box;
+    }
+
+    function bai17() {
+        let arr1 = "abcda";
+        let arr2 = "cbad";
+        alert(checkBai17(arr1, arr2));
+    }
+    function checkBai17(arr1, arr2) {
+        arr1 = arr1.split("");
+        arr2 = arr2.split("");
+        let flag = false;
+        let box = 0;
+        for (let i = 0; i < arr1.length; i++) {
+            box = arr2.indexOf(arr1[i])
+            if (box !== -1) {
+                flag = true;
+                arr2.splice(box, 1);
+            } else return false;
+        }
+        return flag;
+    }
+
+    function bai18() {
+        let arr = "6,1,3,8,11";
+        alert(checkBai18(arr));
+    }
+    function checkBai18(arr) {
+        arr = arr.split(",");
+        let min = arr[0];
+        let max = arr[0];
+        let box = [];
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = +arr[i];
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        for (let i = min; i <= max; i++) {
+            if (arr.indexOf(i) === -1) {
+                box.push(i);
+            }
+        }
+        return box;
+    }
+
+    function bai19() {
+        let arr = "1,2,2,3,1,3,1,3,2";
+        alert(checkBai19(arr));
+
+    }
+    function checkBai19(arr) {
+        let countMax = 0;
+        let count = 0;
+        arr = arr.split(",");
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[0] === arr[i]) {
+                countMax++;
+            }
+        }
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[i] === arr[j]) {
+                    count++;
+                }
+            }
+            if (count !== countMax) {
+                return false;
+            } else count = 0;
+        }
+        return true;
+    }
+
+    function bai20() {
+        let arr = "abc,,aaa,a,zz,123";
+        alert(checkBai20(arr));
+    }
+    function checkBai20(arr) {
+        arr = arr.split(",");
+        let box = ""
+        for (let i = 0; i < arr.length; i++) {
+            for (let j = i + 1; j < arr.length; j++) {
+                if (arr[i].length > arr[j].length) {
+                    box = arr[i];
+                    arr[i] = arr[j];
+                    arr[j] = box;
+                }
+            }
+        }
+        return arr;
+    }
+
+    function bai21() {
+        let num = 5;
+        alert(checkBai21(num));
+    }
+    function checkBai21(num) {
+        let result = 1;
+        for (let i = 1; i <= num; i++) {
+            result *= i;
+        }
+        if (result / 10 < 1) {
+            return false;
+        } else {
+            return ((result - (result % 10)) / 10) % 10;
+        }
+    }
 
 
 
