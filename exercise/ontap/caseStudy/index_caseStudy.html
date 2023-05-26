@@ -27,22 +27,7 @@
 <hr>
 <div class="left-column">
     <br><br>
-    Bài tập vẽ hình
-    <div>
-        <table style="position: relative; display: inline-block;">
-            <tr>
-                <td><input type="button" onclick="veHinhBai1()" value="Bài 1"></td>
-                <td><input type="button" onclick="veHinhBai2()" value="Bài 2"></td>
-            </tr>
-            <tr>
-                <td><input type="button" onclick="veHinhBai3()" value="Bài 3"></td>
-                <td><input type="button" onclick="veHinhBai4()" value="Bài 4"></td>
-            </tr>
-        </table>
-    </div>
-    <a href="caseStudy_veHinh.html"></a>
-    <br><br><br>
-    Bài tập về if switch case
+    <a href="caseStudy_ifSwitchCase.html">Bài tập về if switch case</a>
     <div>
         <table style="position: relative; display: inline-block;">
             <tr>
@@ -51,9 +36,21 @@
             </tr>
         </table>
     </div>
-    <a href="caseStudy_ifSwitchCase.html"></a>
     <br><br><br>
-    Bài tập về loop
+    <a href="caseStudy_veHinh.html">Bài tập vẽ hình</a>
+    <div>
+        <table style="position: relative; display: inline-block;">
+            <tr>
+                <td><input type="button" onclick="veHinhBai1()" value="Bài 1"></td>
+                <td><input type="button" onclick="veHinhBai2()" value="Bài 2"></td>
+            </tr>
+            <tr>
+                <td><input type="button" onclick="veHinhBai3()" value="Bài 3"></td>
+            </tr>
+        </table>
+    </div>
+    <br><br><br>
+    <a href="caseStudy_loop.html">Bài tập về loop</a>
     <div>
         <table style="position: relative; display: inline-block;">
             <tr>
@@ -64,28 +61,20 @@
                 <td><input type="button" onclick="loopBai3()" value="Bài 3"></td>
                 <td><input type="button" onclick="loopBai4()" value="Bài 4"></td>
             </tr>
-            <tr>
-                <td><input type="button" onclick="loopBai5()" value="Bài 5"></td>
-            </tr>
         </table>
     </div>
-    <a href="caseStudy_loop.html"></a>
     <br><br><br>
-    Bài tập về string
+    <a href="caseStudy_string.html">Bài tập về string</a>
     <div>
         <table style="position: relative; display: inline-block;">
             <tr>
                 <td><input type="button" onclick="stringBai1()" value="Bài 1"></td>
                 <td><input type="button" onclick="stringBai2()" value="Bài 2"></td>
             </tr>
-            <tr>
-                <td><input type="button" onclick="stringBai3()" value="Bài 3"></td>
-            </tr>
         </table>
     </div>
-    <a href="caseStudy_string.html"></a>
     <br><br><br>
-    Bài tập về array 2D
+    <a href="caseStudy_array2way.html">Bài tập về array 2D</a>
     <div>
         <table style="position: relative; display: inline-block;">
             <tr>
@@ -97,7 +86,6 @@
             </tr>
         </table>
     </div>
-    <a href="caseStudy_array2way.html"></a>
     <br><br><br>
     <a href="caseStudy_OOP.html">Bài Tập OOP</a>
 </div>
@@ -109,32 +97,6 @@
 
 <script>
     function veHinhBai1() {
-        let x = +prompt("nhập chiều dài hình chữ nhật");
-        let text = ""
-        while (isNaN(x) || x % 1 !== 0 || x <= 0) {
-            x = +prompt("hãy nhập chiều dài X dưới dạng dữ liệu số nguyên dương")
-        }
-
-        let y = +prompt("nhập chiều rộng hình chữ nhật");
-        while (isNaN(y) || y % 1 !== 0 || y <= 0) {
-            y = +prompt("hãy nhập chiều rộng Y dưới dạng dữ liệu số nguyên dương")
-        }
-
-        for (let i = 0; i < y; i++) {
-            for (let j = 0; j < x; j++) {
-                if (i === 0 || i === y - 1) {
-                    text += "*&nbsp&nbsp";
-                } else {
-                    if (j === 0 || j === x - 1) {
-                        text += "*&nbsp&nbsp";
-                    } else text += "&nbsp&nbsp&nbsp&nbsp";
-                }
-            }
-            text += "<br/>";
-        }
-        document.getElementById("result").innerHTML = text;
-    }
-    function veHinhBai2() {
         let h = +prompt("nhập chiều cao hình tam giác, min = 4");
         let text = "";
         while (isNaN(h) || h % 1 !== 0 || h <= 0) {
@@ -153,7 +115,7 @@
         document.getElementById("result").innerHTML = text;
     }
 
-    function veHinhBai3() {
+    function veHinhBai2() {
         let h = +prompt("nhập chiều cao hình tam giác");
         let text = "";
         while (isNaN(h) || h % 1 !== 0 || h <= 0) {
@@ -170,7 +132,7 @@
         document.getElementById("result").innerHTML = text;
     }
 
-    function veHinhBai4() {
+    function veHinhBai3() {
         let h = +prompt("nhập chiều cao hình tam giác");
         let text = "";
         while (isNaN(h) || h % 1 !== 0 || h <= 0) {
@@ -196,8 +158,8 @@
         while (isNaN(num) || num <= 0) {
             num = +prompt("hãy nhập lương dưới dạng dữ liệu số nguyên dương")
         }
-        let salary = 0;
-        let tax = 0;
+        let salary;
+        let tax;
 
         if (num >= 15) {
             tax = num * 0.2;
@@ -272,34 +234,15 @@
             result = numerators[i] / denominators[i];
             if (max < result) {
                 max = result;
-                index_caseStudy = i;
+                index = i;
             }
         }
         alert("mảng a: " + numerators);
         alert("mảng b: " + denominators);
-        alert(`phân số lớn nhất là ${numerators[index_caseStudy]}/${denominators[index_caseStudy]} tại chỉ số ${index_caseStudy}`);
+        alert(`phân số lớn nhất là ${numerators[index]}/${denominators[index]} tại chỉ số ${index}`);
     }
 
     function loopBai4() {
-        let numberChar = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
-
-        let num = +prompt("nhập số bất kỳ");
-        while (isNaN(num) || num % 1 !== 0 || num < 0) {
-            num = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
-        }
-        num = num.toString().split("");
-
-        let char = [];
-        for (let i = 0; i < num.length; i++) {
-            char.push(numberChar[num[i]]);
-        }
-
-        char = char.join(" ");
-
-        alert(`dữ liệu số dưới dạng chữ là: "${char}"`);
-    }
-
-    function loopBai5() {
         let menu = ["1. cà phê", "2. cam vắt", "3. nước ép cà rốt", "4. nước ép cà chua", "5. nước lọc", "6. nước dừa", "7. thoát"];
         let price = [10, 15, 15, 20, 10, 30];
         let soLuong = 0;
@@ -378,44 +321,6 @@
         alert(`sâu ${arr} có ${box.length} ký tự khác nhau là ${box}`);
     }
 
-    function stringBai3() {
-        let s1 = "aabcc";
-        let s2 = "adcaa";
-        let index = 0;
-        let count = 0;
-        let word = [];
-        let wordCount = [];
-        let box = [];
-
-        for (let i = 0; i < s1.length; i++) {
-            for (let j = 0; j < s2.length; j++) {
-                if (s1[i] === s2[j]) {
-                    count = 1;
-                    box = [];
-                    for (let k = 1; k < 100; k++) {
-                        if (s1[i + k] === s2[j + k]) {
-                            count++;
-                        } else break;
-                    }
-                    for (let k = 0; k < count; k++) {
-                        box.push(s1[i + k]);
-                    }
-                    wordCount.push(count);
-                    word.push(box.join(""));
-                }
-            }
-        }
-
-        for (let i = 0; i < word.length; i++) {
-            for (let j = word.length - 1; j >= i + 1; j--) {
-                if (word[i] === word[j]) {
-                    word.splice(j, 1);
-                    wordCount.splice(j, 1);
-                }
-            }
-        }
-    }
-
     function sumEven(m, n) {
         let arr = [];
         let sum = 0;
@@ -455,9 +360,7 @@
                     count++;
                 }
             }
-            if (count === 2) {
-                return true;
-            } else return false;
+            return count === 2;
         }
     }
     function resultPrime(arr) {

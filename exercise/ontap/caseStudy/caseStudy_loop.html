@@ -9,7 +9,6 @@
 <button onclick="bai2()">Bài 2</button>
 <button onclick="bai3()">Bài 3</button>
 <button onclick="bai4()">Bài 4</button>
-<button onclick="bai5()">Bài 5</button>
 <br><br>
 <a href="index_caseStudy.html">Trang Chủ</a>
 
@@ -62,25 +61,6 @@
     }
 
     function bai4() {
-        let numberChar = ["không", "một", "hai", "ba", "bốn", "năm", "sáu", "bảy", "tám", "chín"];
-
-        let num = +prompt("nhập số bất kỳ");
-        while (isNaN(num) || num % 1 !== 0 || num < 0) {
-            num = +prompt("vui lòng nhập độ dài mảng ở dạng dữ liệu số nguyên dương");
-        }
-        num = num.toString().split("");
-
-        let char = [];
-        for (let i = 0; i < num.length; i++) {
-            char.push(numberChar[num[i]]);
-        }
-
-        char = char.join(" ");
-
-        alert(`dữ liệu số dưới dạng chữ là: "${char}"`);
-    }
-
-    function bai5() {
         let menu = ["1. cà phê", "2. cam vắt", "3. nước ép cà rốt", "4. nước ép cà chua", "5. nước lọc", "6. nước dừa", "7. thoát"];
         let price = [10, 15, 15, 20, 10, 30];
         let soLuong = 0;

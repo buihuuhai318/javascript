@@ -7,7 +7,6 @@
 <body>
 <button onclick="bai1()">Bài 1</button>
 <button onclick="bai2()">Bài 2</button>
-<button onclick="bai3()">Bài 3</button>
 <br><br>
 <a href="index_caseStudy.html">Trang Chủ</a>
 
@@ -71,25 +70,6 @@
         }
         alert(`sâu ${arr} có ${box.length} ký tự khác nhau là ${box}`);
     }
-
-    function bai3() {
-        let s1 = "aabcc";
-        let s2 = "adcaa";
-        s2 = s2.split("");
-        let word = [];
-
-        for (let i = 0; i < s1.length ; i++) {
-            for (let j = s2.length - 1; j >= 0; j--) {
-                if (s1[i] === s2[j]) {
-                    word.push(s1[i]);
-                    s2.pop();
-                    break;
-                }
-            }
-        }
-        alert(`2 chuỗi có số ký tự chung là ${word.length}, đó là ${word}`);
-    }
-
 
 
 
