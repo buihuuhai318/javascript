@@ -82,7 +82,7 @@
             for (let j = s2.length - 1; j >= 0; j--) {
                 if (s1[i] === s2[j]) {
                     word.push(s1[i]);
-                    s2.pop();
+                    s2.splice(j, 1);
                     break;
                 }
             }
