@@ -69,9 +69,7 @@
                 <div class="modal-body" id="editStudent">
 
                 </div>
-                <div class="modal-footer" id="buttonSave">
 
-                </div>
             </div>
         </div>
     </div>
@@ -209,15 +207,14 @@
                         </tr>
                         <tr>
                             <td>Module (1 - 6):   </td>
-                            <td>  <input type="text" placeholder="date" id="newModule" value="${arrListStudent[i].module}"></td>
+                            <td>  <input type="text" placeholder="date" id="editModule" value="${arrListStudent[i].module}"></td>
                         </tr>
                     </table>
+                    <div class="modal-footer" id="buttonSave">
+                        <button type="button" class="btn btn-primary" onclick="checkEdit(${i})">Kiểm Tra</button>
+                    </div>
                 `;
                 document.getElementById("editStudent").innerHTML = text;
-                document.getElementById("buttonSave").innerHTML = `
-                    <button type="button" class="btn btn-primary" onclick="save(${i})" data-bs-dismiss="modal">Lưu</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
-                `;
             }
         }
     }
@@ -251,18 +248,50 @@
         if (!valDate(date)) {
             alert("Ngày sinh không đúng định dạng !!!");
         } else dateFlag = true;
-        if (+module < 1 || +module > 6 && isNaN(module)) {
-            alert("Module chỉ từ 1 đến 6");
-        } else moduleFlag = true;
+        if (module <= 6 && module >= 1) {
+            moduleFlag = true;
+        } else alert("Module chỉ từ 1 đến 6");
 
         if (moduleFlag && nameFlag && dateFlag) {
             let text = `
-                <button type="button" class="btn btn-primary" onclick="addNewStudent()" data-bs-dismiss="modal">Thêm Mới</button>
+                <button type="button" class="btn btn-success" onclick="addNewStudent()" data-bs-dismiss="modal">Thêm Mới</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
             `;
             document.getElementById("buttonNewStudent").innerHTML = text;
         }
     }
+
+    function checkEdit(i) {
+        let name = document.getElementById("editName").value;
+        let date = document.getElementById("editDate").value;
+        let module = document.getElementById("editModule").value;
+        module = parseInt(module);
+        debugger
+        let nameFlag = false;
+        let moduleFlag = false;
+        let dateFlag = false;
+        let arrName = name.split("");
+        if (arrName.length > 50) {
+            alert("Tên không được dài quá 50 ký tự !!!");
+            document.getElementById("editName").value = "";
+        } else if (name === "") {
+            alert("Tên Không Được Để Trống !!!");
+        } else nameFlag = true;
+        if (!valDate(date)) {
+            alert("Ngày sinh không đúng định dạng !!!");
+        } else dateFlag = true;
+        if (module <= 6 && module >= 1) {
+            moduleFlag = true;
+        } else alert("Module chỉ từ 1 đến 6");
+
+        if (moduleFlag && nameFlag && dateFlag) {
+            document.getElementById("buttonSave").innerHTML = `
+                    <button type="button" class="btn btn-success" onclick="save(${i})" data-bs-dismiss="modal">Lưu</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
+                `;
+        }
+    }
+
     function valDate(date) {
         let dateformat = /^(0?[1-9]|[1-2][0-9]|3[01])[\/](0?[1-9]|1[0-2])/;
 
