@@ -35,15 +35,15 @@
                         </tr>
                         <tr>
                             <td>Email:   </td>
-                            <td>  <input type="text" placeholder="email" id="newEmail"></td>
+                            <td>  <input type="email" placeholder="email" id="newEmail"></td>
                         </tr>
                         <tr>
                             <td>Ngày Sinh:   </td>
-                            <td>  <input type="text" placeholder="dd/mm/yyyy" id="newDate"></td>
+                            <td>  <input type="date" placeholder="dd/mm/yyyy" id="newDate"></td>
                         </tr>
                         <tr>
                             <td>Module:   </td>
-                            <td>  <input type="text" placeholder="từ 1 đến 6" id="newModule"></td>
+                            <td>  <input type="number" placeholder="từ 1 đến 6" id="newModule"></td>
                         </tr>
                     </table>
                 </div>
@@ -199,15 +199,15 @@
                         </tr>
                         <tr>
                             <td>Email:   </td>
-                            <td>  <input type="text" placeholder="email" id="editEmail" value="${arrListStudent[i].email}"></td>
+                            <td>  <input type="email" placeholder="email" id="editEmail" value="${arrListStudent[i].email}"></td>
                         </tr>
                         <tr>
                             <td>Ngày Sinh:   </td>
-                            <td>  <input type="text" placeholder="date" id="editDate" value="${arrListStudent[i].date}"></td>
+                            <td>  <input type="date" placeholder="date" id="editDate" value="${arrListStudent[i].date}"></td>
                         </tr>
                         <tr>
                             <td>Module (1 - 6):   </td>
-                            <td>  <input type="text" placeholder="date" id="editModule" value="${arrListStudent[i].module}"></td>
+                            <td>  <input type="number" placeholder="date" id="editModule" value="${arrListStudent[i].module}"></td>
                         </tr>
                     </table>
                     <div class="modal-footer" id="buttonSave">
