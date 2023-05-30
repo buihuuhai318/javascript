@@ -62,22 +62,33 @@
 
     function bai4() {
         let menu = ["1. cà phê", "2. cam vắt", "3. nước ép cà rốt", "4. nước ép cà chua", "5. nước lọc", "6. nước dừa", "7. thoát"];
-        let price = [10, 15, 15, 20, 10, 30];
-        let soLuong = 0;
+        let sum = 0;
         let choice = 0;
+        let total = [];
+        let box = 0;
         do {
             choice = +prompt(`chọn số thích hợp với lựa chọn của bạn ` +`\n` +`${menu.join(`\n`)}`);
-            // if (choice === 7) {
-            //     break;
-            // }
-        } while (choice > 7 || choice <= 0);
+            if (choice < 7 && choice > 0) {
+                box = orderBai4(choice,menu)
+                total.push(box);
+            }
+        } while (choice !== 7);
 
+        for (let i = 0; i < total.length; i++) {
+            sum += total[i];
+        }
+        alert(`tổng thiệt hại của bạn là ${sum} ngàn đồng`);
+    }
+    function orderBai4(choice, menu) {
+        let price = [10, 15, 15, 20, 10, 30];
+        let soLuong = 0;
         if (choice < 7) {
             do {
                 soLuong = +prompt(`${menu[choice-1]} có giá ${price[choice-1]} ngàn đồng` + `\n` + ` nhập số lượng bạn muốn lấy:`);
             } while (isNaN(soLuong));
-            alert(`${menu[choice-1]} với số lượng ${soLuong}` + `\n` + `tổng thiệt hại của bạn là ${price[choice-1]*soLuong} ngàn đồng`);
+
         }
+        return price[choice-1]*soLuong
     }
 
 
