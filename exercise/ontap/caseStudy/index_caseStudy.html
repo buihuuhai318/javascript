@@ -158,11 +158,11 @@
 
     function dieuKienBai1() {
         let num = +prompt("nhập lương nhân viên (ĐVT = triệu đồng)");
+        let tax;
+        let salary;
         while (isNaN(num) || num <= 0) {
             num = +prompt("hãy nhập lương dưới dạng dữ liệu số nguyên dương")
         }
-        let salary = 0;
-        let tax = 0;
 
         if (num >= 15) {
             tax = num * 0.2;
@@ -381,9 +381,7 @@
                     count++;
                 }
             }
-            if (count === 2) {
-                return true;
-            } else return false;
+            return count === 2;
         }
     }
     function resultPrime(arr) {
