@@ -30,19 +30,19 @@
                             <td>  <input type="text" placeholder="dưới 50 ký tự" id="newName"></td>
                         </tr>
                         <tr>
-                            <td>Lớp:   </td>
+                            <td>Lớp:</td>
                             <td>  <input type="text" placeholder="room" id="newRoom"></td>
                         </tr>
                         <tr>
-                            <td>Email:   </td>
+                            <td>Email:</td>
                             <td>  <input type="email" placeholder="email" id="newEmail"></td>
                         </tr>
                         <tr>
-                            <td>Ngày Sinh:   </td>
+                            <td>Ngày Sinh:</td>
                             <td>  <input type="date" placeholder="dd/mm/yyyy" id="newDate"></td>
                         </tr>
                         <tr>
-                            <td>Module:   </td>
+                            <td>Module:</td>
                             <td>  <input type="number" placeholder="từ 1 đến 6" id="newModule"></td>
                         </tr>
                     </table>
@@ -87,6 +87,7 @@
 </div>
 
 <script>
+
     let countStudent = 0;
     class Student {
         constructor(name, room, email, date, module) {
@@ -187,34 +188,34 @@
             let confirmStudent = confirm(`Bạn Muốn Sữa Thông Tin Học Viên: ${arrListStudent[i].name}`);
             if (confirmStudent) {
 
-                let text = `
+                document.getElementById("editStudent").innerHTML = `
                     <table>
                         <tr>
-                            <td>Họ và Tên:   </td>
-                            <td>  <input type="text" placeholder="name" id="editName" value="${arrListStudent[i].name}"></td>
+                            <td>Họ và Tên:</td>
+                            <td><input type="text" placeholder="name" id="editName" value="${arrListStudent[i].name}"></td>
                         </tr>
                         <tr>
-                            <td>Lớp:   </td>
-                            <td>  <input type="text" placeholder="room" id="editRoom" value="${arrListStudent[i].room}"></td>
+                            <td>Lớp:</td>
+                            <td><input type="text" placeholder="room" id="editRoom" value="${arrListStudent[i].room}"></td>
                         </tr>
                         <tr>
-                            <td>Email:   </td>
-                            <td>  <input type="email" placeholder="email" id="editEmail" value="${arrListStudent[i].email}"></td>
+                            <td>Email:</td>
+                            <td><input type="email" placeholder="email" id="editEmail" value="${arrListStudent[i].email}"></td>
                         </tr>
                         <tr>
-                            <td>Ngày Sinh:   </td>
-                            <td>  <input type="date" placeholder="date" id="editDate" value="${arrListStudent[i].date}"></td>
+                            <td>Ngày Sinh:</td>
+                            <td><input type="text" placeholder="date" id="editDate" value="${arrListStudent[i].date}"></td>
                         </tr>
                         <tr>
-                            <td>Module (1 - 6):   </td>
-                            <td>  <input type="number" placeholder="date" id="editModule" value="${arrListStudent[i].module}"></td>
+                            <td>Module (1 - 6):</td>
+                            <td><input type="number" placeholder="date" id="editModule" value="${arrListStudent[i].module}"></td>
                         </tr>
                     </table>
                     <div class="modal-footer" id="buttonSave">
                         <button type="button" class="btn btn-primary" onclick="checkEdit(${i})">Kiểm Tra</button>
                     </div>
                 `;
-                document.getElementById("editStudent").innerHTML = text;
+                document.getElementById("countInput").value.length;
             }
         }
     }
@@ -253,11 +254,10 @@
         } else alert("Module chỉ từ 1 đến 6");
 
         if (moduleFlag && nameFlag && dateFlag) {
-            let text = `
+            document.getElementById("buttonNewStudent").innerHTML = `
                 <button type="button" class="btn btn-success" onclick="addNewStudent()" data-bs-dismiss="modal">Thêm Mới</button>
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Đóng</button>
             `;
-            document.getElementById("buttonNewStudent").innerHTML = text;
         }
     }
 
@@ -293,7 +293,7 @@
     }
 
     function valDate(date) {
-        let dateformat = /^(0?[1-9]|[1-2][0-9]|3[01])[\/](0?[1-9]|1[0-2])/;
+        let dateformat = /^(0?[1-9]|[1-2][0-9]|3[01])\/(0?[1-9]|1[0-2])/;
 
         if (date.match(dateformat)) {
             let operator = date.split('/');
