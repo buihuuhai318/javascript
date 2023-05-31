@@ -101,6 +101,12 @@
         getId() {
             if (this.id < 10 && this.id >= 0) {
                 this.id = "HV_000" + countStudent;
+            } else if (this.id < 100) {
+                this.id = "HV_00" + countStudent;
+            } else if (this.id < 1000) {
+                this.id = "HV_0" + countStudent;
+            } if (this.id < 10000) {
+                this.id = "HV_" + countStudent;
             }
         }
     }
