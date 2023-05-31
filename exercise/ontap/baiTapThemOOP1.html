@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<br><br>
+<button onclick="addNewComputer()">Thêm Mới Máy Tính</button>
+<button onclick="softPrice(true)">Sắp Xếp Giá Giảm Dần</button>
+<button onclick="softPrice(false)">Sắp Xếp Giá Tăng Dần</button>
+
+<br>
+<hr>
+<br>
+<div id="display"></div>
+<script>
+    class Computer {
+        constructor(id, name, brand, price) {
+            this.id = id;
+            this.name = name;
+            this.brand = brand;
+            this.price = price;
+        }
+        getId() {
+            return this.id;
+        }
+        setId(id) {
+            this.id = id;
+        }
+        getName() {
+            return this.name;
+        }
+        setName(name) {
+            this.name = name;
+        }
+        getBrand() {
+            return this.brand;
+        }
+        setBrand(brand) {
+            this.brand = brand;
+        }
+        getPrice() {
+            return this.price;
+        }
+        setPrice(price) {
+            this.price = price;
+        }
+        toString() {
+            alert(`${this.name} của brand ${this.brand} có giá ${this.price}`);
+        }
+    }
+
+    let cpt1 = new Computer(1, "macpro", "apple", 2000);
+    let cpt2 = new Computer(2, "macpro2", "apple", 5000);
+    let cpt3 = new Computer(3, "macpro3", "apple", 4000);
+    let listComputer = [];
+    listComputer.push(cpt1, cpt2, cpt3);
+
+    function display() {
+        let text = `
+            <table border="1" style="border-collapse: collapse; height: 150px; width: 500px">
+                <tr>
+                    <th>ID</th>
+                    <th>Tên Máy</th>
+                    <th>Nhãn Hàng</th>
+                    <th>Giá</th>
+                </tr>
+        `;
+        for (let i = 0; i < listComputer.length; i++) {
+            text += `
+                <tr>
+                    <td>${listComputer[i].id}</td>
+                    <td>${listComputer[i].name}</td>
+                    <td>${listComputer[i].brand}</td>
+                    <td>${listComputer[i].price}</td>
+                </tr>
+            `;
+        }
+        text += `</table>`;
+        document.getElementById("display").innerHTML = text;
+    }
+    display();
+    function addNewComputer() {
+        let id = prompt("Nhập ID máy tính")
+        let name = prompt("Nhập tên máy tính")
+        let brand = prompt("Nhập tên nhãn hàng")
+        let price = prompt(" Nhập giá")
+        let newComputer = new Computer(id, name, brand, price);
+        listComputer.push(newComputer);
+        display();
+    }
+    // debugger
+    // let softFlag = [true];
+    function softPrice(flag) {
+        let box = [];
+        if (flag) {
+            for (let i = 0; i < listComputer.length; i++) {
+                for (let j = i + 1; j < listComputer.length; j++) {
+                    if (listComputer[i].price < listComputer[j].price) {
+                        box = listComputer[i];
+                        listComputer[i] = listComputer[j];
+                        listComputer[j] = box;
+                    }
+                }
+            }
+        } else {
+            for (let i = 0; i < listComputer.length; i++) {
+                for (let j = i + 1; j < listComputer.length; j++) {
+                    if (listComputer[i].price > listComputer[j].price) {
+                        box = listComputer[i];
+                        listComputer[i] = listComputer[j];
+                        listComputer[j] = box;
+                    }
+                }
+            }
+        }
+        // flag[0] = !flag[0];
+        display()
+    }
+</script>
+</body>
+</html>
