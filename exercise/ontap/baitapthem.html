@@ -14,7 +14,10 @@
 <script>
     function bai1() {
         let arr = [];
-        let arrLength = +prompt("Nhập độ dài mảng");
+        let arrLength;
+        do {
+            arrLength = +prompt("Nhập độ dài mảng trong khoảng từ 1 đến 50");
+        } while (arrLength <= 0 || arrLength > 50);
         let sum = 0;
         let count = 0;
         for (let i = 0; i < arrLength; i++) {
@@ -24,6 +27,7 @@
                 count++;
             }
         }
+        alert("mảng bạn vừa khởi tạo là: " + arr)
         let avg = sum/count;
         if (count === 0) {
             alert("không có giá trị nào thoả mãn yêu cầu");
@@ -34,7 +38,7 @@
 
     function bai2() {
         let arr = "   object     Oriented     programming    ";
-        let arr2 = "   Hello   "
+        let arr2 = "   Hello   ";
         checkBai2(arr);
         checkBai2(arr2);
     }
