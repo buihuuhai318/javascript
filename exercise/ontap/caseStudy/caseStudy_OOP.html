@@ -39,7 +39,7 @@
                         </tr>
                         <tr>
                             <td>Ngày Sinh:</td>
-                            <td>  <input type="date" placeholder="dd/mm/yyyy" id="newDate"></td>
+                            <td>  <input type="text" placeholder="dd/mm/yyyy" id="newDate"></td>
                         </tr>
                         <tr>
                             <td>Module:</td>
@@ -160,7 +160,8 @@
         let room = document.getElementById("newRoom").value;
         let email = document.getElementById("newEmail").value;
         let date = document.getElementById("newDate").value;
-        let newStudent = new Student(name, room, email, date);
+        let module = document.getElementById("newModule").value;
+        let newStudent = new Student(name, room, email, date, module);
         newStudent.getId();
         arrListStudent.push(newStudent);
         arrIdStudent.push(newStudent.id);
@@ -170,6 +171,10 @@
         document.getElementById("newRoom").value = "";
         document.getElementById("newEmail").value = "";
         document.getElementById("newDate").value = "";
+        document.getElementById("newModule").value = "";
+        document.getElementById("buttonNewStudent").innerHTML = `
+            <button type="button" class="btn btn-primary" onclick="checkInput()">Kiểm Tra</button>
+        `;
     }
     function removeStudent() {
         let index = prompt("Nhập Mã Số Học Viên: ");
